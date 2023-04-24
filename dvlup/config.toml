@@ -1,0 +1,160 @@
+baseURL = 'https://dvlup.com/'
+languageCode = 'en-us'
+title = 'DVLUP'
+theme = 'blist'
+
+DefaultContentLanguage = "en"
+DefaultContentLanguageInSubdir = true
+[languages]
+  [languages.en]
+    contentDir = "content/en" #English
+    weight = 1
+    languageName = "English"
+    [languages.en.params]
+      introTitle = "DVLUP"
+      introSubtitle = "Guidance for the Modern Developer"
+      introPhoto = "/picture.jpg"
+      logo = "/blist-logo.png"
+    [[languages.en.menu.main]]
+        name = "Blog"
+        url = "blog"
+        weight = 1
+
+    [[languages.en.menu.main]]
+        name = "About"
+        url = "page/about/"
+        weight = 2
+
+    [[languages.en.menu.main]]
+        name = "Tags"
+        url = "tags"
+        weight = 3
+
+    [[languages.en.menu.main]]
+        name = "Top Post"
+        url = "/en/blog/emoji-support/"
+        weight = 4
+
+[params]
+  # Enable the darkmode toggle in header
+  darkModeToggle = true
+  
+  # Enable search in header
+  enableSearch = true
+
+  # Option to customize the search parameters of a page
+  # Below are the supported options; Note that including entire content
+  # may slowdown the loading of search results
+  # Title of page is included by default
+  searchKeys = [
+    "tags",
+    "date",
+    "categories",
+    "summary",
+    "content",
+    "link",
+    "author"
+  ]
+
+  # Custom copyright - optional
+  copyright = "Copyright © 2010-2023 | Lance McCarthy · All rights reserved"
+  favicon = "/favicon.svg"
+
+  # Color for the intro details and social links block, not applicable for dark mode
+  # Supported values: Any color from TailwindCSS default colors
+  # Reference: https://tailwindcss.com/docs/customizing-colors
+  ascentColor = "bg-blue-100"
+
+  # The page bundle that is shown on the front page
+  frontBundle = "blog"
+
+  # Used to hide the post metadata such as posted date, reading time and word count
+  # Can be used at site level or page level
+  hideMeta = false
+
+  # To hide "Other languages" option if the post is available in multiple languages
+  # Can be used at site level or page level
+  hideOtherLanguages = false
+
+  # Add support for Table of contents
+  # Can be added to a page level also in markdown frontmatter
+  toc = true
+
+  # Hides the thumbnail in post view
+  # Thumbnails in home and blog pages will still be shown
+  # This setting can also be in page's markdown file
+  hidePageThumbnail = false
+
+# Comments system
+[params.comments]
+  # Supports disqus, giscus and utterances
+  # Check hugo docs for setting up disqus
+  system = "giscus"
+
+  # Options for giscus, exclude hyphens
+  repo = ""
+  repoid = ""
+  category = ""
+  categoryid = ""
+  mapping = ""
+  strict = ""
+  reactionsenabled = ""
+  emitmetadata = ""
+  inputposition = ""
+  theme = ""
+
+  # Options for utterances, exclude hyphens
+  # repo = ""
+  # issueterm = ""
+  # theme = ""
+
+[params.homepage.social]
+  # Global params common for both languages
+  title = ""
+  description = "Follow me on your preferred social network =>"
+
+  [[params.homepage.social.icons]]
+    website = "twitter"
+    url = "https://twitter.com/l_anceM"
+  [[params.homepage.social.icons]]
+    website = "linkedin"
+    url = "https://linkedin.com/in/dvluper"
+  [[params.homepage.social.icons]]
+    website = "github"
+    url = "https://github.com/LanceMcCarthy"
+  [[params.homepage.social.icons]]
+    website = "buymeacoffee"
+    url = "https://www.buymeacoffee.com/dvluper"
+  [[params.homepage.social.icons]]
+    website = "reddit"
+    url = "https://www.reddit.com/user/LancelotSoftware"
+  [[params.homepage.social.icons]]
+    website = "stackoverflow"
+    url = "https://stackoverflow.com/users/1406210/lance-mccarthy"
+  [[params.homepage.social.icons]]
+    website = "mastodon"
+    url = "https://dvlup.social/@lance"
+  [[params.homepage.social.icons]]
+    website = "youtube"
+    url = "https://www.youtube.com/channel/UCV6JsDh22ENSF8DPvHBAs-w"
+  [[params.homepage.social.icons]]
+    website = "instagram"
+    url = "https://instagram.com/dvluper"
+
+[[menu.main]]
+  name = "About"
+  url = "/about"
+
+[build]
+  writeStats = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# syntax highlight settings
+[markup]
+  [markup.highlight]
+    style = "dracula"
+  [markup.goldmark.renderer]
+    # Enable to include inline HTML
+    unsafe = true
