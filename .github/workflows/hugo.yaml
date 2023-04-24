@@ -50,17 +50,17 @@ jobs:
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
       - name: Build with Hugo
-        env:
-          # For maximum backward compatibility with Hugo modules
-          HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
         run: |
           cd dvlup
+          npm install postcss-cli@latest
           hugo \
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-            
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
