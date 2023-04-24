@@ -1,4 +1,4 @@
 ---
-author: Katheryn Fox
+author: Lance McCarthy
 title: Blog
 ---

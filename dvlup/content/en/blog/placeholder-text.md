@@ -1,6 +1,6 @@
 ---
-author: "Hugo Authors"
-title: "Placeholder Text"
+author: Lance McCarthy
+title: Placeholder Text
 date: 2021-07-13
 description: "Lorem Ipsum Dolor Si Amet"
 tags: ["markdown", "text"]

@@ -1,6 +1,6 @@
 ---
-author: "Hugo Authors"
-title: "Rich Content"
+author: Lance McCarthy
+title: Rich Content
 date: 2021-07-13
 description: "A brief description of Hugo Shortcodes"
 tags: ["shortcodes", "privacy"]

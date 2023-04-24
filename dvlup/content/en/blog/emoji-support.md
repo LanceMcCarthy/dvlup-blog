@@ -1,6 +1,6 @@
 ---
-author: "Hugo Authors"
-title: "Emoji Support"
+author: Lance McCarthy
+title: Emoji Support
 date: 2021-07-15
 description: "Guide to emoji usage in Hugo"
 tags: ["emoji"]
