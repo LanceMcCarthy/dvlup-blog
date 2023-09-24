@@ -135,7 +135,7 @@ Here's an example implementation. I have an Ellipse with an ImageBrush and it's 
 
 \[/code\]
 
-![Sketch (2)](/wp-content/uploads/2017/06/sketch-2.png)
+![Sketch (2)](/dvlup-blog/wp-content/uploads/2017/06/sketch-2.png)
 
 If I put another matching Ellipse using my custom **InvertBrush** on top of the Tuvok Ellipse, here's the result:
 
@@ -154,7 +154,7 @@ If I put another matching Ellipse using my custom **InvertBrush** on top of the 
 
 \[/code\]
 
-![Sketch (3)](/wp-content/uploads/2017/06/sketch-3.png)
+![Sketch (3)](/dvlup-blog/wp-content/uploads/2017/06/sketch-3.png)
 
 Notice how it only inverted what was directly behind the Ellipse and not the page background or the drop shadow?
 

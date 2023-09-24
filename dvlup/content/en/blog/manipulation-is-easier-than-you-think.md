@@ -7,7 +7,7 @@ tags: ['tutorial', 'windows10']
 
 You know that bottom drawer on the Windows 10 navigation app where the upcoming turns are in a list? You know how you can drag it up or down to show more or less of the content? Want to learn how to create it? You're in luck because that's what today's topic is!
 
-Here's the result of what you'll be able to do: [![navdrawer](/wp-content/uploads/2017/01/navdrawer.gif?w=214)](/wp-content/uploads/2017/01/navdrawer.gif)
+Here's the result of what you'll be able to do: [![navdrawer](/dvlup-blog/wp-content/uploads/2017/01/navdrawer.gif?w=214)](/dvlup-blog/wp-content/uploads/2017/01/navdrawer.gif)
 
 ### The Approach
 

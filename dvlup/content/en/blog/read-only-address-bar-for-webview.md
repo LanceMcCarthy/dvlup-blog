@@ -31,9 +31,9 @@ That's all there is to it! Every time the **WebView** is going to load a page, t
 
 Here are some screenshots from the my sample...
 
-[![WinAddressBar2](/wp-content/uploads/2014/10/winaddressbar2.png?w=300)](/wp-content/uploads/2014/10/winaddressbar2.png) [![WinAddressBar](/wp-content/uploads/2014/10/winaddressbar.png?w=300)](/wp-content/uploads/2014/10/winaddressbar.png)
+[![WinAddressBar2](/dvlup-blog/wp-content/uploads/2014/10/winaddressbar2.png?w=300)](/dvlup-blog/wp-content/uploads/2014/10/winaddressbar2.png) [![WinAddressBar](/dvlup-blog/wp-content/uploads/2014/10/winaddressbar.png?w=300)](/dvlup-blog/wp-content/uploads/2014/10/winaddressbar.png)
 
-[![PhoneWebAddressBar2](/wp-content/uploads/2014/10/phonewebaddressbar2.png?w=180)](/wp-content/uploads/2014/10/phonewebaddressbar2.png) [![PhoneWebAddressBar](/wp-content/uploads/2014/10/phonewebaddressbar.png?w=180)](/wp-content/uploads/2014/10/phonewebaddressbar.png)
+[![PhoneWebAddressBar2](/dvlup-blog/wp-content/uploads/2014/10/phonewebaddressbar2.png?w=180)](/dvlup-blog/wp-content/uploads/2014/10/phonewebaddressbar2.png) [![PhoneWebAddressBar](/dvlup-blog/wp-content/uploads/2014/10/phonewebaddressbar.png?w=180)](/dvlup-blog/wp-content/uploads/2014/10/phonewebaddressbar.png)
 
 Happy Coding! Lance
 

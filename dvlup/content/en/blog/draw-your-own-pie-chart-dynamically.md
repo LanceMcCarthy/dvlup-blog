@@ -7,7 +7,7 @@ tags: ['android', 'c#', 'custom control', 'drawing', 'iOS', 'tutorial', 'UI', 'U
 
 In this tutorial, I'll show you how to draw your own pie chart just using lines and a list of data items. The code itself is in C#, but the concept can be used on any platform that has a drawing library and ArcSegments.
 
-![](/wp-content/uploads/2019/04/2019-04-18_13-44-40.png)
+![](/dvlup-blog/wp-content/uploads/2019/04/2019-04-18_13-44-40.png)
 
 You can view the entire solution in [this GitHub Gist](https://gist.github.com/LanceMcCarthy/b64ee5afdd27b125b8b47816799306e0). Okay, let's get started!
 

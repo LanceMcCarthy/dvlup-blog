@@ -4,7 +4,7 @@ date: Mon, 14 May 2018 17:51:34 +0000
 draft: true
 ---
 
-![](https://dvlup.com/wp-content/uploads/2018/03/lance_mccarthy-transparent-925-300x300.png)
+![](https://dvlup.com/dvlup-blog/wp-content/uploads/2018/03/lance_mccarthy-transparent-925-300x300.png)
 
 Lance McCarthy
 
@@ -112,4 +112,4 @@ I am a lucky hackathon veteran. I have never lost an event that I participated i
 *   [Fund Runner](http://web.archive.org/web/20150204143740/https://2014.battlehack.org/boston) at PayPal BattleHack
 *   [DJ Upvote](https://www.youtube.com/watch?v=Qc3TSmKOFqg) at AT&T Boston 2015
 
-![](/wp-content/uploads/2020/11/Exam_354-01.png)
+![](/dvlup-blog/wp-content/uploads/2020/11/Exam_354-01.png)

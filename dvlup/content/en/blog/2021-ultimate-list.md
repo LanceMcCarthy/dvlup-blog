@@ -15,7 +15,7 @@ If you've never used **winget** it is a really easy way to install full GUI appl
 
 Once installed, open Powershell (or Windows Terminal), and run the `winget install` command followed by the app's ID. For example, `winget install Microsoft.VisualStudioCode` will run a script for you that does ALL of the work to install VS Code!
 
-![](/wp-content/uploads/2020/12/image.png)
+![](/dvlup-blog/wp-content/uploads/2020/12/image.png)
 
 Here you can see me install **Media File Manager** app using `winget install LancelotSoftware.MediaFileManager`
 
@@ -299,7 +299,7 @@ choco
 
 If you need to use any of the **choco** packages, follow the Chocolatey's installations [instructions here](https://chocolatey.org/install). Then do the same thing we did with winget! For example, `choco install NuGetPackageExplorer`.
 
-![](/wp-content/uploads/2020/12/image-1.png)
+![](/dvlup-blog/wp-content/uploads/2020/12/image-1.png)
 
 Here are a few more tools that aren't in Scott's list, but I use on certain purpose-specific machines (media servers, devops agents, etc).
 

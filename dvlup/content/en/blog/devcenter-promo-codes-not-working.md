@@ -11,11 +11,11 @@ I gave out many codes today but I started getting "the promo code didn't work" e
 
 The trick is to have the user **go through the process to purchase the IAP product.** The user's phone will do a license verify check with the Store server and show this screen:
 
-[![Already Owned](/wp-content/uploads/2015/07/already-owned.jpg?w=300)](/wp-content/uploads/2015/07/already-owned.jpg)
+[![Already Owned](/dvlup-blog/wp-content/uploads/2015/07/already-owned.jpg?w=300)](/dvlup-blog/wp-content/uploads/2015/07/already-owned.jpg)
 
 Normally, if they did not own the product there would be a payment method and a "**buy**" button. However, since they redeemed your code, the button will be labeled "**install**" as seen in this screenshot:
 
-[![2015-07-29_1516](/wp-content/uploads/2015/07/2015-07-29_1516.png)](/wp-content/uploads/2015/07/2015-07-29_1516.png)
+[![2015-07-29_1516](/dvlup-blog/wp-content/uploads/2015/07/2015-07-29_1516.png)](/dvlup-blog/wp-content/uploads/2015/07/2015-07-29_1516.png)
 
 Just tell your user to click "**Install**" and go on experiencing your awesome app!
 

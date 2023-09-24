@@ -9,7 +9,7 @@ If you're running Home assistant in Hyper-V, you've probably encountered a _sign
 
 So why am I writing this blog post? I have found a way to make it work, feast your eyes on the following screenshot!
 
-![](/wp-content/uploads/2020/10/image-1024x461.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-1024x461.png)
 
 Click to enlarge. Z-Wave USB dongle available to Home Assistant container inside Hyper-V
 
@@ -63,7 +63,7 @@ Once it's downloaded, run the script with:
 bash installer.sh
 ```
 
-![](/wp-content/uploads/2020/10/image-2.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-2.png)
 
 If you get any errors, the installer script error will tell you what is missing. To fix it just install what the script said was missing.
 
@@ -73,17 +73,17 @@ For example, if you get **\[error\] missing: jq**, then you need to install jq:
 apt-get install jq
 ```
 
-![](/wp-content/uploads/2020/10/image-1.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-1.png)
 
 **Important:** Do not use any other installation method for Home Assistant. Yes, it is technically possible to do this with Home Assistant Core or Home Assistant Container approach, but that's _much_ harder as you will not have a Supervisor to manage everything.
 
 Once Home Assistant is done installing, go to the IP address and port that installer showed you. In my case, that was `http://192.168.1.85:8123`
 
-![](/wp-content/uploads/2020/10/image-10.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-10.png)
 
 Go to that address, you should see the initial setup screen (see screenshot). Finish that process and put it aside for now. Don't close it as we're coming back to it shortly.
 
-![](/wp-content/uploads/2020/10/image-17.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-17.png)
 
 ### Phase 2. Install a USB over IP option
 
@@ -104,7 +104,7 @@ On the Windows 10 machine, go to [the USB NET downloads page](https://www.net-us
 
 Once it is done installing, launch the application:
 
-![](/wp-content/uploads/2020/10/image-8.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-8.png)
 
 ##### Debian 10
 
@@ -112,19 +112,19 @@ Connect to the Debian VM's desktop by right-clicking on the VM in Hyper-V and se
 
 Open Files app and go to your Downloads folder and Right-click on the deb file and select "**Open with Other Application**":
 
-![](/wp-content/uploads/2020/10/image-3-1024x768.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-3-1024x768.png)
 
 Then select "Software Install" (instead of Archive Manager):
 
-![](/wp-content/uploads/2020/10/image-4.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-4.png)
 
 Finally, when the Software Install opens, click "**Install**":
 
-![](/wp-content/uploads/2020/10/image-5-1024x728.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-5-1024x728.png)
 
 Once it is done installing, go ahead and launch the app (you'll find it in your apps list)
 
-![](/wp-content/uploads/2020/10/image-7-1024x859.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-7-1024x859.png)
 
 ##### Sharing the USB device
 
@@ -132,11 +132,11 @@ Now that you have finished installing the USB over IP software on both operating
 
 On the Windows 10 you'll see a list of all the USB devices, click the "share" button next to the Z-Wave dongle device.
 
-![](/wp-content/uploads/2020/10/image-6.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-6.png)
 
 Now, go back to the Debian desktop and select the **Remote USB Devices** tab, you should see the shared device! Go ahead and select it, then click "**Connect**":
 
-![](/wp-content/uploads/2020/10/image-9-1024x859.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-9-1024x859.png)
 
 #### Option B - USB Redirector
 
@@ -146,13 +146,13 @@ Incentives Pro's **[USB Redirector](https://www.incentivespro.com/usb-redirector
 
 Go to the [USB Redirector downloads](https://www.incentivespro.com/downloads.html#usb-redirector) page, and download "**USB Redirector**".
 
-![](/wp-content/uploads/2020/10/image-25.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-25.png)
 
 There are many items on the Downloads page, you want this one for the Windows host.
 
 Run the downloaded file to install USB Redirector. When you're done installing, launch USB Redirector and you'll see a list of all the USB devices on the PC. Right-click on the one you want to share and select "Share USB Device".
 
-![](/wp-content/uploads/2020/10/image-26.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-26.png)
 
 Right-click on the USB device you want to share.
 
@@ -170,13 +170,13 @@ Linux is slightly different because we'll be downloading and extracting a compre
 
 On the Linux machine, go to the [USB Redirector downloads](https://www.incentivespro.com/downloads.html) page. Scroll down to the [**USB Redirector for Linux**](https://www.incentivespro.com/downloads.html#usb-redirector-linux) section and choose the correct version for your hardware.
 
-![](/wp-content/uploads/2020/10/image-27.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-27.png)
 
 Linux has platform specific builds. Pick the right one for your hardware. If you are also running Debian 10.6 in Hyper-V, you'll want the 64bit version (x86\_64).
 
 Once you've downloaded the file, extract the contents using your preferred method (CLI or GUI, doesnt matter).
 
-![](/wp-content/uploads/2020/10/image-28.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-28.png)
 
 To keep things visual for this blog post, I chose to use the Files app.
 
@@ -190,7 +190,7 @@ sudo ./installer.sh install
 
 You should see the following result:
 
-![](/wp-content/uploads/2020/10/image-29.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-29.png)
 
 _Troubleshooting : If you get an error about missing USB headers and it failed to install, go to the end of this blog post and read **Troubleshooting Tip #1** for the solution._
 
@@ -210,7 +210,7 @@ Next run the following command to a list of USB devices that are available to th
 usbclnt -list-devices
 ```
 
-![](/wp-content/uploads/2020/10/image-31.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-31.png)
 
 Important: Make sure you get the right number for the USB device. My screenshot shows the device at server **1**: and device **9**:, so my device ID will be `1-9` (your USB device will probably be different number).
 
@@ -224,7 +224,7 @@ usbclnt -connect 1-9
 
 You will instantly see the Windows host's USB Redirector show the USB device being shared with the client!
 
-![](/wp-content/uploads/2020/10/image-32-690x1024.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-32-690x1024.png)
 
 Success, the USB device is now shared with Debian OS.
 
@@ -237,13 +237,13 @@ Regardless of which USB over IP option you chose (option A or option B), the USB
 3.  Now, select the **System** tab.
 4.  Inside the "**Host System**" box, you should see a vertical ellipsis menu button, click that and select "**Hardware**" from the flyout.
 
-![](/wp-content/uploads/2020/10/image-11-1024x838.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-11-1024x838.png)
 
 You may be asking yourself, "Waaait a second, I though Windows was the host system?". In this situation, Home Assistant has no idea that Windows is even involved, it only see the Linux OS as the host.
 
 When the Hardware popup appears, look for the serial device's name and copy-paste that value somewhere handy (we will need to use it shortly), it's usually prefixed with `/dev/serial/`
 
-![](/wp-content/uploads/2020/10/image-12.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-12.png)
 
 The USB device listed in Home assistant, copy that for use later.
 
@@ -255,7 +255,7 @@ Now, go back to the **Supervisor**, but this time select the **Add-On** tab.
 
 This add-on is critical to many extra features of Home Assistant. Search for the **Mosquitto broker** add on and install it. Follow the numbered steps in this screenshot:
 
-![](/wp-content/uploads/2020/10/image-14-1024x793.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-14-1024x793.png)
 
 The Supervisor and is going to end being your favorite place to be. It automatically manages all the upgrades for all the containers in the system. Additionally, Add-Ons is where you can install all sorts of wonderful things and features for Home Assistant
 
@@ -263,7 +263,7 @@ The Supervisor and is going to end being your favorite place to be. It automatic
 
 Now, search for and install the `OpenZWave` Add-On. Follow the numbered steps in this screenshot:
 
-![](/wp-content/uploads/2020/10/image-15-1024x761.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-15-1024x761.png)
 
 After it finishes installing, select it and switch to the **Configuration** tab. Inside the "Configuration" section, you'll see a code editor area with two properties, device and network\_key, that you need to set.
 
@@ -285,17 +285,17 @@ Under the **Network** section, enter `1983` in the `ozw-admin port` box and clic
 
 Here's a screenshot of everything to help guide you
 
-![](/wp-content/uploads/2020/10/image-16-1024x649.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-16-1024x649.png)
 
 With the config done, switch to the **Info** tab and start up the OpenZWave (aka ozw) Add-On.
 
-![](/wp-content/uploads/2020/10/image-18-1024x649.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-18-1024x649.png)
 
 I recommend enabling some of the extra AddOn settings
 
 At this point, you should be able to open the web UI for the Add-On and connect to the network
 
-![](/wp-content/uploads/2020/10/image-24-1024x709.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-24-1024x709.png)
 
 ##### Integrations
 
@@ -303,15 +303,15 @@ We just finished the Supervisor Add-Ons, now it's time to move on to the actual 
 
 In the side menu, select **Configuration** then **Integrations**
 
-![](/wp-content/uploads/2020/10/image-20-1024x649.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-20-1024x649.png)
 
 Next, click the "+" button to add a new Integration, then filter the list by "ZWave" and select OpenZWave:
 
-![](/wp-content/uploads/2020/10/image-21-1024x728.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-21-1024x728.png)
 
 After it gets added, click the **Configure** button, then the **Confirm setup** button.
 
-![](/wp-content/uploads/2020/10/image-22-1024x786.png)
+![](/dvlup-blog/wp-content/uploads/2020/10/image-22-1024x786.png)
 
 ### Conclusion and After Thoughts
 

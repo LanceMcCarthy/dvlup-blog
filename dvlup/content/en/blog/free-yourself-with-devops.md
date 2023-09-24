@@ -31,7 +31,7 @@ Now, let's dive into a real-world CI-CD system I have designed for the [MVP Comp
 
 The source code contains many different types of projects, from UWP to WPF and .NET MAUI. You can have pipelines for each of them, but for this article I'll focus on the pipelines that build and distribute the UWP project. You can see the status badges of both the CI and CD pipelines in the README.
 
-![](/wp-content/uploads/2022/03/StatusBadges.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/StatusBadges.png)
 
 ### CI
 
@@ -42,7 +42,7 @@ Let's start with the CI pipelines, there are 4 of them: Dev -> Master -> Prerele
 *   When I want to push out a prerelease for my early users, I merge the `master` branch into the `prerelease` branch
 *   Finally, when the beta testers say it is good, I'll merge the `prerelease` branch into the `release` branch
 
-![](/wp-content/uploads/2022/03/PipelineOrder.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/PipelineOrder.png)
 
 These are Build Pipelines list in Azure DevOps dashboard. This article won't go into detail on how to setup your first pipelines, you can learn how to do that here [Set up automated builds for your UWP app - UWP applications | Microsoft Docs](https://docs.microsoft.com/en-us/windows/uwp/packaging/auto-build-package-uwp-apps). Rather, I wanted to explain the architecture of the setup, which achieves the end goal.
 
@@ -52,7 +52,7 @@ The `dev` and `master` branch simply build the code for the purposes of making s
 
 Here's a screenshot (_I share all the PowerShell and msbuild commands at the end_):
 
-![](/wp-content/uploads/2022/03/MainBuild-1024x694.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/MainBuild-1024x694.png)
 
 Note: You can learn more about that first PowerShell step in my other blog post on the topic [Using PowerShell to Install an SDK in a DevOps Build Pipeline – DVLUP](https://dvlup.com/2019/01/03/using-powershell-to-installing-msi-in-a-devops-build/).
 
@@ -62,7 +62,7 @@ When it is time to actually release a new version of the app, I can simply merge
 
 Here's a screenshot, with explanations of things I haven't previously explained:
 
-![](/wp-content/uploads/2022/03/PrereleaseBuild-1024x749.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/PrereleaseBuild-1024x749.png)
 
 I can push as many times as I need to the `prelease` branch. This can be to add more features, bug fixes, etc. Thanks to the way Appinstaller works, any of my users that have it installed will automatically get updates every 6 hours. If there's a new version on the blob, it will get installed.
 
@@ -72,7 +72,7 @@ When the beta testes say "this is good!", now I can merge the `prerelease` branc
 
 Here's a screenshot of the Release build pipeline. Notice how there's no longer any upload to Azure, because this is intended to go to the Microsoft Store instead.
 
-![](/wp-content/uploads/2022/03/ReleaseBuild-1024x583.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/ReleaseBuild-1024x583.png)
 
 That wraps up the CI side of things. We've done the full lifecycle of development to release and now have an msixupload file that is used to publish a new version to the Microsoft Store.
 
@@ -84,11 +84,11 @@ _Note: you might be confused about some names at this point I have named one of 
 
 In the Pipelines menu, you'll see an item named "Releases", those are **Release Pipelines**.
 
-![](/wp-content/uploads/2022/03/AdoMenu.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/AdoMenu.png)
 
 This provides you with a very different looking UI. It has a higher level view of all the things going on; an **Artifacts** section and a **Stages** section:
 
-![](/wp-content/uploads/2022/03/ReleasesPipelineOverview.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/ReleasesPipelineOverview.png)
 
 Let's dive into those sections in more detail.
 
@@ -96,7 +96,7 @@ Let's dive into those sections in more detail.
 
 When the "UWP Release" Build Pipeline successfully builds and uploads an artifact, this will trigger a new instance of this Release Pipeline. You'll notice how the lightning bolt icon on the artifact has a little checkmark on it. This means when the artifact is downloaded by the pipeline, it will automatically start the first Stage.
 
-![](/wp-content/uploads/2022/03/PipelineArtifactsStage.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/PipelineArtifactsStage.png)
 
 #### Stages
 
@@ -104,25 +104,25 @@ The first Stage is to upload the msixbundle upload file to Microsoft Partner Cen
 
 You can add multiple "jobs" to each stage. If we click on the Jobs button of this Flight to Beta stage...
 
-![](/wp-content/uploads/2022/03/StageTasks.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/StageTasks.png)
 
 ...you will get a familiar UI that looks just like a Build Pipeline's task builder! Inside my "Flight to Beta" stage, there's only one task... upload the artifact to Partner Center to be distributed to the "Beta" flight users.
 
-![](/wp-content/uploads/2022/03/BetaTasks-1024x597.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/BetaTasks-1024x597.png)
 
 Once the "Flight to Beta" stage is done, the pipeline will automatically execute the next step. However, what if you don't want that to happen automatically? You can set a precondition to manually approve the stage.
 
 In the following screenshot, you can see I have set a precondition that someone manually approves the next stage:
 
-![](/wp-content/uploads/2022/03/PreconditionForSecondStage-1024x417.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/PreconditionForSecondStage-1024x417.png)
 
 That will show a big Blue button (I don't have a screenshot at the moment), once the button is clicked the "Publish" stage will run. That stage also consists of a single task:
 
-![](/wp-content/uploads/2022/03/PublishTasks-1024x604.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/PublishTasks-1024x604.png)
 
 When both stages are done, that pipeline is complete. Here's what that looks like:
 
-![](/wp-content/uploads/2022/03/CompletedReleasePipeline.png)
+![](/dvlup-blog/wp-content/uploads/2022/03/CompletedReleasePipeline.png)
 
 Conclusion
 ----------

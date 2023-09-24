@@ -19,7 +19,7 @@ To make this fully automated, I needed an option that will upload the files to O
 
 Today I'll show you how I set up the automatic weekly backup of my local Archive folder. Here's a screenshot of it running, showing each thread's progress.
 
-![](/wp-content/uploads/2021/05/image-14-1024x561.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-14-1024x561.png)
 
 Upload job progress
 
@@ -27,43 +27,43 @@ Upload job progress
 
 When you click the **New** job button, RichCopy 360 lets you create a new job using a nice wizard. However, for a cloud backup config, it is faster just to select the 2nd 'expert' option.
 
-![](/wp-content/uploads/2021/05/image-4-1024x557.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-4-1024x557.png)
 
 The job configuration window will open. It may look daunting at first, but if you scan it you'll see each area has a specific responsibility. The **Destination Type** default setting is "Normal" (local copying), but for cloud you want to change it to **Cloud** and then select **OneDrive/Sharepoint**.
 
-![](/wp-content/uploads/2021/05/image-5.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-5.png)
 
 Give the job a name/description and then select the source folder:
 
-![](/wp-content/uploads/2021/05/image-2.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-2.png)
 
 Next, click the **Destination** folder button, a web browser will open so you can log in with the cloud provider. In this case, it is your Microsoft Account or O365 account.
 
-![](/wp-content/uploads/2021/05/image-6.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-6.png)
 
 After authenticating with the cloud provider
 
 Once you authenticate, you'll see the Destination folder picker. Select the cloud folder where you want the files copied to:
 
-![](/wp-content/uploads/2021/05/image-7.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-7.png)
 
 ##### Copy Options
 
 Once the source and destination are set, it's time to decide how you want the **Copy Options**. I personally prefer **Mirror** for this kind of backup, but you have all the expected options (Copy Changes Only, Mirror, Move Dir and Copy All). You can also change **Copy Flag** and **Logging** settings, unless you have specific need, you can leave them as the default values.
 
-![](/wp-content/uploads/2021/05/image-8.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-8.png)
 
 ##### Scheduling
 
 The next important item is how to enable and set the Scheduling settings. First, to enable the Recurrence settings, you need to select the Start radio button
 
-![](/wp-content/uploads/2021/05/image-10.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-10.png)
 
 Enabling Scheduling and Recurrence
 
 When you select Repeat, the "Set Schedule" link will become enabled, click it to open the Recurrence editor window. In the window, you can set the job's recurrence, below you see I am running it every Friday at 12 AM.
 
-![](/wp-content/uploads/2021/05/image-9.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-9.png)
 
 Setting a weekly recurrence
 
@@ -71,19 +71,19 @@ Setting a weekly recurrence
 
 Finally, you want to take advantage of your computer's hardware to give you the best performance. The Job Concurrency section lets you set how many processor threads you want to dedicate to copying and uploading files.
 
-![](/wp-content/uploads/2021/05/image-11.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-11.png)
 
 If you are not familiar with how many cores your processor has, you can use the "Change" link button to open a helper tool. The tool will make recommendations based on how many processors you have.
 
-![](/wp-content/uploads/2021/05/image-12.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-12.png)
 
 Since I am running this job at midnight, I can dedicate all my local processors to it. Since I have an i9 in this machine, it has 10 cores.
 
-![](/wp-content/uploads/2021/05/image-13-1024x207.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-13-1024x207.png)
 
 When you're done with the settings, click Save. The job will get added to the Jobs list. One the jobs tab you can immediately start/stop any job, I recommend running the new job once manually to see if there are any errors.
 
-![](/wp-content/uploads/2021/05/image-16-1024x557.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-16-1024x557.png)
 
 Jobs list and statuses
 
@@ -91,11 +91,11 @@ Jobs list and statuses
 
 Before I close, I wanted to mention some other features. You can set the job to **Run as Service**, but beware.. the service has to have permissions to the source folder's files.
 
-![](/wp-content/uploads/2021/05/image-18.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-18.png)
 
 You can add an email address to get email notifications on job success or failure. For the first few weeks, I recommend keeping the notification enabled for successes, then once you're satisfied it is working as intended, you can set it only notify you on failures.
 
-![](/wp-content/uploads/2021/05/image-17.png)
+![](/dvlup-blog/wp-content/uploads/2021/05/image-17.png)
 
 #### Wrapping Up
 

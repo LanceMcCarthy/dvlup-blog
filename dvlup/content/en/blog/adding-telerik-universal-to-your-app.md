@@ -13,19 +13,19 @@ It is very simple to add it to your project. Let me show you in a quick File > N
 
 Select **File** \> **New** \> **Project** \> **Visual C#** > **Store Apps** \> **Universal Apps** and choose the **HubApp template** (you can choose Blank App if you prefer, we're only going to use the Shared folder to add content).
 
-[![S1](/wp-content/uploads/2014/11/s1.png?w=660)](/wp-content/uploads/2014/11/s1.png)
+[![S1](/dvlup-blog/wp-content/uploads/2014/11/s1.png?w=660)](/dvlup-blog/wp-content/uploads/2014/11/s1.png)
 
 2- After the project generates, let's focus on the solution Explorer. First, lets add the Telerik reference to the Windows project.
 
 Right click on **References** > **Add Reference** \> select **Windows 8.1** (in the left tree) > **Extensions**. Now you'll see a list of extensions, choose "**Telerik UI for Windows Universal**"
 
-[![S2](/wp-content/uploads/2014/11/s2.png?w=660)](/wp-content/uploads/2014/11/s2.png)
+[![S2](/dvlup-blog/wp-content/uploads/2014/11/s2.png?w=660)](/dvlup-blog/wp-content/uploads/2014/11/s2.png)
 
 3- Now add the Telerik extension to the Windows Phone project.
 
 The steps are the sames as you did in step 2, but the extension's name is "**Telerik UI for Windows Phone 8.1**"
 
-[![S3](/wp-content/uploads/2014/11/s3.png?w=660)](/wp-content/uploads/2014/11/s3.png)
+[![S3](/dvlup-blog/wp-content/uploads/2014/11/s3.png?w=660)](/dvlup-blog/wp-content/uploads/2014/11/s3.png)
 
 4- Now we are ready to start building, let's add a RadCalendar to a shared XAML page.
 
@@ -33,11 +33,11 @@ The steps are the sames as you did in step 2, but the extension's name is "**Tel
 2.  Right click on the Shared Project and select **Add** \> **New Item** \> **Blank Page**
 3.  In the Visual Studio Toolbox type in "**RadCalendar**", drag and drop it onto your new blank page. You can also type it in, but make sure you add the namespace (see screenshot)
 
-[![S4](/wp-content/uploads/2014/11/s4.png?w=660)](/wp-content/uploads/2014/11/s4.png)
+[![S4](/dvlup-blog/wp-content/uploads/2014/11/s4.png?w=660)](/dvlup-blog/wp-content/uploads/2014/11/s4.png)
 
 You can also see how the control will on Phone by simply toggling the view:
 
-[![S5](/wp-content/uploads/2014/11/s5.png?w=660)](/wp-content/uploads/2014/11/s5.png)
+[![S5](/dvlup-blog/wp-content/uploads/2014/11/s5.png?w=660)](/dvlup-blog/wp-content/uploads/2014/11/s5.png)
 
 That's all there is to it!
 

@@ -29,13 +29,13 @@ I've posted my source for this project and it's prerequisites [on Github](https:
 
 **Open Visual Studio 2015** and go to **File > New > Project**. Drill down to **Universal**, select **Blank App**, give it a name and click **OK**.
 
-[![1](/wp-content/uploads/2015/07/1.png?w=660)](/wp-content/uploads/2015/07/1.png)
+[![1](/dvlup-blog/wp-content/uploads/2015/07/1.png?w=660)](/dvlup-blog/wp-content/uploads/2015/07/1.png)
 
 **Step Two - Add Project References **
 
 Normally you may be used to adding actually DLLs to a project. This approach is slightly different. we're using Extension SDKs. **Right click** on your project's references, select **Add Reference**, drill down to **Extensions** under **Universal Windows **(#1) and check off the two items you see in #2.
 
-[![2](/wp-content/uploads/2015/07/2.png?w=660)](/wp-content/uploads/2015/07/2.png)
+[![2](/dvlup-blog/wp-content/uploads/2015/07/2.png?w=660)](/dvlup-blog/wp-content/uploads/2015/07/2.png)
 
 \[**UPDATE** - Telerik for UWP is available as of Q1 2016, [get it here](http://www.telerik.com/universal-windows-platform-ui). and reference Telerik UI for Universal Windows Platform in the image above\]
 
@@ -45,13 +45,13 @@ The second item, **Windows IoT Extensions for the UWP**, is what allows your app
 
 Your references should now look like this:
 
-[![3](/wp-content/uploads/2015/07/3.png?w=300)](/wp-content/uploads/2015/07/3.png)
+[![3](/dvlup-blog/wp-content/uploads/2015/07/3.png?w=300)](/dvlup-blog/wp-content/uploads/2015/07/3.png)
 
 **Step Three - Dev Time**
 
 First, let's switch your designer to show a 10" IoT device. Its usually a 5" mobile phone at startup because that's the first item in the list. Note: Take a step back for a second and see all those device types, your Telerik app will run on all of them!
 
-[![4](/wp-content/uploads/2015/07/4.png?w=660)](/wp-content/uploads/2015/07/4.png)
+[![4](/dvlup-blog/wp-content/uploads/2015/07/4.png?w=660)](/dvlup-blog/wp-content/uploads/2015/07/4.png)
 
 Now let's add a Telerik Chart to the UI. In my demo app on GitHub, [I have some sample Car data](https://github.com/LanceMcCarthy/TelerikOnWindowsIoT/blob/master/TelerikOnWindowsIoT/DataServices/CarDataService.cs) that has the following properties: **Make**, **Model** **Year** and **Price** (model [code is here](https://github.com/LanceMcCarthy/TelerikOnWindowsIoT/blob/master/TelerikOnWindowsIoT/ViewModels/CarItemViewModel.cs)). That sample data is [loaded into a collection in the MainViewModel](https://github.com/LanceMcCarthy/TelerikOnWindowsIoT/blob/master/TelerikOnWindowsIoT/ViewModels/MainViewModel.cs).
 
@@ -62,11 +62,11 @@ Now that I have a collection of cars, I want to show a chart. Let's use a BarCh
 *   Now, we add a BarSeries and set the ItemsSource via databinding to the Cars collection (#2).
 *   Lastly, set the property name **Make** for the **CategoryBinding** and **Price** for the **ValueBinding** (#3).
 
-[![6](/wp-content/uploads/2015/07/6.png?w=660)](/wp-content/uploads/2015/07/6.png)
+[![6](/dvlup-blog/wp-content/uploads/2015/07/6.png?w=660)](/dvlup-blog/wp-content/uploads/2015/07/6.png)
 
 If you do a Build at this point, and you've added sample data to the view model like I did, you'll see data in the UI designer (very cool that methods written to work at run-time, work at design-time). Like this:
 
-[![5](/wp-content/uploads/2015/07/5.png?w=660)](/wp-content/uploads/2015/07/5.png)
+[![5](/dvlup-blog/wp-content/uploads/2015/07/5.png?w=660)](/dvlup-blog/wp-content/uploads/2015/07/5.png)
 
 **Step Four - Deploy to Device**
 

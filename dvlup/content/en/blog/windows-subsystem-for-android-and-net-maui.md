@@ -7,43 +7,43 @@ tags: ['.NET MAUI', 'android', 'dotnet maui', 'MAUI', 'Subsystem for Android', '
 
 Did you know you can deploy and debug your Android projects from Visual Studio 2022 (17.3+) to WSA (Windows Subsystem for Android)? This is a quick post to show you how to have your WSA appear in the list of target Android devices in Visual Studio.
 
-![](/wp-content/uploads/2022/06/image.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image.png)
 
 WSA as the target device
 
 First, make sure you have WSA installed and enabled, find the instructions here [Windows Subsystem for Android™️ | Microsoft Docs](https://docs.microsoft.com/en-us/windows/android/wsa/). Once it is installed, start the Amazon App Store app to ensure WSA has been started.
 
-![](/wp-content/uploads/2022/06/image-4.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-4.png)
 
 Starting up WSA
 
 Open the **Windows Subsystem for Android™ Settings** app (this gets installed with WSA) and make sure the **Developer > Developer Mode** setting is enabled. After it is enabled, you should now see an loopback IP address (`127.0.0.1`) and a port number (`58526`).
 
-![](/wp-content/uploads/2022/06/image-2.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-2.png)
 
 WSA IP address and port number for ADB
 
 With WSA setup and running you can now deploy from Visual Studio 2022. The first step is in Visual Studio, expand the **Tools > Android** menu and select `Android Adb Command Prompt` menu item.
 
-![](/wp-content/uploads/2022/06/image-1.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-1.png)
 
 ADB Command Prompt
 
 When the ADB command prompt window is opened, you can connect ADB to WSA using the 'connect' command and IP:port number for WSA. Here is the full command: `adb connect 127.0.0.1:58526`and here's a screenshot of a successful connection:
 
-![](/wp-content/uploads/2022/06/image-3.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-3.png)
 
 Successful ADB connection
 
 Finally, in your MAUI project; make sure the target framework is set to `net6.0-android` and you should find WSA listed under the **Android Local Devices** menu.
 
-![](/wp-content/uploads/2022/06/image-5.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-5.png)
 
 WSA listed as a local Android device in Visual Studio 2022 Preview
 
 Here's what it looks like after I deployed an early prototype of my current Microsoft Store app [**Hacked?**](https://apps.microsoft.com/store/detail/hacked/9NBLGGH6850J) as a .NET MAUI Android app!
 
-![](/wp-content/uploads/2022/06/image-8.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-8.png)
 
 .NET MAUI app running in WSA
 
@@ -57,7 +57,7 @@ Problem: If you do not see **Android Local Devices** in the menu, then it means 
 
 **Solution 2**: Another option is to tell Windows 11 to never put WSA to sleep. It will start up with Windows and always use system resources. Open the **Windows Subsystem for Android Settings** app and change the **System > Subsystem Resources** setting to `Continuous` (see screenshot)
 
-![](/wp-content/uploads/2022/06/image-6.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-6.png)
 
 #### Troubleshooting Tip 2 - No Internet in WSA
 
@@ -65,12 +65,12 @@ Problem: If you do not see **Android Local Devices** in the menu, then it means 
 
 *   **Solution 1**: If you disconnect the VPN, the internet will work in WSA again.
 
-![](/wp-content/uploads/2022/06/image-9.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-9.png)
 
 Disconnect option in the AnyConnect tray icon's context menu
 
 *   **Solution 2**: There is a semi-permanent solution for this by changing the AnyConnect network adapter to have a higher `InterfaceMetric` value than the WSA Hyper-V adapter one has. Here's a screenshot of the two PowerShell commands I used to do that:
 
-![](/wp-content/uploads/2022/06/image-7.png)
+![](/dvlup-blog/wp-content/uploads/2022/06/image-7.png)
 
 Increasing AnyConnect's InterfaceMetric value

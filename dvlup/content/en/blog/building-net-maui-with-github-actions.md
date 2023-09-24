@@ -14,13 +14,13 @@ Using Separate Jobs
 
 First, let's set up the top level structure of the workflow. It's best to have separate jobs for each platform, this will allow you to use a different types of runner for each job (e.g., Windows or MacOS).
 
-![](/wp-content/uploads/2021/11/image.png)
+![](/dvlup-blog/wp-content/uploads/2021/11/image.png)
 
 Four jobs, one for each target platform.
 
 Additionally beneficial is the fact that all the jobs run in parallel, saving you a significant amount of time. For example, these fours jobs finished in 6 minutes, instead of 20 minutes!
 
-![](/wp-content/uploads/2021/11/image-2.png)
+![](/dvlup-blog/wp-content/uploads/2021/11/image-2.png)
 
 This is what a multiple job workflow looks like in GitHub Actions.
 

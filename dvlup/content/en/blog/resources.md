@@ -186,7 +186,7 @@ Here is the beginning of the miscellaneous resources list to get you started, m
 *   [Process](https://dev.windowsphone.com/design/process)
 *   [Library](https://dev.windowsphone.com/design/library)
 *   [Ebook from Travis Lowdermilk on User-Centered Design](http://shop.oreilly.com/product/0636920028741.do)
-*   [Great PDF of design assets and dimensions](http://devndesign.fr/wp-content/uploads/2012/12/MemoWindowsPhoneAppGUIDELINES.pdf)
+*   [Great PDF of design assets and dimensions](http://devndesign.fr/dvlup-blog/wp-content/uploads/2012/12/MemoWindowsPhoneAppGUIDELINES.pdf)
 *   [Templarian's must-have Metro Icon set](http://modernuiicons.com/) (I've been using  these since his first set)
 *   **Windows Phone Development**
 *   [Get Started](http://go.microsoft.com/fwlink/?LinkId=265759)

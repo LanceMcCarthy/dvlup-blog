@@ -32,7 +32,7 @@ The WOW abstraction layer, in concert with a custom x86-to-ARM emulator and CHPE
 
 Here's a diagram to better explain it
 
-![Post7](/wp-content/uploads/2018/03/post7.png)
+![Post7](/dvlup-blog/wp-content/uploads/2018/03/post7.png)
 
 Some key features
 
@@ -72,7 +72,7 @@ The first thing you need to do is enable Developer Mode in the device's **PC Se
 
 Here's a screenshot of the PC Settings page:
 
-![Post2](/wp-content/uploads/2018/03/post2.png)
+![Post2](/dvlup-blog/wp-content/uploads/2018/03/post2.png)
 
 However, you may not see this option, which brings me to my first point.
 
@@ -84,7 +84,7 @@ My device came with **Windows 10 S** out of the box, this means that I will not 
 
 Upgrade the OS. I used a product key for Windows 10 Pro in the **Settings > System > About** page, but you can use whichever option is available to you.
 
-![Post1](/wp-content/uploads/2018/03/post1.png)
+![Post1](/dvlup-blog/wp-content/uploads/2018/03/post1.png)
 
 After updating you'll now see the **Developer Mode** option on the For Developers page, toggle that to move forward. Enabling this will trigger a download an installation of a Developer Mode package that contains the Remote Debugging Tools.
 
@@ -105,11 +105,11 @@ If you're not familiar with using the Remote Debugger, I strongly urge you to re
 
 If you open your application's **Properties** page in Visual Studio, and switch to the **Debugging** tab, you'll see that you have a **Target Device** drop down.
 
-![Post3](/wp-content/uploads/2018/03/post3.png)
+![Post3](/dvlup-blog/wp-content/uploads/2018/03/post3.png)
 
 Switch that to **Remote Device**, then the** "Find..." **button on the right will become enabled. After clicking the Find... button, you'll be presented with the following UI:
 
-![Post6](/wp-content/uploads/2018/03/post6.png)
+![Post6](/dvlup-blog/wp-content/uploads/2018/03/post6.png)
 
 Now you have an opportunity to select a remote device, but you will most likely see that the ARM PC isn't showing as an available device to target.
 
@@ -125,11 +125,11 @@ You need to make sure that the both the development PC and the ARM PC need to be
 
 The quickest way that I like to do this (there are other ways), is just to use **File Explorer** and selecting "**Network**" in the pane and follow the prompts.. _Easy Button style_. Here are some screenshots to guide you:
 
-![Post4](/wp-content/uploads/2018/03/post4.png)
+![Post4](/dvlup-blog/wp-content/uploads/2018/03/post4.png)
 
 Once you click the OK button, File Explorer will show a yellow bar at the top:
 
-![Post5](/wp-content/uploads/2018/03/post5.png)
+![Post5](/dvlup-blog/wp-content/uploads/2018/03/post5.png)
 
 Click that bar and follow the prompts, it will ask you to make the network you're on a Private Network (that's my preferred option as it's the safest). You'll now see that the PC will scan the network, finding other devices and listing them in File Explorer. Go ahead and close File Explorer now that it has done its job.
 
@@ -160,7 +160,7 @@ Before you click F5 (or that shiny green start debugging button) for the first t
 
 When debugging, you do not see any runtime analytics / debugger metrics in Visual Studio Diagnostic Tools window (usually at the top right):
 
-![2018-02-25_11-01-15](/wp-content/uploads/2018/03/2018-02-25_11-01-15.png)
+![2018-02-25_11-01-15](/dvlup-blog/wp-content/uploads/2018/03/2018-02-25_11-01-15.png)
 
 **Fix**
 

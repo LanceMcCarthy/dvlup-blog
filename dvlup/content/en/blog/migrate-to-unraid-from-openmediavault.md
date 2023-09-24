@@ -18,11 +18,11 @@ Preparing Unraid
 
 The first thing you'll want to do is get a USB2 or USB3 thumb drive with at least 1GB capacity (USB2 is better). Clean out the contents of the drive and name it "Unraid", this is going to be your boot drive. Unraid is actually loaded into the system's RAM during boot and runs from there, so there is very minimal boot disk IO.
 
-![](/wp-content/uploads/2020/04/image-1.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-1.png)
 
 Next, download the **USB Creator** software from the [Unraid Downloads](https://unraid.net/download) page. Plug in the USB drive and then run the USB Creator and flash the USB drive.
 
-![](/wp-content/uploads/2020/04/image.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image.png)
 
 Easy to follow UI, just three easy to understand steps.
 
@@ -37,7 +37,7 @@ My openmediavault is running on a Raspberry Pi4, I can't use that for Unraid. It
 
 So, I looked around my "old laptops" bin and found the perfect host, a Dell Latitude E6430 from 2013 that has USB3 and eSATA ports. Even better is it has an Intel i7 with virtualization support.
 
-![](/wp-content/uploads/2020/04/image-2.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-2.png)
 
 System Information popup in Unraid
 
@@ -61,7 +61,7 @@ Unraid will start headless and you'll see a bunch of Linux and Unraid initializa
 
 Go to a different computer, open the web browser and navigate to **[http://tower](http://tower)** (if you're on a Mac use **[http://tower.local](http://tower.local)** instead). You will be redirected to the tools/registration screen:
 
-![](/wp-content/uploads/2020/04/image-3.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-3.png)
 
 First Experience
 
@@ -75,7 +75,7 @@ In openmediavault, I currently have ~6 TB of data with four 8TB drives and an as
 
 So I decided to try my first run with setting up the array with the 2TB HDD as my parity drive and the 500MB drives in the array. When I move over the 8TB drives, I will need to use one of them for parity because the parity drive needs to be _as large as the largest drive_ in the array.
 
-![](/wp-content/uploads/2020/04/image-5-1024x448.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-5-1024x448.png)
 
 TIP - If you just plugged in a new drive and don't see it, switch over to the DASHBOARD tab and then back to the MAIN tab. Now you'll see the drive in the drop down.
 
@@ -83,7 +83,7 @@ TIP - If you just plugged in a new drive and don't see it, switch over to the DA
 
 Additionally, after I add the 8TB drives, I'll use a 500 MB disk to act as a Cache drive. This improves the array's performance. Additionally, if you use an SSD in the cache, it can be used for SSD-based Cache for VM performance boost.
 
-![](/wp-content/uploads/2020/04/image-6.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-6.png)
 
 #### Important Information
 
@@ -100,17 +100,17 @@ The first thing that happens is the parity drive will start working right away a
 
 The other two drives are going to show up as being unable to be added to the array because they're not formatted. Underneath the **Array Operation** section, you'll see a checkbox and an orange button that lets you format the new drives.
 
-![](/wp-content/uploads/2020/04/image-12-1024x234.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-12-1024x234.png)
 
 After starting the array with new drives that appear as "unmountable", check Yes, I want to do this.
 
-![](/wp-content/uploads/2020/04/image-13-1024x176.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-13-1024x176.png)
 
 Next, you'll be presented with the actual Format button. You will have been warned twice now that this will erase any previous data.
 
 Once the partition and format is done, you'll see something like this:
 
-![](/wp-content/uploads/2020/04/2020-04-26_13-28-56.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/2020-04-26_13-28-56.png)
 
 Transfer Data
 -------------
@@ -119,23 +119,23 @@ The final step is to move the data that is still on openmediavault's drives over
 
 As an example, below I create a new share named "omv\_transfer"
 
-![](/wp-content/uploads/2020/04/image-8.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-8.png)
 
 Creating a new share
 
-![](/wp-content/uploads/2020/04/image-7.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-7.png)
 
 Configuring the share's settings (I chose to use all drives)
 
 By default, the share will be visible as an SMB share. You can change these settings to your preference:
 
-![](/wp-content/uploads/2020/04/image-9.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-9.png)
 
 The share will be visible to anyone on the network with public setting
 
 Finally, now I can copy over the files from openmediavault's shares (which I have mapped as network drives)
 
-![](/wp-content/uploads/2020/04/image-10.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-10.png)
 
 The omv\_transfer folder is available to copy in files from openmediavault
 
@@ -158,4 +158,4 @@ However, once you're done and all the disks and files are in the Unraid array, y
 
 Just check out this awesome dashboard... and I don't even have all my drives, plugins or VMs setup yet!
 
-![](/wp-content/uploads/2020/04/image-11-1024x830.png)
+![](/dvlup-blog/wp-content/uploads/2020/04/image-11-1024x830.png)
