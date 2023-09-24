@@ -1,0 +1,77 @@
+---
+title: 'Postmortem - Child node "2" compilation error after updating to 18362 SDK'
+date: Wed, 07 Aug 2019 19:49:22 +0000
+draft: false
+tags: ['18362', '18362 SDK', 'Child node &quot;2&quot;', 'Compilation Error', 'Compile Error', 'MSBuild', 'SDK18362', 'tutorial', 'UWP', 'UWP Error', 'visual studio', 'Visual Studio 2019', 'XAML Error']
+---
+
+\[Update May 2020\] This has been fixed in the 19041 SDK. Install the 19041 SDK, set your project's Target SDK to 19041 and finally Rebuild the project/solution**.**
+
+One of the more frustrating things for me is not being able to debug a problem. After updating my UWP app's Target SDK to 18362 (Windows 10 1903), I was no longer able to compile. I got a very vague error. that I had to dig out of the msbuild logs:
+
+```
+Child node "2" exited prematurely. Shutting down. 
+```
+
+So I dug into the msbuild logs and found the original error message
+
+```
+Unhandled Exception: System.AccessViolationException: Attempted to read or write protected memory. This is often an indication that other memory is corrupt.
+   at Microsoft.Windows.UI.Xaml.Build.Tasks.NativeMethodsHelper.Write(…)
+   at Microsoft.Xaml.XBF.XbfGenerator.GenerateXbfFromStreams(…)
+```
+
+Which was ultimately caused by this process exception
+
+```
+UNHANDLED EXCEPTIONS FROM PROCESS 22472:
+System.IO.IOException: Pipe is broken.
+   at System.IO.Pipes.PipeStream.WinIOError(Int32 errorCode)
+   at System.IO.Pipes.PipeStream.BeginWriteCore(Byte\[\] buffer, Int32 offset, Int32 count, AsyncCallback callback, Object state)
+   at System.IO.Pipes.PipeStream.WriteCore(Byte\[\] buffer, Int32 offset, Int32 count)
+   at System.IO.Pipes.PipeStream.Write(Byte\[\] buffer, Int32 offset, Int32 count)
+   at Microsoft.Build.BackEnd.NodeEndpointOutOfProcBase.RunReadLoop(Stream localReadPipe, Stream localWritePipe, ConcurrentQueue\`1 localPacketQueue, AutoResetEvent localPacketAvailable, AutoResetEvent localTerminatePacketPump)
+```
+
+After several hours try trying different things to isolate what was causing the issue, I reached out to the engineering team at Microsoft. They took over and dug deeper, which actually required the WDG group to investigate (big shout out to Alan!).
+
+The problem stems from using a property of a custom base class in XAML. For example, if you have a custom control, for example a Telerik control. You need to have the base class listed in the xmlns of the XAML, even if you aren't explicitly using it.
+
+To make this simple, let's use an example. This is the specific scenario that caused my error, but it can happen with any custom control. Look at the code sample below. As you can see on **Line 5** the xml namespace is defined as _input_, and it is used on **Line 10** for the **RadRangeSlider**.
+
+```
+<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:input="using:Telerik.UI.Xaml.Controls.Input"
+             mc:Ignorable="d"
+             d:DesignHeight="400"
+             d:DesignWidth="400">
+    <Grid>
+        <input:RadRangeSlider Minimum="0" Maximum="10"/>
+    </Grid>
+</UserControl>
+```
+
+Notice the **Minimum** and **Maximum** properties, those are actually defined in a base class, not in the RadRangeSlider class... _this is what causes the exception in the latest SDK_.
+
+This will be fixed in a future UWP SDK release, but for now the workaround is to define the xmlns of the base class, even though you're not explicitly using it. Here's the fixed version of that code, notice Line 6.
+
+```
+<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:input="using:Telerik.UI.Xaml.Controls.Input"
+             xmlns:controls="using:Telerik.UI.Xaml.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="400"
+             d:DesignWidth="400">
+    <Grid>
+        <input:RadRangeSlider Minimum="0" Maximum="10"/>
+    </Grid>
+</UserControl>
+```
+
+I hope the SEO for this post is good enough to go to the top of your Google/Bing search for the eror and this explanation helps someone who encounters the issue in the future. Happy coding!

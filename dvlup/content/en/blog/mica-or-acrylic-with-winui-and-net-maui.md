@@ -1,0 +1,229 @@
+---
+title: 'Mica or Acrylic with WinUI and .NET MAUI'
+date: Mon, 13 Mar 2023 22:39:35 +0000
+draft: false
+tags: ['.NET MAUI', 'Acrylic', 'Mica', 'Styling', 'tutorial', 'windows10', 'Windows11', 'WinUI']
+---
+
+When using .NET MAUI, we have some great capabilities to affect the way the native platform works. We can take advantage of this part of lifecycle to check if:
+
+*   Is the runtime platform is Windows?
+*   First attempt to use Mica, if the user's device supports it (Windows 11).
+*   If it doesn't support Mica, then we try to use Acrylic.
+
+Here's what the end result looks like in your MauiProgram.cs code, nice and clean thanks to using lifecycle builder extension methods.
+
+```
+builder.ConfigureLifecycleEvents(events =>
+{
+#if WINDOWS10\_0\_17763\_0\_OR\_GREATER
+    
+    events.AddWindows(wndLifeCycleBuilder =>
+    {
+        wndLifeCycleBuilder.OnWindowCreated(window =>
+        {
+            // \*\*\* For Mica or Acrylic support \*\* //
+            window.TryMicaOrAcrylic();
+        });
+    });
+#endif
+});
+```
+
+To set this up, open the folder for the WinUI project (Platforms/Windows). You will see the standard Windows-specific files in there, like App.xaml. Add two new classes; `WindowsHelpers.cs` and `WindowsSystemDispatcherQueueHelpers.cs`., it should look like this:
+
+![](/wp-content/uploads/2023/03/windows-lifecycle-helpers.png)
+
+Let's first work on the dispatcher queue helper class, because the window helper class depends on it. Use the following code and save the file (_don't forget to fix the namespace so that it matches your project_):
+
+```
+using System.Runtime.InteropServices;
+using Windows.System; // For DllImport
+using WinRT; // required to support Window.As<ICompositionSupportsSystemBackdrop>()
+
+namespace YourProjectName.Platforms.Windows;
+
+public class WindowsSystemDispatcherQueueHelper
+{
+    \[StructLayout(LayoutKind.Sequential)\]
+    struct DispatcherQueueOptions
+    {
+        internal int dwSize;
+        internal int threadType;
+        internal int apartmentType;
+    }
+
+    \[DllImport("CoreMessaging.dll")\]
+    private static extern int CreateDispatcherQueueController(\[In\] DispatcherQueueOptions options, \[In, Out, MarshalAs(UnmanagedType.IUnknown)\] ref object dispatcherQueueController);
+
+    object m\_dispatcherQueueController = null;
+
+    public void EnsureWindowsSystemDispatcherQueueController()
+    {
+        if (DispatcherQueue.GetForCurrentThread() != null)
+        {
+            // one already exists, so we'll just use it.
+            return;
+        }
+
+        if (m\_dispatcherQueueController == null)
+        {
+            DispatcherQueueOptions options;
+            options.dwSize = Marshal.SizeOf(typeof(DispatcherQueueOptions));
+            options.threadType = 2;    // DQTYPE\_THREAD\_CURRENT
+            options.apartmentType = 2; // DQTAT\_COM\_STA
+
+            CreateDispatcherQueueController(options, ref m\_dispatcherQueueController);
+        }
+    }
+}
+```
+
+Next, open the window helpers class and use this code:
+
+```
+using Microsoft.UI.Composition;
+using Microsoft.UI.Composition.SystemBackdrops;
+using Microsoft.UI.Xaml;
+using WinRT;
+
+namespace YourProjectName.Platforms.Windows
+{
+    public static class WindowHelpers
+    {
+        public static void TryMicaOrAcrylic(this Microsoft.UI.Xaml.Window window)
+        {
+            var dispatcherQueueHelper = new WindowsSystemDispatcherQueueHelper(); // in Platforms.Windows folder
+            dispatcherQueueHelper.EnsureWindowsSystemDispatcherQueueController();
+
+            // Hooking up the policy object
+            var configurationSource = new SystemBackdropConfiguration();
+            configurationSource.IsInputActive = true;
+
+            switch (((FrameworkElement)window.Content).ActualTheme)
+            {
+                case ElementTheme.Dark:
+                    configurationSource.Theme = SystemBackdropTheme.Dark; 
+                    break;
+                case ElementTheme.Light:
+                    configurationSource.Theme = SystemBackdropTheme.Light;
+                    break;
+                case ElementTheme.Default:
+                    configurationSource.Theme = SystemBackdropTheme.Default;
+                    break;
+            }
+            
+            // Let's try Mica first
+            if (MicaController.IsSupported()) 
+            {
+                var micaController = new MicaController();
+                micaController.AddSystemBackdropTarget(window.As<ICompositionSupportsSystemBackdrop>());
+                micaController.SetSystemBackdropConfiguration(configurationSource);
+                
+                window.Activated += (object sender, WindowActivatedEventArgs args) =>
+                {
+                    if (args.WindowActivationState is WindowActivationState.CodeActivated or WindowActivationState.PointerActivated)
+                    {
+                        // Handle situation where a window is activated and placed on top of other active windows.
+                        if (micaController == null)
+                        {
+                            micaController = new MicaController();
+                            micaController.AddSystemBackdropTarget(window.As<ICompositionSupportsSystemBackdrop>());
+                            micaController.SetSystemBackdropConfiguration(configurationSource);
+                        }
+
+                        if (configurationSource != null)
+                            configurationSource.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
+                    }
+                };
+
+                window.Closed += (object sender, WindowEventArgs args) =>
+                {
+                    if (micaController != null)
+                    {
+                        micaController.Dispose();
+                        micaController = null;
+                    }
+
+                    configurationSource = null;
+                };
+            }
+            // If no Mica, maybe we can use Acrylic instead
+            else if (DesktopAcrylicController.IsSupported())
+            {
+                var acrylicController = new DesktopAcrylicController();
+                acrylicController.AddSystemBackdropTarget(window.As<ICompositionSupportsSystemBackdrop>());
+                acrylicController.SetSystemBackdropConfiguration(configurationSource);
+
+                window.Activated += (object sender, WindowActivatedEventArgs args) =>
+                {
+                    if (args.WindowActivationState is WindowActivationState.CodeActivated or WindowActivationState.PointerActivated)
+                    {
+                        // Handle situation where a window is activated and placed on top of other active windows.
+                        if (acrylicController == null)
+                        {
+                            acrylicController = new DesktopAcrylicController();
+                            acrylicController.AddSystemBackdropTarget(window.As<ICompositionSupportsSystemBackdrop>());
+                            acrylicController.SetSystemBackdropConfiguration(configurationSource);
+                        }
+                    }
+
+                    if (configurationSource != null)
+                        configurationSource.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
+                };
+
+                window.Closed += (object sender, WindowEventArgs args) =>
+                {
+                    if (acrylicController != null)
+                    {
+                        acrylicController.Dispose();
+                        acrylicController = null;
+                    }
+
+                    configurationSource = null;
+                };
+            }
+        }
+    }
+}
+```
+
+With both of them done, you can now use it in your `MauiProgram.cs` **CreateMauiApp** method.
+
+```
+public static class MauiProgram
+{
+    public static MauiApp CreateMauiApp()
+    {
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            })
+            .RegisterLifecycleEvents();
+
+        builder.ConfigureLifecycleEvents(events =>
+        {
+#if WINDOWS10\_0\_17763\_0\_OR\_GREATER
+
+            events.AddWindows(wndLifeCycleBuilder =>
+            {
+                wndLifeCycleBuilder.OnWindowCreated(window =>
+                {
+                    // \*\*\* For Mica or Acrylic support \*\* //
+                    window.TryMicaOrAcrylic();
+                });
+            });
+        });
+#endif
+        return builder.Build();
+    }
+}
+```
+
+Your application now has automatic support for Mica or Acrylic!
+
+Tip: If you don't see it at first, make sure you do not have another UI element covering the window's backdrop. It's not uncommon that a default style will set the background color of a page or root element. This will have a higher Z index and cover the window's natural backdrop.

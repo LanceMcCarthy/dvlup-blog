@@ -1,0 +1,42 @@
+---
+title: 'Microsoft Build 2021'
+date: Tue, 25 May 2021 15:45:33 +0000
+draft: false
+tags: ['Build 2021', 'DevMC', 'Events', 'microsoft build', 'MSBuild', 'resources']
+---
+
+I'm honored to be chosen by Microsoft to be a Dev M.C. for Microsoft Build 2021! Part of my duties as an MC is to help guide you through the gamut of sessions and resources available to you. This post is to share these things with you.
+
+It's almost halfway through 2021 right now, at this point most of us have become proficient at attending remote events. From sending the kids to virtual school, 1:1 work meetings, or major conferences requiring a personal agenda, we've learned to navigate the virtual landscape of bringing the remote venue into your home.
+
+Microsoft Build 2021 is looking to be a great event. If you're a Windows or mobile .NET dev, you might be having some difficulty finding the right sessions for your schedule because there's no "Windows Dev" filter option. To help you with this, I've put together a list of the sessions that are relevant to Windows, .NET and MAUI and more.
+
+One of my favorite features of the Build 2021 Session Scheduler is there is a clear distinction between on-demand sessions and live sessions. You can add the on-demand sessions to your "Backpack" which you can watch at your leisure
+
+Session Schedule
+----------------
+
+First, let's start with my Session schedule. You can actually see everything I'm attending by opening this URL [https://mybuild.microsoft.com/attendee/2733d203-b93c-4442-bc34-10ec5c73b0ee](https://mybuild.microsoft.com/attendee/2733d203-b93c-4442-bc34-10ec5c73b0ee&Wt.mc_ic=dx_MVP5000553)
+
+Backpack
+--------
+
+What you can't see in the schedule are the items in my Build Backpack. Here is a list to all of those items.
+
+*   [.NET 6 deep dive; what's new and what's coming](https://mybuild.microsoft.com/sessions/70d379f4-1173-4941-b389-8796152ec7b8?source=sessions&Wt.mc_ic=dx_MVP5000553)
+*   [Application design and development for Android dual screen and foldable devices](https://mybuild.microsoft.com/sessions/d660220e-896f-48b5-805e-e5b0a808a457?source=sessions&Wt.mc_ic=dx_MVP5000553)
+*   [Build Secured IoT Solutions for Azure Sphere with IoT Hub](https://mybuild.microsoft.com/sessions/410f8ceb-4798-46a7-b03b-06e78e95fc9f&Wt.mc_ic=dx_MVP5000553)
+*   [Building Blazor Web apps with In-App Chat, Activity Feeds, and Secure File Sharing using Weavy SDK and Telerik UI](https://mybuild.microsoft.com/sessions/c02f9a07-76b1-4ab8-95c5-9bc9645dca3e?source=sessions&Wt.mc_ic=dx_MVP5000553)
+*   [Building Software Faster in VS Code - Snippets on Steroids](https://mybuild.microsoft.com/sessions/c5adfb46-e98c-4817-af27-8f07a479fa52?source=sessions&Wt.mc_ic=dx_MVP5000553)
+*   [Building Well-Architected secure applications with Azure](https://mybuild.microsoft.com/sessions/f59a8722-4b5d-48ce-b380-8020d749f3fc&Wt.mc_ic=dx_MVP5000553)
+*   [Dataverse for Developers](https://mybuild.microsoft.com/sessions/05e446d5-ca44-4a5d-824e-1f5bfd8e3b11&Wt.mc_ic=dx_MVP5000553)
+*   [Deploying flags with LaunchDarkly and Microsoft](https://mybuild.microsoft.com/sessions/f05f0320-6bd0-44e6-bb34-2d447c2c450c&Wt.mc_ic=dx_MVP5000553)
+*   [Down with sign-ups, just sign-in!](https://mybuild.microsoft.com/sessions/7d872ce4-ecab-41f7-ab44-7c0a7d498059&Wt.mc_ic=dx_MVP5000553)
+*   [Enhancing the JavaScript Experience in Visual Studio](https://mybuild.microsoft.com/sessions/3536b229-c9e9-4d47-80c2-0420c4b73e5d&Wt.mc_ic=dx_MVP5000553)
+*   [Enlighten your Windows app with Microsoft Graph](https://mybuild.microsoft.com/sessions/dfc5acf1-a877-4dd7-9508-bcd9635c216c?source=sessions&Wt.mc_ic=dx_MVP5000553)
+*   [Getting Traction with GitHub Actions](https://mybuild.microsoft.com/sessions/8909ce36-5d7e-4972-8259-dfd8f3d574db?source=sessions&Wt.mc_ic=dx_MVP5000553)
+*   [Getting started with Microsoft Graph Data Connect](https://mybuild.microsoft.com/sessions/f136156f-4a75-4262-973d-81286e800f48&Wt.mc_ic=dx_MVP5000553)
+*   [Increase your .NET Productivity with Visual Studio](https://mybuild.microsoft.com/sessions/befee7c4-5d8d-4686-bba7-9a38db1f7f90?source=sessions&Wt.mc_ic=dx_MVP5000553)
+*   [Introducing Developer Velocity Lab to improve developers' work and well-being](https://mybuild.microsoft.com/sessions/800a4707-8386-4050-99a2-bcf43000a160&Wt.mc_ic=dx_MVP5000553)
+*   [Microsoft Edge: State of the platform](https://mybuild.microsoft.com/sessions/6f28eb25-8a24-488b-a50c-eab6d087d8a4&Wt.mc_ic=dx_MVP5000553)
+*   [Modernize your applications with Azure Storage](https://mybuild.microsoft.com/sessions/f4e8e71e-d5ee-40a3-a952-16efe5316d6f?source=sessions&Wt.mc_ic=dx_MVP5000553)

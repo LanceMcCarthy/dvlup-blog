@@ -1,0 +1,91 @@
+---
+title: 'Custom TypingStarted and TypingEnded Events'
+date: Thu, 02 Jan 2020 21:58:30 +0000
+draft: false
+tags: ['c#', 'Chat', 'Chat Room', 'Label', 'SignalR', 'TextBlock', 'tutorial', 'Xamarin', 'Xamarin', 'xamarin forms', 'xaml']
+---
+
+You know that little indicator in a chat that shows if someone is currently typing? I am working on a new post (coming soon, link will be here) that uses SignalR to communicate who is currently typing in a chat room along with the messages themselves.
+
+To determine who is typing, I use a timer and the `TextChanged` event. The timer logic itself is straightforward, in the `TextChanged` event starts a timer.
+
+*   The first `TextChanged` event starts a timer.
+*   If the `TextChanged` event fires again before the timer's `Elapsed` event, the timer is stopped and restarted.
+*   If the Timer's `Elapsed` event is fired first, then the user has stopped typing.
+
+This code is a bit tedious to implement over and over again, so why not just build it into the control itself and invoke a custom `TypingStarted` and `TypingEnded` event? Enjoy!
+
+```
+public class TimedEntry : Entry, IDisposable
+{
+    private readonly System.Timers.Timer timer;
+
+    public TimedChatEntry()
+    {
+        TextChanged += TimedChatEntry\_TextChanged;
+
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += timer\_Elapsed;
+    }
+
+    public event EventHandler<EventArgs> TypingStarted;
+
+    public event EventHandler<EventArgs> TypingEnded;
+
+    private void timer\_Elapsed(object sender, System.Timers.ElapsedEventArgs args)
+    {
+        if (timer == null)
+            return;
+
+        timer?.Stop();
+        Device.BeginInvokeOnMainThread(() => TypingEnded?.Invoke(this, new EventArgs()));
+    }
+
+    private void TimedChatEntry\_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (timer == null)
+            return;
+
+        if (!timer.Enabled)
+        {
+            timer?.Start();
+            Device.BeginInvokeOnMainThread(() => TypingStarted?.Invoke(this, new EventArgs()));
+        }
+        else
+        {
+            timer.Stop();
+            timer.Start();
+        }
+    }
+
+    public void Dispose()
+    {
+        if (timer != null)
+        {
+            timer.Elapsed -= timer\_Elapsed;
+        }
+        timer?.Dispose();
+    }
+}
+```
+
+Here's an example that uses a SignalR service:
+
+```
+<TimedEntry TypingStarted="TimedChatEntry\_OnTypingStarted"
+            TypingEnded="TimedChatEntry\_OnTypingEnded"/>
+``````
+private async void TimedChatEntry\_OnTypingStarted(object sender, EventArgs e)
+{
+    if (service != null)
+        await service.SendTyperAsync(me.Name, true);
+}
+
+private async void TimedChatEntry\_OnTypingEnded(object sender, EventArgs e)
+{
+    if (service != null)
+        await service.SendTyperAsync(me.Name, false);
+}
+```
+
+You can see the entire thing in action, including the SignalR Hub project, here on GitHub: [SignalR Chat Room Demo](https://github.com/LanceMcCarthy/CustomXamarinDemos/tree/master/SignalRChatDemo).

@@ -1,0 +1,24 @@
+---
+title: 'Get a loaner Windows Phone 8 device'
+date: Tue, 27 Nov 2012 18:25:33 +0000
+draft: false
+tags: ['Nokia official', 'resources']
+---
+
+Are you building a Windows Phone 8 app but don't have a device to test your app on? Are you using the NFC or Bluetooth APIs and having a WP8 device would finalize your testing? There are 3 ways to get a device: Earn one with your rewards points, Trade up your current phone for a new one, or get a loaner device.
+
+This post is about the third option, I can line you up with a loaner device from Nokia. Take the following steps (if you are already a DVLUP member, skip to step 2) and let's get your app to market!
+
+Step 1- We need to sign you up for [DVLUP.com](http://nokiawpdev.wordpress.com/2012/11/06/level-up-with-dvlup/) (a free, developer rewards program for Windows Phone devs).  Send me an email with the following information and I will give you a special invite code to join.
+
+*   First / Last name
+*   Your Windows Phone Publisher Name (if you have one)
+*   A screenname you'd like for your Dvlup profile
+*   Email address (your live ID if possible )
+*   Where are you located (State, Country) **DVLUP is currently only available to US and Canadian developers**
+
+Send the email to Nokia-Dev@Outlook.com and I'll walk you through the steps
+
+Step 2- Go to [this link](http://www.dvlup.com/loan) and follow the instructions.
+
+That's it. Period. Nokia wants you to have everything you need to bring your app to the masses. Now, you have no excuses for not getting your app out the door :)

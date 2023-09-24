@@ -1,0 +1,162 @@
+---
+title: 'Creating 3D Icons for your Mixed Reality UWP app'
+date: Wed, 06 Sep 2017 06:23:28 +0000
+draft: false
+tags: ['hololens', 'mixed reality', 'MixedReality', 'Tools I Use', 'tutorial', 'windows 10', 'Windows Holographic', 'windows10']
+---
+
+Microsoft has opened up the ability to have a 3D app launcher to all developers in the Fall Creator's Update. In this blog post, I'm going to show you how to build your own 3D app launcher from scratch (accompanying YouTube tutorial video embedded below).
+
+What is a 3D app launcher?
+
+App Launchers
+-------------
+
+Up until now, you've only been able to have a regular 2D tile in the Start menu and the user could place a 2D frame of your app on a surface in the Cliff House (the Mixed Reality home) or on a surface in your HoloLens mapped area. Clicking the app frame would launch the app in the same frame.
+
+If your app was a 3D app, then it would launch the immersive experience, but the launcher was just a 2D . The user wouldn't be able to intuitively know that the application is an immersive app. There are some apps that have 3D launchers, for example the HoloTour app that you see in this article's featured headline image.
+
+Wouldn't it be nice if your immersive application had a 3D launcher, too? By the end of this blog post, you'll be able to! To get started, let's take a look at the model and how to build one yourself.
+
+The Model
+---------
+
+First thing you'll need to understand is that Microsoft requires your model to use [gITF 2.0 specification](https://github.com/KhronosGroup/glTF/blob/master/README.md) and more specifically, the binary format (.glb). To accomplish this, we are going to use [Blender](https://www.blender.org/).
+
+Blender is a modeling and animation application that _is open source and free_. You can choose to build your model directly in Blender if you're familiar with it. Alternatively, build the model in another application but use the [Blender gITF Exporter add-on](https://github.com/KhronosGroup/glTF-Blender-Exporter), which is what I'll show you today.
+
+NOTE: If you already have an FBX model, jump to the **Importing a Model** section below
+
+### Building The Model From Scratch
+
+To keep this tutorial simple, I'll create a simple UVSphere in Blender and use a solid color texture. Creating complex models in Blender is a bit out of the scope of this post, however I cover doing it from scratch in this video (if the video doesn't load, [here's the direct link](https://www.youtube.com/watch?v=sY9KOCSwpRA)).
+
+https://youtu.be/sY9KOCSwpRA
+
+Just be sure to read the next section, even if you followed the video, so that you're familiar with the restrictions you'll inevitability encounter while trying to use different models.
+
+### Importing a Model
+
+Alternatively, you can import other model types, like FBX, into Blender. This is easy, as FBX importing is available out-of-the-box .Take following steps once you've opened Blender
+
+1.  Select **File**
+2.  Expand **Import**
+3.  Select **FBX**
+4.  Locate and load the file
+
+One thing you're going to notice is that model may not be visible in your area, it's far too large and off center. To get it in your view, you can use the "View All" shortcut (Home key) or drill into the menu "View > View All" (this menu is underneath the 3D view area). Here's a screenshot:
+
+[![](/wp-content/uploads/2017/09/viewall.png)](/wp-content/uploads/2017/09/viewall.png)
+
+Now, look in the **Outliner** panel (located at the top right of Blender) and find the object named "root" this is the imported model. Then, to get the right editing options, select the Object properties button (see the red arrow in this screenshot).
+
+\[caption id="attachment\_2115" align="alignnone" width="318"\][![](/wp-content/uploads/2017/09/objectproperties.png)](/wp-content/uploads/2017/09/objectproperties.png)  
+  
+Outliner and Object properties editor\[/caption\]
+
+Take note of the highlighted **Transform** properties, we'll change those next. However, before we do, let's review some of the guidelines Microsoft has set for 3D app launchers:
+
+1.  The Up axis should be set to “Y”.
+2.  The asset should face “forward” towards the positive Z axis.
+3.  All assets should be built on the ground plane at the scene origin (0,0,0)
+4.  Working Units should be set to meters and assets so that assets can be authored at world scale
+5.  All meshes do not need to be combined but it is recommended if you are targeting resource constrained devices
+6.  All meshes should share 1 material, with only 1 texture sheet being used for the whole asset
+7.  UVs must be laid out in a square arrangement in the 0-1 space. Avoid tiling textures although they are permitted.
+8.  Multi-UVs are not supported
+9.  Double sided materials are not supported
+
+With these in mind, let's start editing our mesh, under the Transform section, take the following actions:
+
+1.  Set **Location** to 0,0,0
+2.  Set **Scale** to 1,1,1
+3.  Now, lets re-frame the 3D view so we can see the model by using the "View All" shortcut again.
+
+You should see that your model is now at the right place and close to the right scale. Now that you can see what you're doing, make any additional tweaks so that your model meets #1 and #2 of the Microsoft guidelines.
+
+Lastly, we need to check the model's triangle count, **there is a limit of 10,000 triangles** for a 3D app launcher (you can see the triangle count in the top toolbar when the model is selected). Here's what it looks like:
+
+\[caption id="attachment\_2117" align="alignnone" width="419"\][![](/wp-content/uploads/2017/09/trianglecount.png)](/wp-content/uploads/2017/09/trianglecount.png)
+
+Mesh Triangle Count\[/caption\]
+
+If you need to reduce your triangle count, you can use **the Decimate Modifier** on your model. [Go here to learn more on how to use Decimate](https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/decimate.html) (I also recommend checking out a couple YouTube videos on the topic, Blender is complex app).
+
+I strongly urge you to go to [this documentatio](https://developer.microsoft.com/en-us/windows/mixed-reality/creating_3d_models_for_use_in_the_windows_mixed_reality_home)n and read all the model restrictions and recommendation, such as texture resolutions and workflow. If you use a model that doesn't meet the guidelines, you'll see a big red X like this:
+
+\[caption id="attachment\_2114" align="alignnone" width="300"\][![](/wp-content/uploads/2017/09/badlaunchermodel.png?w=300)](/wp-content/uploads/2017/09/badlaunchermodel.png)
+
+Invalid Model\[/caption\]
+
+Now that your model is done, it's time to export it as a gITF binary file.
+
+### Exporting GLB
+
+By default, Blender doesn't have a gITF export option, so you'll want to use the KhronosGroup [glTF-Blender-Exporter](https://github.com/KhronosGroup/glTF-Blender-Exporter). Installation of the add-on is pretty straight forward, [go here to read the instructions](https://github.com/KhronosGroup/glTF-Blender-Exporter/tree/master/scripts).
+
+You get to choose between two options to add it:
+
+*   Option 1: Set Blender to use repo's scripts folder (to stay in sync with the exporter's development)
+*   Option 2: Copying a folder into Blender's folders (**I chose this option,** scroll down to where the author starts a sentence with "Otherwise")
+
+Finally, enable the add-on in Blender (last step in the instructions). Once the add-on is enabled, go ahead and export your model! You'll see a glb option in the File > Export list.
+
+Here's a screenshot:
+
+\[caption id="attachment\_2118" align="alignnone" width="363"\][![](/wp-content/uploads/2017/09/exportoption.png)](/wp-content/uploads/2017/09/exportoption.png)
+
+Export as glb\[/caption\]
+
+UPDATE Jan 2018
+---------------
+
+You can now pack your more complex textures using a new tool released by Microsoft a few weeks ago! It takes away the requirement to be a shader ninja by importing your existing glb, packing the textures properly and exports an updated glb that will work in the Mixed Reality home.
+
+Go here to get the converter and read how to use it https://github.com/Microsoft/glTF-Toolkit
+
+Setting the 3D Launcher
+-----------------------
+
+Now that you have a glb file, it's time to open your Mixed Reality UWP app in Visual Studio. Once it's loaded, we need to add the glb file to your app's Assets folder (right click on the folder and select "Add > Existing Item"). Once it's been pulled in **make sure you set the Build Action to Content** (right click on the file, select Properties and change Build Action to content).
+
+\[caption id="attachment\_2120" align="alignnone" width="300"\][![](/wp-content/uploads/2017/09/filebuildaction.png?w=300)](/wp-content/uploads/2017/09/filebuildaction.png)
+
+File's Build Action\[/caption\]
+
+Lastly, we need to edit the app's **Package.appxmanifest** file XML manually, to do this, right click on the file and select "View Code". At the top of the file, add a new xmlns and also put it in the IgnorableNamespaces list
+
+\[code\]
+
+xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
+
+IgnorableNamespaces="uap uap2 uap5 mp"
+
+\[/code\]
+
+Next, locate the DefaultTile tag (under Application > VisualElements), expand it and add the MixedRealityModel option with your
+
+\[code\]
+
+<uap:DefaultTile ShortName="Channel9 Space Station" Wide310x150Logo="Assets\\Wide310x150Logo.png" > <uap5:MixedRealityModel Path="Assets\\Dog.glb" /> </uap:DefaultTile>
+
+\[/code\]
+
+Here's a screenshot, with the additions highlighted:
+
+\[caption id="attachment\_2119" align="alignnone" width="775"\][![](/wp-content/uploads/2017/09/manifest.png)](/wp-content/uploads/2017/09/manifest.png)
+
+Package.appxmanifest changes\[/caption\]
+
+Final Result
+------------
+
+You can see the final result at the end of the video above. Keep in mind that I keep the triangle count down for this, but next time I'll likely increase it to 64 segments and 32 rings. Additionally, I'll use a texture that can be mapped around a sphere (the Earth for example).
+
+[![](/wp-content/uploads/2017/09/2017-09-05_21-17-42.png)](/wp-content/uploads/2017/09/2017-09-05_21-17-42.png)
+
+If you're having trouble with your model and want to check your app settings with a known working mode, [download the glb I created for here](https://www.dropbox.com/sh/ugq848qczpfkqo3/AABpgn28gg23u42hYf7eJJBoa?dl=0). I hope this tutorial was helpful, enjoy!
+
+### More Resources
+
+*   [Creating 3D app launchers](https://developer.microsoft.com/en-us/windows/mixed-reality/creating_3d_app_launchers)
+*   [Creating 3D Resources for use in the Mixed Reality Home](https://developer.microsoft.com/en-us/windows/mixed-reality/creating_3d_models_for_use_in_the_windows_mixed_reality_home)

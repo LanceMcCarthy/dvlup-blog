@@ -1,0 +1,38 @@
+---
+title: 'An Offer You Can''t Refuse'
+date: Fri, 18 Jan 2013 22:28:36 +0000
+draft: false
+tags: ['account', 'android', 'androiddev', 'developer', 'enter', 'free phone', 'giveaway', 'iOS', 'iosdev', 'microsoft', 'nokia', 'Nokia official', 'premium', 'resources', 'roiddev', 'software', 'sweet prizes', 'windows phone']
+---
+
+One of my responsibilities as a Nokia Developer Ambassador is to help developers get started. I thought to myself, what better way to welcome **new** developers than **give them a new phone and a DevCenter Token ($99 value) or a Nokia Premium Developer Program token ($1,500 value) for building your first Windows Phone app**. I will knight you into the brotherhood of Windows Phone developers by giving you one of those sweet prizes and I made it as simple as possible to get one. If you are in my Ambassador area of coverage (see the bottom of the post for regions) send me an email to get started. Here are the three easy-breezy categories:
+
+### To get a free Nokia Lumia 800
+
+You are a **new** Windows Phone Developer and you published your first app. A "new" WPDev means you've recently created a DevCenter account and have published your first app since Jan 1st 2013. So, if you plan on creating a DevCenter Account in the next couple months or are on the fence about releasing apps for Windows Phone, this is your opportunity to push up that appointment with fate! If you don't have a DevCenter account, see the next reward... I got your back.
+
+**[Send me an email](http://nokiawpdev.wordpress.com/about/)** with your Windows Phone Publisher Name and GUID (You can find these on your DevCenter Dashboard under the "Account" tab to the left) and your app's GUID (found in the App's details tab).
+
+### To get a free Microsoft DevCenter account
+
+A DevCenter account is your portal to publishing apps to the store. It is also how you get paid from app sales. It also lets you unlock physical devices for testing apps. For me to pay this fee for you, I need you to show me an app that is ready to be published. The incentive is to help those devs who want to make WP apps but don't have the budget to pay the $99 yet. You usually are coming from another platform (Android, iOS, etc.) or framework (WPF, Silverlight, Windows 8, Java, etc.) and want to get your app out on Windows Phone, but there wasn't enough incentive to go "in the red" until you earned back the $99.
+
+Let me start you off with a bang. **[Send me an email](http://nokiawpdev.wordpress.com/about/)** for more information, or if you have an app ready to go.
+
+### To get a free Nokia Premium Developer Program (NPDP) account
+
+To get this snazzy reward, just send me an email with a _showcase ready_ app that uses [Telerik's RadControls for Windows Phone](http://www.telerik.com/products/windows-phone.aspx) and/or it uses the [Buddy api](http://buddy.com/developers/), and boom I hook you up. The NPDP token I send you is worth $1,500, so please don't send a fart app that uses a Telerik button... that is not a [showcase ready](http://www.telerik.com/products/windows-phone/getting-started/showcase.aspx) app! If you don't know what the RadControls are, then you got to check [this](http://www.telerik.com/products/windows-phone/overview/all-controls.aspx) out. Telerik made a whole suite of "Drag And Drop" UI components for windows Phone Devs. They literally save you months of development time, [download the free trial ](http://www.telerik.com/download-trial-file.aspx?pid=777)and start building. Once you send me the app, I give you the tokens and you publish. Simple.
+
+[Email me](http://nokiawpdev.wordpress.com/about/) if you want more details on how to get the RadControls or if you would like to collect this reward.
+
+Other than giving this stuff away for nothing, I couldn't have made it easier for you to come on board. Good luck and happy coding!
+
+Important details, please read:
+
+**My Regions:**
+
+I am the Nokia Developer Ambassador for Boston, MA. However, you are eligible for this giveaway if you are in the United States and do not live in one of these states (California, Texas,  New York). If you're in one of those states, [**send me an email**](http://nokiawpdev.wordpress.com/about/) and I'll personally connect you to your local Ambassador. They run their own giveaways and incentive based contests independently of me.
+
+**Other stuff:**
+
+While supplies last and first come first serve. This not a contest. It is not run by Nokia. I am using my own personal stock for rewards and giving it away to developers who want to get started. I will be the final judge as to what is "showcase-able". My goal is to make this fun, it is really simple, the requirements for each reward are as listed. If you have any questions, contact me. You cannot claim two prizes for the same action/submission. I reserve the right to alter a rule if it deemed to be unfair. Unfortunately, this offer is **only valid for developers in the US or Canada.**

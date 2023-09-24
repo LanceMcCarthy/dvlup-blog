@@ -1,0 +1,36 @@
+---
+title: 'Setting up Home Assistant in Docker for Windows with Port Forwarding Enabled'
+date: Mon, 17 Feb 2020 18:34:20 +0000
+draft: false
+tags: ['docker', 'homeassistant', 'tools', 'Tools I Use', 'tutorial', 'windows10']
+---
+
+I hope that you've landed here before spending hours/days trying to find a solution as to why you can't forward the Home Assistant port in Docker. The solution is frustratingly easy.
+
+Problem
+-------
+
+The [install Home Assistant in docker on Windows](https://www.home-assistant.io/docs/installation/docker/#windows) instructions are great, with one exception. It explains the required prerequisites to make sure docker has access to a host disk. However, those instructions have outdated instructions to setup the port-forward rules, which ultimately makes it a waste of time.
+
+They share this command (don't use):
+
+```
+docker run --init -d --name="home-assistant" -e "TZ=America/Los\_Angeles" -v //c/Users/\[USER\]/homeassistant:/config --net=host homeassistant/home-assistant:stable
+```
+
+It installs fine and spins up the container. The docs say to next use `netsh` and manually add port-forward rules, but it doesn't work (_and you can seriously mess stuff up with netsh_).
+
+Solution
+--------
+
+Instead, you can just tell docker to port forward it for you when you initially create the container by using the `-p` switch. Since Home Assistant uses port 8123, you use `-p 8123:8123` in the command.
+
+Here's the one-liner that does both the install, and the port forward, at the same time:
+
+```
+docker run -p 8123:8123 --name="home-assistant" -e "TZ=America/Los\_Angeles" -v //c/Users/lance/homeassistant:/config homeassistant/home-assistant:stable
+```
+
+After that, you're ready to go! Open a browser on the host PC and navigate to `http://localhost:8123`.
+
+**Important** `-p 8123:8123` parameter must be used **before** `--name`. Otherwise, it gets used in the container instead of Docker, which results in a broken install because the container doesn't know what `-p` is. I wasted two days before discovering this, thanks to help from [Alex Sorokoletov](https://twitter.com/AlexSorokoletov?s=20) and [Martin Sundhaug](https://twitter.com/sundhaug92?s=20). I owe them some 🍻.

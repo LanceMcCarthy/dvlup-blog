@@ -1,0 +1,65 @@
+---
+title: 'Windows 11'
+date: Thu, 24 Jun 2021 15:01:01 +0000
+draft: false
+tags: ['editorial', 'operating systems', 'preview', 'walkthrough', 'windows', 'windows 11', 'Windows11']
+---
+
+Here's a visual walkthrough of the Windows 11 installation and initial desktop experience, with Dark Mode. There will be very little words in this article, my intention is to let you explore the image galleries (click to enlarge any image).
+
+I will say this, it not a repeat of the windows 7 to Windows 8 upgrade. I really like the experience moving around the OS; it feels smooth, lots of color and well polished. I recommend that you not judge on the pictures alone, use it for a day with your normal workflow and see that your cheese has not been moved :)
+
+Setup Experience
+
+*   ![](/wp-content/uploads/2021/06/2.png)
+    
+*   ![](/wp-content/uploads/2021/06/3.png)
+    
+*   ![](/wp-content/uploads/2021/06/4.png)
+    
+*   ![](/wp-content/uploads/2021/06/5.png)
+    
+    Tip - Select 'Sign-in options' to use an offline account
+    
+*   ![](/wp-content/uploads/2021/06/6.png)
+    
+*   ![](/wp-content/uploads/2021/06/7.png)
+    
+*   ![](/wp-content/uploads/2021/06/8-1024x576.png)
+    
+
+Hello Desktop
+
+*   ![](/wp-content/uploads/2021/06/9-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/10-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/11-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/12-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/13-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/14-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/15-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/16-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/17-1024x576.png)
+    
+
+Dark Mode
+
+*   ![](/wp-content/uploads/2021/06/18-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/19-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/20-1024x576.png)
+    
+*   ![](/wp-content/uploads/2021/06/21-1024x576.png)
+    
+
+Conclusion
+
+This is really polished for the first preview, I'm hopeful for the final thing later this year. In the meantime, I'll be testing my apps for bugs. Feel free to leave comment on what you think (yes, even troll comments can be helpful).

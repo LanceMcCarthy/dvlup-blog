@@ -1,0 +1,21 @@
+---
+title: 'March Lumia Giveaway'
+date: Mon, 10 Mar 2014 18:47:28 +0000
+draft: false
+tags: ['giveaway', 'nokia lumia', 'Windows Phone app']
+---
+
+#### UPDATE: The winner for March is Shawn Murphy, congratulations!
+
+To reward developers staying active, I am giving away a Nokia Lumia (winner's choice of the 1020, 928, 925 or 920). Eligibility is simple::
+
+1.  Publish or update a Windows Phone app between Feb 1st and March 31st
+2.  You live in one of the following states: MA, RI, CT, NH, ME, VT, MI, OH, IL or IN (USA state abbreviations, not countries).
+
+If you can say yes to 1 and 2, send me an email to **ext-lance.mccarthy at nokia dot com** with the following information (deadline is March 31st):
+
+*   Name (first/last)
+*   Dvlup username (if you don't have one yet, [sign up for free](http://www.dvlup.com/lance/invite). It only takes 30 seconds)
+*   Link to your app in the Windows Phone Store
+
+Easy right? I'll draw the winner on April 1st and notify you via email. Good luck!

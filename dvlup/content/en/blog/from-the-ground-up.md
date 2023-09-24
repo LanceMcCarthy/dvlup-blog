@@ -1,0 +1,122 @@
+---
+title: 'From The Ground Up'
+date: Thu, 27 Dec 2012 21:48:53 +0000
+draft: false
+tags: ['debugging', 'deploy', 'device', 'mobile', 'Nokia official', 'resources', 'sdk', 'software', 'technology', 'visual studio', 'windows phone', 'windows phone 8', 'wp7', 'wp8', 'wpdev']
+---
+
+This post is to get you started on Windows Phone Development "from the ground up" and is targeted towards people who have _no prior experience_ with the Windows Phone SDK.  At any time you can refer to my [resources page](http://nokiawpdev.wordpress.com/resources/) for additional links to WPDev assets, tutorials and example code.
+
+Ok, let's begin.
+----------------
+
+The first thing you should know is that is does not cost a penny to develop for Windows Phone! The SDK and the tools are free. The only time you will need to pay is when you sign up for your Microsoft DevCenter account. The DevCenter is your portal to the Windows Phone Store. It is where you will submit, update and track your apps. I can help mitigate those costs for you. If you are an Android or iOS Developer and are porting an app, or a true "from the ground up" developer,  I will pay for your first year's DevCenter fee. [Contact me](http://nokiawpdev.wordpress.com/about/) for details.
+
+Now, we need to go over some minimum requirements that you'll need to meet in order to use the different versions of the SDK.
+
+Step 1: Minimum Environment Requirements
+----------------------------------------
+
+**Windows Phone 8 SDK**: If you are looking to write Windows Phone 8 (WP8) apps, here are the minimum requirements. If you do not have access to a Windows 8 (Win8) machine or cannot upgrade your machine to Win8, you can [install and run Win8 in a VM](http://www.windows7hacker.com/index.php/2012/08/installing-windows-8-in-a-virtual-environment-with-vmware-player/). If you install the WP8 SDK, you also can develop for Windows Phone 7.x (WP7).
+
+Supported operating systems**:** Windows 8, Windows 8 Pro
+
+Operating system type**:**
+
+*   Windows 8 64-bit (x64) client versions
+
+Hardware**:**
+
+*   6.5 GB of free hard disk space
+*   4 GB RAM
+*   64-bit (x64) CPU
+
+Windows Phone 8 Emulator**:**
+
+*   Windows 8 Pro edition or greater
+*   Requires a processor that supports Second Level Address Translation (SLAT)
+
+If your computer meets the hardware and operating system requirements, but does not meet the requirements for the Windows Phone 8 Emulator, the Windows Phone SDK 8.0 will install and run. However, the Windows Phone 8 Emulator will not function _but you can still deploy to a physical phone!_
+
+**Windows Phone 7 SDK**: Whenever I reference Windows Phone 7 in my posts, I am speaking about Windows Phone 7.1 (AKA Mango/Tango).
+
+Supported operating systems**:** Windows 7, Windows Vista
+
+*   Windows® Vista® (x86 and x64) with Service Pack 2 – all editions except Starter Edition
+*   Windows 7 (x86 and x64) – all editions except Starter Edition
+*   Installation requires 4 GB of free disk space on the system drive.
+*   3 GB RAM
+*   Windows Phone Emulator requires a DirectX 10 or above capable graphics card with a WDDM 1.1 driver
+
+The Windows Phone SDK 7.1 is compatible with the final version of Visual Studio 2010 SP1.
+
+Step 2: Download and install the SDK
+------------------------------------
+
+In the links below it is very important to read the "Overview" section before installing the SDKs. There are nuances that may apply to you and are good to know in general. The download you'll get is a small file that when run will start the installation. You will need a data connection to install, however if you don't have a connection, you can alternatively download an ISO version.
+
+### Windows Phone 8 SDK (download it from [here](http://www.microsoft.com/en-us/download/details.aspx?id=35471)):
+
+*   Choose the language version you want to install and click the Download button for the WPexpress\_full.exe file. Follow the instructions to install the SDK. Note that each localized version of Windows Phone SDK 8.0 is designed to function with the corresponding localized operating system and localized version of Visual Studio 2012.  _Note - Windows Phone SDK 8.0 installs side-by-side with previous versions of the Windows Phone SDK. You don't need to uninstall previous versions before beginning this installation._
+*   Download the release notes which are in a separate file. For Windows Phone SDK 8.0 documentation and samples, see the[Windows Phone Dev Center](http://go.microsoft.com/fwlink/?LinkId=255551).
+*   To start VS Express for Windows Phone, click the application in the Apps list. If you have Visual Studio Professional, Premium or Ultimate installed on the computer, the VS Express for Windows Phone shortcut won't appear. Instead, start your Visual Studio instance as usual and then create Windows Phone SDK 8.0 projects using the installed Windows Phone templates.
+*   If you try to run a project in Windows Phone Emulator and Hyper-V is not enabled, you will be prompted to turn on Hyper-V. Turning on Hyper-V requires you to restart your computer.
+
+Note: this release is also available in [.iso](http://go.microsoft.com/fwlink/?LinkID=257234&clcid=0x409) format. Choose one of the following options for handling downloaded ISO images:
+
+*   (Recommended) Write the image file to a blank DVD.
+*   (Alternative) Mount the image file virtually as DVD devices.
+
+For more information about these options, see "What are ISO image files and how do I use them?" on the [FAQ](http://go.microsoft.com/fwlink/?LinkId=95676) page.
+
+### Windows Phone 7 SDK (Get the 7.1 SDK [here](http://www.microsoft.com/en-us/download/details.aspx?id=27570) and the 7.1.1 SDK [here](http://www.microsoft.com/en-us/download/details.aspx?id=29233))
+
+There are two SDKs for WP7 development, the first one (7.1) is the full SDK and the second (7.1.1) is an update that adds support to develop for low memory devices. Install 7.1 first, then download and install 7.1.1 immediately afterwards. The 7.1.1 update adds an additional emulator with a lower memory cap (256MB). Windows Phone has low end devices in a lot of "emerging markets". This is a huge opportunity for you to reach millions of devices.
+
+**Instructions for the 7.1 SDK (Do this one first):**
+
+_If a pre-release version of the Windows Phone SDK 7.1 (Beta or RC) is installed on the machine, please uninstall it before installing this product. _ Click on the **vm\_web2.exe** file in the download section above. This will start the installation of Windows Phone SDK 7.1 and install necessary components on your computer. Please refer to the Release Notes in the download section above for additional details before running setup. Note: this release is also available in [.iso](http://go.microsoft.com/fwlink/?LinkID=226694) format. Choose one of the following options for handling downloaded ISO images:
+
+*   (Recommended) Write the image file to a blank DVD.
+*   (Alternative) Mount the image file virtually as DVD devices.
+
+For more information about these options, see "What are ISO image files and how do I use them?" on the [FAQ](http://go.microsoft.com/fwlink/?LinkId=95676) page.
+
+**Instructions for the 7.1.1 SDK update (Do this one second):**
+
+_Windows Phone SDK 7.1 must be installed on your computer before you can install Windows Phone SDK 7.1.1._ For more information, see [Installing Windows Phone SDK](http://go.microsoft.com/fwlink/?LinkId=245453). To install Windows Phone SDK 7.1.1 Update, click the **Download **button for WPSDK-7.1.1-KB2669191-x86.exe file, and then follow the instructions to install the SDK.
+
+**Note: **This update configures a 256-MB emulator and a 512-MB emulator as part of the installation, and so might take longer to install than a typical SDK.
+
+Step 3: Fire it up!
+-------------------
+
+Congratulations! Now that you have the environment and tools installed, you are ready to roll. You may be asking yourself, "What do I do now?". That's a good question. To answer it, I will have you  write your very first Windows Phone app. My instructions from now on will be using the Windows Phone 8 SDK, most of the steps are the same. If you are using the WP7 SDK and something doesn't make sense to you, [contact me](http://nokiawpdev.wordpress.com/about/) and I'll give you a custom lesson.
+
+*   Open Visual Studio Express (If you already have Visual Studio installed on your machine, use it instead of the Express version)
+*   Go to File > New > Project
+*   In the window that just opened select the following
+
+[![StepsForNewPanoApp](http://nokiawpdev.files.wordpress.com/2012/12/stepsfornewpanoapp.png?w=547)](http://nokiawpdev.wordpress.com/2012/12/27/from-the-ground-up/stepsfornewpanoapp/)
+
+1.  Make sure you have Windows Phone selected
+2.  Select Windows Phone Panorama App
+3.  Name your project
+4.  Click OK.
+
+Visual Studio will now ask you to choose a Windows Phone version. There is one thing you should know at this point. If you build an app as a WP7 app, it will work on WP7 and WP8 devices. If you build a WP8 app, it will only work on WP8 devices. In most basic scenarios, you should choose WP7 (7.1) and then update your app to WP8 afterwards. You will only be able to target WP8 if you need a feature that only WP8 offers (ex. NFC, Bluetooth, etc).
+
+[![TargetVersionSS](http://nokiawpdev.files.wordpress.com/2012/12/targetversionss.png)](http://nokiawpdev.wordpress.com/2012/12/27/from-the-ground-up/targetversionss/)
+
+Once you click OK, Visual Studio will automatically generate all the files you need to run and deploy the app. In fact, this app you just created is ready to build and deploy. Complete with example data and ViewModel!
+
+Step 4: Build and Deploy
+------------------------
+
+Now that you've got a project open in Visual Studio and it is ready to be deployed to an emulator or device (you can debug/deploy to a developer unlocked device via USB cable), it's time to build and debug. Familiarize yourself with the image below ([full size image](http://nokiawpdev.files.wordpress.com/2012/12/vs2012ui.png)):
+
+[![VS2012ui](http://nokiawpdev.files.wordpress.com/2012/12/vs2012ui.png)](http://nokiawpdev.wordpress.com/2012/12/27/from-the-ground-up/vs2012ui/)
+
+I always say the best lesson is the one you did hands-on, so go ahead and click the little green debug arrow to debug your project. If the emulator isn't already open, Visual Studio will fire it up for you. If this is your first time running the emulator, Windows 8 will ask for Hyper-V permission, this only happens once. Once that's done, your app will launch inside the emulator.
+
+It will take some time to become more familiar with the process involved and learn more about the infrastructure of a Windows Phone app, but you are on your way. Congrats, you are now officially a Windows Phone developer.

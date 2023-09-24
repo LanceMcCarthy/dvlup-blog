@@ -1,0 +1,42 @@
+---
+title: 'Make an Awesome Video for Your App'
+date: Fri, 07 Jun 2013 17:31:38 +0000
+draft: false
+tags: ['how-to', 'lumia', 'marketing', 'nokia', 'Nokia official', 'resources', 'software', 'technology', 'tutorial', 'video', 'windows phone', 'wpdev']
+---
+
+Nokia has gone to great lengths to make it easy for developers to create promotional materials for their Windows Phone apps. This quick video shows you how to do it.
+
+\[youtube=http://www.youtube.com/watch?v=caCZ1w9ZUak?rel=0\]
+
+Steps to make your own
+----------------------
+
+1.  Got to the [Marketing Toolkit main page](http://developer.nokia.com/resources/promoting-your-app/index.jsp) (you'll need to be signed in)
+2.  Select the checkbox under "Promotional Video"
+3.  Paste in the Store URL to your app
+4.  Select the platform of your choice (I chose Lumia 920)
+5.  Select a language
+6.  Click "Continue"
+
+On the next page:
+
+1.  Select a category
+2.  Make sure the app name is correct
+3.  Click "Continue"
+
+On the next page, you can choose the words that get displayed during the video, choose the adjectives that best describe your app's user experience.
+
+1.  Select all three words for your app
+2.  Select the screenshot you want to be in the video
+3.  Choose the music you want in the video
+4.  Click "Preview Video"
+
+You'll be brought to the preview page. If you want to change something, you can go back and alter your choices.
+
+1.  If you like the video, click "Continue"
+2.  Click "Create Video"
+
+You're almost done, the next steps take involve signing into your youtube account and the video's full rendering.
+
+Congratulations, you now have a great looking video to promote your app.

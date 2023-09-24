@@ -1,0 +1,67 @@
+---
+title: 'Adding Telerik Universal'
+date: Mon, 10 Nov 2014 18:01:21 +0000
+draft: false
+tags: ['telerik', 'telerik controls', 'tutorial', 'universal app development', 'windows 10', 'windows 8.1', 'windows phone 8.1', 'windows universal', 'wpdev']
+---
+
+Telerik has released a new toolset, [UI for Windows Universal](http://www.telerik.com/windows-universal-ui). You can now use many components like Charts and Calendars in a shared XAML page in your application. If you already have the Telerik Windows Phone or Windows 8.1 XAML controls, _you now have a license for the Universal controls, too_.
+
+It is very simple to add it to your project. Let me show you in a quick File > New example:
+
+1- Open Visual Studio 2013 and create a new Universal Store app.
+
+Select **File** \> **New** \> **Project** \> **Visual C#** > **Store Apps** \> **Universal Apps** and choose the **HubApp template** (you can choose Blank App if you prefer, we're only going to use the Shared folder to add content).
+
+[![S1](/wp-content/uploads/2014/11/s1.png?w=660)](/wp-content/uploads/2014/11/s1.png)
+
+2- After the project generates, let's focus on the solution Explorer. First, lets add the Telerik reference to the Windows project.
+
+Right click on **References** > **Add Reference** \> select **Windows 8.1** (in the left tree) > **Extensions**. Now you'll see a list of extensions, choose "**Telerik UI for Windows Universal**"
+
+[![S2](/wp-content/uploads/2014/11/s2.png?w=660)](/wp-content/uploads/2014/11/s2.png)
+
+3- Now add the Telerik extension to the Windows Phone project.
+
+The steps are the sames as you did in step 2, but the extension's name is "**Telerik UI for Windows Phone 8.1**"
+
+[![S3](/wp-content/uploads/2014/11/s3.png?w=660)](/wp-content/uploads/2014/11/s3.png)
+
+4- Now we are ready to start building, let's add a RadCalendar to a shared XAML page.
+
+1.  Build the solution (F6)
+2.  Right click on the Shared Project and select **Add** \> **New Item** \> **Blank Page**
+3.  In the Visual Studio Toolbox type in "**RadCalendar**", drag and drop it onto your new blank page. You can also type it in, but make sure you add the namespace (see screenshot)
+
+[![S4](/wp-content/uploads/2014/11/s4.png?w=660)](/wp-content/uploads/2014/11/s4.png)
+
+You can also see how the control will on Phone by simply toggling the view:
+
+[![S5](/wp-content/uploads/2014/11/s5.png?w=660)](/wp-content/uploads/2014/11/s5.png)
+
+That's all there is to it!
+
+Here are some more resources for you:
+
+*   [UI for Universal Windows Phone Store app](http://www.windowsphone.com/en-my/store/app/telerik-ui-for-windows-universal-examples/ff4e5554-9a90-4989-be28-e68ac98d0709)
+*   [UI for Universal Windows Store app](http://apps.microsoft.com/webpdp/app/f80afc0b-b204-4d15-bf99-837ce3ec7f79)
+*   [Documentation and API reference](http://www.telerik.com/help/windows-8-xaml/radcontrolsforwin8-introduction-overview.html)
+
+One last thing I should mention is that not all the Windows 8.1 controls are Universal right now. We are hard at work to bring more over. Here is a list as of Q3 2014:
+
+*   [RadAutoCompleteBox](http://www.telerik.com/help/windows-8-xaml/autocompletebox-overview.html) \*Universal
+*   [RadCalendar](http://www.telerik.com/help/windows-8-xaml/radcalendar-overview.html) \*Universal
+*   [RadChart](http://www.telerik.com/help/windows-8-xaml/radchart-overview.html) \*Universal
+*   [RadDatePicker and RadTimePicker](http://www.telerik.com/help/windows-8-xaml/raddatetimepickers-overview.html) \* Universal
+*   [RadHubTile](http://www.telerik.com/help/windows-8-xaml/radhubtile-overview.html) \*Universal
+*   [RadRating](http://www.telerik.com/help/windows-8-xaml/rating-overview.html) \*Universal
+*   [RadDataBoundListBox](http://www.telerik.com/help/windows-8-xaml/databoundlistbox-overview.html) \*Windows Phone 8.1
+*   [RadBulletGraph](http://www.telerik.com/help/windows-8-xaml/bulletgraph-overview.html) \*Windows 8.1
+*   [RadDataGrid](http://www.telerik.com/help/windows-8-xaml/raddatagrid-overview.html) \*Windows 8.1
+*   [RadDataGrid DataStorage Provider](http://www.telerik.com/help/windows-8-xaml/raddatagrid-datastorageprovider-overview.html) \*Windows 8.1
+*   [RadGauge](http://www.telerik.com/help/windows-8-xaml/radgauge-overview.html) \*Windows 8.1
+*   [RadMap](http://www.telerik.com/help/windows-8-xaml/radmap-overview.html) \*Windows 8.1
+*   [RadNumericBox](http://www.telerik.com/help/windows-8-xaml/radnumericbox-overview.html) \*Windows 8.1
+*   [RadPagination](http://www.telerik.com/help/windows-8-xaml/radpagination-overview.html) \*Windows 8.1
+*   [RadRadialMenu](http://www.telerik.com/help/windows-8-xaml/radialmenu-overview.html) \*Windows 8.1
+*   [RadRangeSlider](http://www.telerik.com/help/windows-8-xaml/radrangeslider-overview.html) \*Windows 8.1

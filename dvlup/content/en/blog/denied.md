@@ -1,0 +1,42 @@
+---
+title: 'Denied?'
+date: Thu, 13 Dec 2012 14:30:33 +0000
+draft: false
+tags: ['c#', 'dvlup', 'e tiles', 'fest', 'live tiles', 'mobile', 'nokia', 'Nokia official', 'resolutions', 'resources', 'support', 'technology', 'tiles', 'tutoria', 'windows phone', 'wpdev', 'xaml']
+---
+
+So, you got an email from DVLUP stating that your challenge submission was denied.  Why were you denied? What did you miss?  I wanted to write this post to share the top reasons for denial and how to fix it... 90% of these are due to the fact you didn't edit your WMAppManifest file.
+
+Here are the top offenders:
+
+*   Not all Live Tiles Sizes
+*   No animated Tiles
+*   Not all WP8 resolutions
+
+#1- You need to have all three tile sizes enabled for your app. Here is a list of the tile sizes from the [MSDN Documentation](http://msdn.microsoft.com/en-US/library/windowsphone/develop/hh202948(v=vs.105).aspx#BKMK_Tilesizesandresolutions). To rectify this problem, simply toggle the "Support for large Tiles" property in your WMAppManifest file. See the image in answer #2 for more details.
+
+[![Tile Sizes](http://nokiawpdev.files.wordpress.com/2012/12/2012-12-13_0825.png)](http://nokiawpdev.wordpress.com/2012/12/13/denied/2012-12-13_0825/)
+
+#2- Your app failed because the tiles were static. You need to bring your pinned tiles to life with one of the tile templates. Below is an example, find more here in the [MSDN Documentation](http://msdn.microsoft.com/en-US/library/windowsphone/develop/hh202948(v=vs.105).aspx#BKMK_Tiletemplates):
+
+[Cyclic Template](http://msdn.microsoft.com/en-US/library/windowsphone/develop/jj207036(v=vs.105).aspx)\- This template rotates between 1 to 9 images for your pinned tile. To meet the challenge's requirement you need to have at least 2 images. Here is a quick and easy way to setup a tile from an event handler:
+
+\[sourcecode language="csharp"\]
+
+CycleTileData cycleTile = new CycleTileData() { Title = "DVLUP Rules"; Count = 2; SmallBackgroundImage = new Uri("/Images/smallBackgroundImage.jpg", UriKind.Relative);
+
+// An array of URIs will do the trick CycleImages = new Uri\[\] { // You can have up to 9 images new Uri("/Images/cycleImage1.jpg", UriKind.Relative), new Uri("/Images/cycleImage2.jpg", UriKind.Relative), new Uri("/Images/cycleImage3.jpg", UriKind.Relative), new Uri("/Images/cycleImage4.jpg", UriKind.Relative), new Uri("/Images/cycleImage5.jpg", UriKind.Relative), new Uri("/Images/cycleImage6.jpg", UriKind.Relative), new Uri("/Images/cycleImage7.jpg", UriKind.Relative), new Uri("/Images/cycleImage8.jpg", UriKind.Relative), new Uri("/Images/cycleImage9.jpg", UriKind.Relative), } };
+
+\[/sourcecode\]
+
+Another way to setup the Cyclic Template is directly in your WMAppManifest file by assigning an image directly like this:
+
+[![2012-12-13_1150](http://nokiawpdev.files.wordpress.com/2012/12/2012-12-13_1150.png)](http://nokiawpdev.wordpress.com/2012/12/13/denied/2012-12-13_1150/)
+
+#3- Your app needs to support all three Windows Phone resolutions. [This link](http://msdn.microsoft.com/en-US/library/windowsphone/develop/jj206974(v=vs.105).aspx) will take you to the MSDN documentation on how to target different resolutions. Here is a screenshot of the new resolutions for Windows Phone from the docs and also my WMAppManifest file.
+
+[![2012-12-13_1143](http://nokiawpdev.files.wordpress.com/2012/12/2012-12-13_1143.png)](http://nokiawpdev.wordpress.com/2012/12/13/denied/2012-12-13_1143/)
+
+[![2012-12-13_0927](http://nokiawpdev.files.wordpress.com/2012/12/2012-12-13_0927.png)](http://nokiawpdev.wordpress.com/2012/12/13/denied/2012-12-13_0927/)
+
+Great, now you're armed with the information you need to resubmit your application. Update your app through DevCenter, once it's live in the Store go back into DVLUP and resubmit the app to the challenge. If you have any questions, send me an email to ext-lance.mccarthy(at)nokia(dot)com.

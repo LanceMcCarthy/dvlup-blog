@@ -1,0 +1,31 @@
+---
+title: 'EmailMessage class Approach for Windows'
+date: Wed, 31 Dec 2014 17:46:36 +0000
+draft: false
+tags: ['tutorial', 'universal', 'universal app development', 'windows 8.1']
+---
+
+Unfortunately, there is no EmailMessage class for big Windows. It is such a nice feature of Windows Phone to be able to quickly compose an email programmatically and launch the built-in email app. However, I have created a working approach for the windows portions of my Universal Windows apps and I wanted to share it with you.
+
+My first attempt was with using a ShareContract, but it doesn't allow you to fill in the "To:" field and sometimes my error report data was too long to fit into DataTransferManager's SetText() method.
+
+So I decided to take a look at using a UriScheme to launch another app, I do this in many of my Windows Phone 8 apps to share data. I found a perfect solution for my needs with WinRT's [Launcher](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/windows.system.launcher.aspx) class. Here is the finished result:
+
+\[code\]
+
+private async Task<bool> ReportErrorMessage(string detailedErrorMessage) { var uri = new Uri(string.Format("mailto:email.address@outlook.com?subject=Error Report&body={0}", detailedErrorMessage), UriKind.Absolute);
+
+var options = new Windows.System.LauncherOptions { DisplayApplicationPicker = true, DesiredRemainingView = Windows.UI.ViewManagement.ViewSizePreference.UseLess, PreferredApplicationPackageFamilyName = "microsoft.windowscommunicationsapps\_8wekyb3d8bbwe", PreferredApplicationDisplayName = "Mail" };
+
+return await Windows.System.Launcher.LaunchUriAsync(uri, options); }
+
+\[/code\]
+
+I needed this so that user can send me error reports when there is an unexpected crash, here's an explanation of the code:
+
+1.  I created a Task<bool> that accepts a string to pass the error message.
+2.  I construct a "_mailto_" uri, which lets me prefill the email's **To**, **Subject** and **Body** fields (notice that I am using the detailedErrorMessage string for the email body)
+3.  The most interesting part with the Launcher is that you can set some great [LauncherOptions](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/windows.system.launcheroptions.aspx) like; "open with" app picker, screen size, preferred app, UI options, content type and more. I highly recommend that you take a look at the [LaunchUriAsync documentation](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh779672.aspx) to see what's available to fit your needs.
+4.  Lastly, I made a return statement from LaunchUriAsync so I can let the caller know it was successful or not.
+
+I hope this helps you prepare something until Windows 10 (hopefully) shares some of Windows Phone's awesome built-in features like EmailManager.

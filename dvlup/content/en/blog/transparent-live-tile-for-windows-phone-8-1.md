@@ -1,0 +1,7 @@
+---
+title: 'Transparent Live Tile For Windows Phone 8.1'
+date: Wed, 16 Apr 2014 12:04:14 +0000
+draft: false
+tags: ['tutorial']
+---
+

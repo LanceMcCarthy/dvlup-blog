@@ -1,0 +1,35 @@
+---
+title: 'To 3 or not to 3, that is the question'
+date: Wed, 14 Nov 2012 17:31:51 +0000
+draft: false
+tags: ['contest', 'giveaway']
+---
+
+Huh? Unless you were one of the developers I just gave codes to join the [new Nokia program DVLUP](http://nokiawpdev.wordpress.com/2012/11/06/level-up-with-dvlup/), the title of this post makes no sense. So, what am I talking about?
+
+**If you build and publish 3 Windows Phone apps for me, I will give you a Nokia Lumia 800.**
+
+**If you build and publish 5 windows Phone apps for me, I will give you a Nokia Lumia 900.**
+
+There is your dilemma, "To 3 or not to 3". So get coding and help me to help you. If you are a developer in the US or Canada, I will provide you with an invitation code for [DVLUP](http://www.dvlup.com). You will find app ideas from the challenges (why not fulfill two challenge requirements in the same app!).
+
+There are some conditions, as this list explains:
+
+1.  "While Supplies Last & First Come First Serve" - There are 5 Lumia 800's and 3 Lumia 900's available for this challenge. The devs who fulfill the challenge first get the devices first.
+2.  I am making this challenge available internationally with two conditions. The app needs to be published to and be available in the U.S. Windows Phone Store. If you fulfill the requirements and want the phone(s), you are responsible for the international shipping/import duties. If you're in the US, I will ship it to you free.
+3.  This challenge is being solely run by me. You agree that by submitting your app to me for consideration in the challenge you agree not to hold me or Nokia liable for any damages your app may cause in the future. I am helping developers get published, not trying to be involved in litigation. These conditions are also separable if one rule is found to be invalid.
+4.  Apps published before November 7. 2012 are not eligible for this challenge.
+5.  If you choose to redeem 3 apps for the Lumia 800, your "App Counter" is reset (you can't get a Lumia 800 for three then publish 2 more for the Lumia 900). You will need to publish 5 more to get the Lumia 900.
+6.  Only one of each prize is awarded to a single developer. You can get a Lumia 800 and a Lumia 900, but not two 800's or two 900's.
+7.  All judging decisions are final in regards to this competition.
+8.  The apps will be assessed by me for quality. What does quality mean?
+
+*   Must be published (it passed certification)
+*   No "Hello World" or _simple_ Flashlight/Fart apps ([Flashlight 7](http://www.windowsphone.com/en-us/store/app/flashlight-7/5192e2d0-60e1-df11-a844-00237de2db9e) is an example of a feature rich flashlight app)
+*   No more than one can be an RSS reader/Aggregator
+*   No duplicate apps (a localized app for each country counts as one, and a separate real estate app for every city counts as one)
+*   The app needs to be useful for something (e.g. an entertainment app makes you laugh. Even though it doesn't do you banking it is still useful)
+
+If you still have questions or are an Android/iOS developer who wants to participate, send me an email.To submit your app to me send an email to [Nokia-Dev@outlook.com](mailto:Nokia-Dev@outlook.com), be sure to include the app's url (or XAP if you are just introducing it to me) and a description. Good luck and happy coding!
+
+Good luck!

@@ -1,0 +1,46 @@
+---
+title: 'Migrating from PCLStorage to .NET Standard 2.0'
+date: Thu, 19 Apr 2018 16:25:31 +0000
+draft: false
+tags: ['.NET Standard 2.0', 'c#', 'cross platform', 'file IO', 'tutorial', 'windows10', 'Xamarin', 'xamarin forms']
+---
+
+If you're a Xamarin Forms developer, you've likely used [PCLStorage](https://github.com/dsplaisted/PCLStorage) (or other Dependency Service) to interact with the target platform's file system in the portable class library's code. However, since November 2017, Xamarin.Forms now uses a .NET Standard 2.0 class library and PCLStorage is no longer supported.
+
+System.IO.File
+--------------
+
+This isn't a problem because in .NET Core 2.0 you now have access to System.IO.File's GetFolderPath and SpecialFolder methods (see [System.IO.File in .NET Core 2.0 docs](https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=netcore-2.0)).
+
+Thus, you can get a path to the app's local folder (the one that the app can save to) without having to write a Dependency Service (which is what PCLStorage does) by using:
+
+```
+var localFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+``` 
+
+IMPORTANT: Make sure you always use Path.Combine to create the file path because different platforms use different path separators
+
+```
+var filePath = Path.Combine(LocalFolder, "notes.txt");
+``` 
+
+With a reference to the file path,  you can now access the file. For example reading the text:
+
+```
+var notes = File.ReadAllText(filePath);
+```
+
+**Functional Demo**
+-------------------
+
+As a _very_ _simple_ example, I created a couple extension methods for **Stream** and **Byte\[\]** in the below FileExtensions class.
+
+To test it, I created a **ContentPage** that downloads an image, saves it using the extension method and set a **FileImageSource** to confirm that it's a file (instead of just using a StreamImageSource).
+
+[https://gist.github.com/LanceMcCarthy/693ab82aa498cadf75e9fe778c4242ad](https://gist.github.com/LanceMcCarthy/693ab82aa498cadf75e9fe778c4242ad)
+
+Note that the extension methods are very basic and shouldn't be used in production as-is (i.e. no defensive programming code).
+
+Here is the result at runtime on UWP:
+
+![2018-04-19_1134](/wp-content/uploads/2018/04/2018-04-19_1134.png)

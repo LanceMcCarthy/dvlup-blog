@@ -1,0 +1,54 @@
+---
+title: 'Error : DEP3321 - Can''t deploy to Windows 10 Mobile'
+date: Tue, 28 Jul 2015 21:57:42 +0000
+draft: false
+tags: ['tutorial']
+---
+
+With Windows 10 being rolled out as I write this article, there will be updated sample Windows Platform apps available soon (today). It's also time to update your projects.
+
+However, you may find yourself not able to deploy to Windows 10 Mobile after updating your projects or older samples to Windows 10 (build 10240). This post will show you how to resolve this problem.
+
+The Problem
+-----------
+
+You'll see an error something like this when deploying to a physical Windows 10 Mobile device:
+
+**Error : DEP3321 : To deploy this application, your deployment target should be running Windows Universal Runtime version 10.0.10240.0 or higher. You currently are running version 10.0.10166.0. Please update your OS, or change your deployment target to a device with the appropriate version.**
+
+The error is pretty clear but how do we fix it? The resolution is with the MinTargetVersion setting.
+
+The Fix
+-------
+
+We need to drop the lowest version your app targets to the version that your device has running, we can do this in one of two ways; through the project properties UI editor or manually edit the XML of the csproj file. I will show you how to do it manually because in some cases, the UI's MinTarget dropdown list won't show the lowest SDK if you do not have it installed. Below are the steps to fix it.
+
+**NOTE**: Skip to step 3 if your project is already unloaded (it will show (unavailable) next to the name)
+
+1) Right click on your project in Visual Studio
+
+2) Select "**Unload Project**", it will now appears as **ProjectName (unavailable)**
+
+3) Right click on the unloaded project and select "**Edit projectName.csproj**"
+
+4) Locate the <TargetPlatformVersion\> and <TargetPlatformMinVersion\> items in the first <PropertyGroup\>.
+
+Here's the "Before" screenshot:
+
+[![2015-07-28_1734](/wp-content/uploads/2015/07/2015-07-28_1734.png)](/wp-content/uploads/2015/07/2015-07-28_1734.png)
+
+5) Change the TargetPlatformMinVersion to the version that the error stated you are running. In this case, it's 10166. Here's the "After" screenshot:
+
+[![After](/wp-content/uploads/2015/07/2015-07-28_1738.png)](/wp-content/uploads/2015/07/2015-07-28_1738.png)
+
+6) Now **Save** and **Close** the file
+
+7) Right click on the project again and select "**Reload Project**"
+
+8) Rebuild the project and deploy to device. Now you should be up and running!
+
+### Summary
+
+I expect this to happen with increasing frequency as we move forward with Windows 10 SDK releases. The new paradigm is that we'll have a set of installed windows 10 Tools, but multiple SDK versions. We need to be aware of the min version and targeted version of our apps.
+
+If you have any questions, feel free to leave a comment below.

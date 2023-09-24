@@ -1,0 +1,106 @@
+---
+title: 'Talk to the View'
+date: Tue, 16 Apr 2019 20:14:04 +0000
+draft: false
+tags: ['.NET', 'c#', 'MVVM', 'tutorial', 'UWP', 'ViewModel', 'Xamarin.Forms', 'xaml']
+---
+
+  
+There are many scenarios where a UI component might not have a Command or bindable property available for certain features that you need to access from the view model. There is a simple, but powerful, thing you can do to allow this and not break MVVM or testing capability, leverage the Interface.
+
+Scenario
+--------
+
+Let's imagine the scenario where we have a special ListView control that has a **HighlightItem** method that can only be called with a direct reference to that control. There isn't a Command or DependencyProperty (aka BindableProperty in Xamarin.Forms) alternative, so it has to be done in the code behind.
+
+To keep this simple, here's the page XAML...
+
+```
+<Page x:Class="MyPage">
+    <Page.DataContext>
+        <MyPageViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <SpecialListView x:Name="MyListView" />
+</Page>
+```
+
+...and here is the page code behind.
+
+```
+public partial class MyPage : Page
+{
+    public MyPage()
+    {
+        InitializeComponent();
+
+        // The only way to use HighlightItem method is in the code-behind
+        MyListView.HighlightItem(itemToHighlight);
+    }
+}
+```
+
+As you can see, the HighlightItem method has to be used in the code behind because it has a reference to 'MyListView'. However, you need to use it in the view model, like this:
+
+```
+public class MyPageViewModel
+{
+    private void PleaseHighlightItemNow()
+    {
+        // But, you need to highlight the item from view model
+    }
+}
+```
+
+Solution
+--------
+
+One solution for this is to define an interface.
+
+```
+public interface IHighlightableView
+{
+    void Highlight(object item);
+}
+```
+
+With this, you can add a property to the view model and invoke the method:
+
+```
+public class MyPageViewModel
+{
+    public IHighlightableView View { get; set; }
+
+    private void PleaseHighlightItem()
+    {
+        // Call the method on the interface!
+        View?.Highlight(itemToHighlight);
+    }
+}
+```
+
+Now, the interface can be implemented on the page to complete the circle
+
+```
+public partial class MyPage : Page, IHighlightableView
+{
+    public MyPage()
+    {
+        InitializeComponent();
+
+        // Assign this page instance to the view model
+        ViewModel.View = this;
+    }
+
+    private void Highlight(object itemToHighlight)
+    {
+       // Now you can directly use the UI component's method
+        MyListView.HighlightItem(itemToHighlight);
+    }
+}
+```
+
+Summary
+-------
+
+This is a simple approach that will work if you don't want to (or are not allowed to) use an existing MVVM framework's built-in DependencyInjection and IoC features. Enjoy!

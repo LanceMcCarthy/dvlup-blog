@@ -1,0 +1,311 @@
+---
+title: 'Scott''s Ultimate Tools via Winget'
+date: Tue, 29 Dec 2020 20:58:36 +0000
+draft: false
+tags: ['choco', 'resources', 'tools', 'Tools I Use', 'tutorial', 'winget']
+---
+
+As a nice year-end present for us, he has done it again, visit [Scott Hanselman's 2021 Ultimate Developer and Power Users Tool List for Windows](https://www.hanselman.com/blog/scott-hanselmans-2021-ultimate-developer-and-power-users-tool-list-for-windows/).
+
+Someone had left a great comment about compiling a list of all his suggestions as Windows Package Manager (aka winget) or Chocolatey package IDs. I mentioned this to Scott and he thought it was a great idea, too. So I offered to compile the list.
+
+Why is this a wonderful suggestion? You only need to run a quick one-liner command, `winget install <id>` or `choco install <id>`, and you have installed the software.
+
+If you've never used **winget** it is a really easy way to install full GUI applications. First, you need to make sure Windows Package Manager (aka winget) is installed, [instructions here](https://docs.microsoft.com/en-us/windows/package-manager/winget/#install-winget). The easiest way to do this... 1. Go to the [Winget Releases page](https://github.com/microsoft/winget-cli/releases), 2. Download the latest .**appxbundle** file, 3. Open that file. Done!
+
+Once installed, open Powershell (or Windows Terminal), and run the `winget install` command followed by the app's ID. For example, `winget install Microsoft.VisualStudioCode` will run a script for you that does ALL of the work to install VS Code!
+
+![](/wp-content/uploads/2020/12/image.png)
+
+Here you can see me install **Media File Manager** app using `winget install LancelotSoftware.MediaFileManager`
+
+Below is the list of the packages I was able to find. I first searched on winget. If it wasn't there, then I tried Chocolatey. The source is the 3rd column, just start with that command and then use the ID
+
+Name
+
+Package Id
+
+Source
+
+7Zip
+
+7zip.7zip
+
+winget
+
+Alttab Salamander
+
+salamander
+
+choco
+
+Alt-Tab Terminator
+
+alt-tab-terminator
+
+choco
+
+AutoHotkey
+
+Lexikos.AutoHotkey
+
+winget
+
+Carnac
+
+code52.Carnac
+
+winget
+
+CodeTrack
+
+codetrack
+
+choco
+
+Ditto
+
+ditto.ditto
+
+winget
+
+DOSBox
+
+DOSBox.DOSBox
+
+winget
+
+EarTrumpet
+
+File-New-Project.EarTrumpet
+
+winget
+
+Everything
+
+voidtools.Everything
+
+winget
+
+Fiddler
+
+Telerik.Fiddler
+
+winget
+
+Fiddler Everywhere
+
+Telerik.FiddlerEverywhere
+
+winget
+
+FileSeek
+
+BinaryFortress.FileSeek
+
+winget
+
+GitHub Desktop
+
+GitHub.GitHubDesktop
+
+winget
+
+Greenshot
+
+Greenshot.Greenshot
+
+winget
+
+Insomnia
+
+Insomnia.Insomnia
+
+winget
+
+InsomniaDesigner
+
+Insomnia.InsomniaDesigner
+
+winget
+
+LICEcap
+
+Cockos.LICEcap
+
+winget
+
+Lightshot
+
+lightshot.install
+
+choco
+
+LINQPad
+
+LINQPad.LINQPad6
+
+winget
+
+LINQPad
+
+LINQPad.LINQPad5
+
+winget
+
+Markdown Monster
+
+WestWind.MarkdownMonster
+
+winget
+
+Midnight Commander
+
+GNU.MidnightCommander
+
+winget
+
+Nightingale REST Client
+
+43891JeniusApps.NightingaleRESTAPIClient
+
+msstore (via winget)
+
+NimbleText
+
+nimbletext
+
+choco
+
+NuGet Package Explorer
+
+NugetPackageExplorer
+
+choco
+
+Paint.NET
+
+paint.net
+
+choco
+
+PowerToys
+
+Microsoft.PowerToys
+
+winget
+
+PureText
+
+puretext
+
+choco
+
+QuickLook
+
+QL-Win.QuickLook
+
+winget
+
+RepoZ
+
+repoz
+
+choco
+
+RescueTime
+
+RescueTime.RescueTime
+
+winget
+
+ShareX
+
+ShareX.ShareX
+
+winget
+
+ShellExView
+
+NirSoft.ShellExView
+
+winget
+
+TeraCopy
+
+teracopy
+
+choco
+
+Visual Studio Code
+
+Microsoft.VisualStudioCode
+
+winget
+
+Visual Studio Code - Insiders
+
+Microsoft.VisualStudioCodeInsiders
+
+winget
+
+VLC media player
+
+VideoLAN.VLC
+
+winget
+
+WinDbg Preview
+
+Microsoft.WinDbg
+
+msstore (via winget)
+
+WinDirStat: Windows Directory Statistics
+
+WinDirStat.WinDirStat
+
+winget
+
+Windows Terminal
+
+Microsoft.WindowsTerminal
+
+winget
+
+WinMerge
+
+WinMerge.WinMerge
+
+winget
+
+Wireshark
+
+WiresharkFoundation.Wireshark
+
+winget
+
+Yori
+
+yori
+
+choco
+
+ZoomIT
+
+zoomit
+
+choco
+
+If you need to use any of the **choco** packages, follow the Chocolatey's installations [instructions here](https://chocolatey.org/install). Then do the same thing we did with winget! For example, `choco install NuGetPackageExplorer`.
+
+![](/wp-content/uploads/2020/12/image-1.png)
+
+Here are a few more tools that aren't in Scott's list, but I use on certain purpose-specific machines (media servers, devops agents, etc).
+
+```
+choco install mkvtoolnix
+choco install mp3tag
+choco install FileBot
+choco install OpenAudible
+```

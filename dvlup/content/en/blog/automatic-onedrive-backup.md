@@ -1,0 +1,104 @@
+---
+title: 'Automatic OneDrive Backup'
+date: Sun, 09 May 2021 17:00:33 +0000
+draft: false
+tags: ['disk storage', 'tools', 'Tools I Use', 'tutorial']
+---
+
+As a part of my ongoing "Tools That I Use" series, I wanted to share another favorite, [RichCopy 360](https://www.gurusquad.com/GSRICHCOPY360). On premise, I have a 80 TB HDD array, separated into multiple drive pools by [Stablebit DrivePool](https://stablebit.com/DrivePool) (post coming soon). However, to meet the critical [Rule of 3](https://www.hanselman.com/blog/the-computer-backup-rule-of-three), I needed to add a 3rd off-site option.
+
+I considered several different ways to do this and decided on taking advantage of my OneDrive for Business disk space (OneDrive gives you up to 5 TB). So, what do I use to copy that data up to OneDrive?
+
+I had written my own custom console app that does an amazing job of keeping two folder locations mirrored. See [File Watcher Service by Lancelot Software](https://github.com/LanceMcCarthy/Lancelot.Services/blob/main/src/FileWatcher.Service/README.md) on GitHub (you can use it for free, unlimited personal and commercial). This works fine as long as OneDrive is installed on the local PC, but it makes the hard drives do a lot of extra work and _it leaves the files on the local hard_ drive so I would have to manually select "Free up space" every week.
+
+To make this fully automated, I needed an option that will upload the files to OneDrive without actually taking up local space and unnecessarily aging my HDDs. RichCopy 360 does this perfectly, because it pipes the data directly to cloud storage (it can even move from cloud to cloud).
+
+#### An Easy and Robust Option
+
+**[RichCopy 360](https://www.gurusquad.com/GSRICHCOPY360)** (_this is not a sponsored blog post_) is jam packed with features and options to achieve everything I needed. Most importantly, it will directly upload files without taking up additional local disk space and use all of my PC's power because it lets me use all 20 processors.
+
+Today I'll show you how I set up the automatic weekly backup of my local Archive folder. Here's a screenshot of it running, showing each thread's progress.
+
+![](/wp-content/uploads/2021/05/image-14-1024x561.png)
+
+Upload job progress
+
+##### Job Setup and Configuration
+
+When you click the **New** job button, RichCopy 360 lets you create a new job using a nice wizard. However, for a cloud backup config, it is faster just to select the 2nd 'expert' option.
+
+![](/wp-content/uploads/2021/05/image-4-1024x557.png)
+
+The job configuration window will open. It may look daunting at first, but if you scan it you'll see each area has a specific responsibility. The **Destination Type** default setting is "Normal" (local copying), but for cloud you want to change it to **Cloud** and then select **OneDrive/Sharepoint**.
+
+![](/wp-content/uploads/2021/05/image-5.png)
+
+Give the job a name/description and then select the source folder:
+
+![](/wp-content/uploads/2021/05/image-2.png)
+
+Next, click the **Destination** folder button, a web browser will open so you can log in with the cloud provider. In this case, it is your Microsoft Account or O365 account.
+
+![](/wp-content/uploads/2021/05/image-6.png)
+
+After authenticating with the cloud provider
+
+Once you authenticate, you'll see the Destination folder picker. Select the cloud folder where you want the files copied to:
+
+![](/wp-content/uploads/2021/05/image-7.png)
+
+##### Copy Options
+
+Once the source and destination are set, it's time to decide how you want the **Copy Options**. I personally prefer **Mirror** for this kind of backup, but you have all the expected options (Copy Changes Only, Mirror, Move Dir and Copy All). You can also change **Copy Flag** and **Logging** settings, unless you have specific need, you can leave them as the default values.
+
+![](/wp-content/uploads/2021/05/image-8.png)
+
+##### Scheduling
+
+The next important item is how to enable and set the Scheduling settings. First, to enable the Recurrence settings, you need to select the Start radio button
+
+![](/wp-content/uploads/2021/05/image-10.png)
+
+Enabling Scheduling and Recurrence
+
+When you select Repeat, the "Set Schedule" link will become enabled, click it to open the Recurrence editor window. In the window, you can set the job's recurrence, below you see I am running it every Friday at 12 AM.
+
+![](/wp-content/uploads/2021/05/image-9.png)
+
+Setting a weekly recurrence
+
+##### Concurrency and Copy Threads
+
+Finally, you want to take advantage of your computer's hardware to give you the best performance. The Job Concurrency section lets you set how many processor threads you want to dedicate to copying and uploading files.
+
+![](/wp-content/uploads/2021/05/image-11.png)
+
+If you are not familiar with how many cores your processor has, you can use the "Change" link button to open a helper tool. The tool will make recommendations based on how many processors you have.
+
+![](/wp-content/uploads/2021/05/image-12.png)
+
+Since I am running this job at midnight, I can dedicate all my local processors to it. Since I have an i9 in this machine, it has 10 cores.
+
+![](/wp-content/uploads/2021/05/image-13-1024x207.png)
+
+When you're done with the settings, click Save. The job will get added to the Jobs list. One the jobs tab you can immediately start/stop any job, I recommend running the new job once manually to see if there are any errors.
+
+![](/wp-content/uploads/2021/05/image-16-1024x557.png)
+
+Jobs list and statuses
+
+##### Final Notes
+
+Before I close, I wanted to mention some other features. You can set the job to **Run as Service**, but beware.. the service has to have permissions to the source folder's files.
+
+![](/wp-content/uploads/2021/05/image-18.png)
+
+You can add an email address to get email notifications on job success or failure. For the first few weeks, I recommend keeping the notification enabled for successes, then once you're satisfied it is working as intended, you can set it only notify you on failures.
+
+![](/wp-content/uploads/2021/05/image-17.png)
+
+#### Wrapping Up
+
+[RichCopy 360](https://www.gurusquad.com/GSRICHCOPY360) is not free software, but it is worth every penny when you want a hands-off, robust and reliable solution. They also have amazing customer technical support. They have a free trial so you can see how it will work for you (I think the trial only limits the number of files you can copy)
+
+This is not a sponsored post and my link to their site is not an affiliate link, this post is part of a series where I share the tools that I use. I hope this helps you as much as it has been a critical tool for me... and I only use a tiny fraction of its available features.

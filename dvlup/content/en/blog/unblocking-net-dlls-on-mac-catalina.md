@@ -1,0 +1,55 @@
+---
+title: 'Unblocking .NET DLLs on Mac Catalina'
+date: Thu, 31 Oct 2019 20:42:10 +0000
+draft: false
+tags: ['.NET', 'dotnet', 'MacOS', 'tutorial']
+---
+
+There's a new headache in town. If you run self-hosted Azure DevOps agent, or .NET Core project, on a Mac running Catalina (v 10.15+) and Microsoft Edge, you will have noticed a new behavior where the OS prevents the .NET assembly from working.
+
+This is because it has been marked with a "quarantine" file attribute when it was downloaded with the browser. It's a security measure that I'm familiar with on Windows. I would typically remove this attribute by right clicking on the file, select "Properties", then check "Unblock":
+
+![](/wp-content/uploads/2019/10/image-5.png)
+
+Unblocking a ZIP file on Windows.
+
+At this point, I suspected I had a good idea of what was happening, I just needed to figure out how to check for and remove it on a Mac. I reached out to the dev community on twitter and asked around. Thanks to Eric Lawrence [who pointed me to the Chromium code change](https://twitter.com/ericlaw/status/1189655083354476544) that shows it is indeed quarantining the file(s).
+
+After reviewing [how to read and remove file attributes](http://osxdaily.com/2018/05/03/view-remove-extended-attributes-file-mac/), indeed I found a **com.apple.quarantine** attribute on the tarball archive file that is downloaded from Azure DevOps. Since it contains all the .NET assemblies, we can just unblock the tar.gz file and all contents will unblock as well.
+
+Solution
+--------
+
+Let's go back to Azure DevOps Agent Pool page, where you download your agent package ([see here if you've never done this before](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-osx?view=azure-devops)).
+
+![](/wp-content/uploads/2019/10/image-1-1024x725.png)
+
+Click the download button to download the tarball file
+
+Now that the file is in the downloads folder, we can use the `xattr` command to list the attributes. In my case, I'm checking the downloaded compressed file.
+
+```
+xattr vsts-agent-oxs-x64-2.159.2.tar.gz
+```
+
+![](/wp-content/uploads/2019/10/image-2.png)
+
+You'll see the attributes listed with the xattr command
+
+Bingo! Notice the **com.apple.quarantine** attribute? That's the one causing this headache. Now we can see the attribute name, we can remove it by calling the the `xattr` command again with `-d attributeName fileName` parameters .
+
+```
+xattr -d com.apple.quarantine vsts-agent-oxs-x64-2.159.2.tar.gz
+```
+
+![](/wp-content/uploads/2019/10/image-3.png)
+
+You will need to give Terminal permission to access the Downloads folder.
+
+Finally list the attributes again to confirm the quarantine has been removed:
+
+![](/wp-content/uploads/2019/10/image-4.png)
+
+Confirm the attribute was removed
+
+Now you can finish extracting the tarball and setting up the agent (or running your .NET core application).

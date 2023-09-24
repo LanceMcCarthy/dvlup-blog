@@ -1,0 +1,56 @@
+---
+title: 'Attend Publish Boston & Win Big'
+date: Fri, 18 Apr 2014 19:58:28 +0000
+draft: false
+tags: ['contest', 'giveaways', 'hackathon', 'Nokia official', 'prizes', 'publish windows', 'resources', 'win8dev', 'windows phone', 'windows phone 8.1', 'wpdev']
+---
+
+Since the prizes are really awesome for [this event](https://publishwindows.com/view/dbf025303ff74739bee936fbfa69cc4c) (May 17th), I'm going to start off with them. We will be rewarding the best student, best individual, and best company in each of the categories below:
+
+*   **Top Windows 8.1 app**
+    *   Trip to the 2014 Formula 1 United States Grand Prix in Austin, TX.
+    *   9 runner-up Nokia Lumia 1520 prizes
+*   **Top Windows Phone app**
+    *   $10,000 to build your own "Dev Cave"
+    *   9 Runner-up Nokia Lumia 1520 prizes
+*   **Top Cross Platform app**
+    *   MakerBot 3D printer
+    *   9 Runner-up Nokia Lumia 1520 prizes
+*   **Breakthrough in App Innovation and Design**
+    *   MakerBot 3D printer
+    *   9 Runner-up Nokia Lumia 1520 prizes
+
+But wait, there's more! I will be giving away these prizes at the end of the day...
+
+*   Dell Venue Pro 8
+*   Nokia Lumia 1520
+*   Surface Pro and Surface Bluetooth Wedge Mouse (only windows phone entries are eligible)
+*   **2** Nokia Lumia "Hero" Devices, winner's choice of a Lumia 1020, 928, 925 or 920 (only windows phone entries are eligible)
+
+So you are probably now asking yourself, "How do you win these prizes?", funny that you ask because I was just going to tell you how you can...
+
+### Participate
+
+Microsoft is holding an awesome _**world-wide **_Hackathon-style event titled **//publish/**.  The main purpose of the event is for you to publish your app to the Windows Phone or Windows Store. The app can be:
+
+*   An app that you start working on now
+*   An old app that you haven't been able to finish
+*   Some thing you build from scratch at the event
+
+**At the event** -  If you attend in person on May 17th and submit your app to DevCenter by 7 PM, you will be able to demo it to the audience. The winners of the local prizes (second group) will be randomly chosen from those who successfully submitted (you will need to show me that the app is in submission or has been published to qualify).
+
+**After the event** - The grand prizes (first group) will be awarded after the apps are published in the store. The winners will be chosen from three groups; student, indie and small business. For more details about the grand prize contest, [go here](https://publishwindows.com/Contest).
+
+#### How do you sign up?
+
+**[Go here to register](https://publishwindows.com/view/dbf025303ff74739bee936fbfa69cc4c) for //publish/ Boston** ( tweet '@lancewmccarthy I just registered for #pubWin Boston! #wpdev' for a RT )
+
+If you are not close to Boston and want to see if there is a //Publish/ event near you, [go here](https://publishwindows.com/) and filter the list from the drop down. **Note** that the local event's prizes will be different, but the grand prizes are the same.
+
+I hope to see you all there, this is going to be tons of fun. I will come back here and update this post with a final agenda and more details when they become available.
+
+Happy coding!
+
+Lance
+
+Legal Stuff: As with all my giveaways and contests, by participating and receiving a prize, you agree to [this disclaimer](http://nokiawpdev.wordpress.com/resources/prizes-and-winnings-disclaimer/).

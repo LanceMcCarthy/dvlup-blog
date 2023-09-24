@@ -1,0 +1,64 @@
+---
+title: 'Monetizing App Studio with Ads'
+date: Fri, 07 Mar 2014 18:02:25 +0000
+draft: false
+tags: ['resources', 'visual studio', 'windows phone', 'wpdev']
+---
+
+So, you'd like to put some ads in your awesome App Studio app? No problem! I thought I would write a post to show just how easy it can be. Follow these easy steps and you'll start earning money from ads...
+
+### Ad provider
+
+The ad provider is the service the AdControl in your app gets the ad to display and also where you earn the revenue. As of Windows Phone 8 there is a PubCenter AdControl built into the framework, all you need to do is get an **ApplicationId** and an **AdUnitId**. You get that information from [Windows Phone DevCenter](https://dev.windowsphone.com/en-us), find out how to get your ApplicationId and AdUnitId in [this great blog post](http://blogs.windows.com/windows_phone/b/wpdev/archive/2012/10/10/tips-for-using-ads-in-your-windows-phone-apps.aspx).
+
+If you want to use a separate Ad provider, for example AdDuplex, you'll need to add the provider's DLLs to your project. I'm using AdDuplex in the example below, learn how to add AdDuplex to your project [here](https://adduplex.zendesk.com/hc/en-us/articles/200126731-Windows-Phone-AdControl-Installation-and-Usage).
+
+### Step One: Enable ads in App Studio
+
+Before generating your App Studio app, you'll want to enable ad support. On the **Publish Info** tab, turn on the **Enable ad client in the source code** switch (see #2 in this screenshot):
+
+[![App Studio Screenshot](http://nokiawpdev.files.wordpress.com/2014/03/app-studio-ads-1.png?w=700)](http://nokiawpdev.files.wordpress.com/2014/03/app-studio-ads-1.png)
+
+Next, generate the app and download the source code.
+
+### Step Two: Open App in Visual Studio
+
+After downloading the source code, you might need to unblock the binaries _**before**_ unzipping the folder. This is a built-in security feature that prevents internet-downloaded code from running on your machine. Since we know where these files came from, it's ok to go and unblock them. Here is how to do that:
+
+1.  Right click on the downloaded zip folder
+2.  Select "**Properties**"
+3.  If you see an "**Unblock**" button, click it. If you do not, continue to step 4.
+4.  Now you can safely unzip the folder
+
+Next, drill down into the unzipped folder until you see the Visual Studio solution file. Double click to open it in Visual Studio (**Note**: You need Visual Studio installed. If you do not, you'll need to download and install the Windows Phone SDK from [here](https://dev.windowsphone.com/en-us/downloadsdk)).
+
+### Step Three: AdControl on MainPage.xaml
+
+Drill Down to **MainPage.xaml**, see this screenshot to help you find it:
+
+[![Visual Studio Solution Explorer](http://nokiawpdev.files.wordpress.com/2014/03/app-studio-ads-2.png)](http://nokiawpdev.files.wordpress.com/2014/03/app-studio-ads-2.png)
+
+Near the top of the page, you will see a commented out section of code (approximately line #50). This is the built-in **AdControl**. All you need to do is:
+
+1.  Uncomment the AdControl (delete the **<!--** and **\-->** characters before and after the AdControl)
+2.  Replace the placeholder ApplicationId and AdUnitId with yours
+
+In this screenshot, I demonstrate how to use an AdDuplex ad control instead of the built-in AdControl.
+
+[![MainPage](http://nokiawpdev.files.wordpress.com/2014/03/app-studio-ads-3.png?w=700)](http://nokiawpdev.files.wordpress.com/2014/03/app-studio-ads-3.png)
+
+That's all there is to it! Now you can do a Build and publish the generated XAP file. (If you are not familiar with how to publish an app built with Visual Studio, see [this documentation](http://msdn.microsoft.com/en-us/library/windowsphone/help/jj206736(v=vs.105).aspx))
+
+This image shows what the published app looks like running on a phone, see for yourself and [download the app](http://www.windowsphone.com/s?appid=21ddfc22-5448-41ec-9b04-53f6fce85515).
+
+[![NetduinoNinjaScreenshot](http://nokiawpdev.files.wordpress.com/2014/03/netduinoninjascreenshot.jpg?w=180)](http://nokiawpdev.files.wordpress.com/2014/03/netduinoninjascreenshot.jpg)
+
+Happy coding!
+
+Lance
+
+_Here are some follow-up resources to help you monetize your apps:_
+
+*   [AdDuplex Home](https://www.adduplex.com/) and [AdDuplex on Nuget](https://www.nuget.org/packages/AdDuplexWP8)
+*   [Video about PubCenter](http://channel9.msdn.com/Shows/Inside+Windows+Phone/Inside-Windows-Phone--35--Ali-Heron-from-Microsoft-Advertising-talks-Ads)
+*   [Video about monetization with Carlos Rivera](http://channel9.msdn.com/Shows/Inside+Windows+Phone/Inside-Windows-Phone-32--Microsoft-Developer-Carlo-Rivera-on-Making-Money)

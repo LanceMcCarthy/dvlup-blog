@@ -1,0 +1,42 @@
+---
+title: 'Hackathon Winners'
+date: Tue, 16 Apr 2013 18:23:08 +0000
+draft: false
+tags: ['apps', 'boston', 'ckathon', 'coding', 'contest', 'fitness', 'hackathon', 'maps', 'mobile', 'nokia', 'nokia developer', 'nokia maps api', 'Nokia official', 'speech maps', 'telerik controls', 'windows phone', 'wp8dev', 'wpdev']
+---
+
+I will be writing a more in-depth blog post (with videos and event pictures) on the Telerik website when all the media is done being edited. For now, I wanted to quickly get a post up to show the winners of [The Boston Hackathon](http://thebostonhackathon.eventbrite.com/). There were over 40 apps created, submitted and presented! Every developer who went through my grueling training schedule on day one, built their app, got it in by 3:30PM on day two and had the courage to present to the audience, earned a Nokia Premium Developer Program token ($1,500 value)! They will all be able to publish their apps to the Windows Phone Store.
+
+[Go here and see the comments on this photo](https://www.facebook.com/photo.php?fbid=403226533109061&set=a.403226489775732.1073741825.335679576530424&type=1&theater). The comments are from the developers who participated and give you a great insight into the event.
+
+Without further ado, here are the winners.
+
+First Place
+-----------
+
+First place went to **VTX** (Voice Assisted Training & Exercise by Maneesh Moota and Roman Jaquez). It was a spectacular application that leveraged the power of the Telerik Design Templates and RadControls for Windows Phone. It also integrated speech, maps, accelerometer data, backend for user profiles,  RadQrCode to share workout routines and much more. Here are some screenshots:
+
+[![wp_ss_20130416_0006](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0006.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0006.png)   [![wp_ss_20130416_0001](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0001.png)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0001.png)[![wp_ss_20130416_0002](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0002.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0002.png)[![wp_ss_20130416_0003](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0003.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0003.png) [![wp_ss_20130416_0004](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0004.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0004.png) [![wp_ss_20130416_0005](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0005.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0005.png)
+
+Second Place
+------------
+
+Second place went to **LockMapper**, by Jeffrey Harmon (developer of the successful app, Memorylage). This app updates your lock screen with your current location on a map, and also the live tile, with your current location and the route to your destination plotted! Jeff demonstrates his out-of-the-box thinking with this unique featuring of WP8 APIs and Telerik controls and nailed another home run..  Here are some screenshots:
+
+[![wp_ss_20130416_0008](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0008.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0008.png) [![wp_ss_20130416_0009](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0009.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0009.png) [![wp_ss_20130416_0016](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0016.png)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0016.png) [![wp_ss_20130416_0017](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0017.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0017.png)[![wp_ss_20130416_0007](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0007.png)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0007.png) [![wp_ss_20130416_0018](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0018.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0018.png)
+
+Third Place
+-----------
+
+Third place was **RadLibs**, by Team Hyland (Jeremiah Bryant, Anthony Russell, Kevin DiTraglia and Bryan Stump) who drove all the way from Cleveland, Ohio to participate! The app is a digital [MadLib](http://en.wikipedia.org/wiki/Mad_Libs), that spits out some really funny stories from the user's pre-chosen, random words. They used the Telerik controls throughout the app and even used the speech APIs which made the app even funnier.
+
+UPDATE: Now available in the Windows Phone Store, [get it here](http://www.windowsphone.com/en-us/store/app/radlibs/04d7b3af-094e-4ee8-9bf1-4ebfe52fe773).
+
+Here are some screenshots:
+
+[![wp_ss_20130416_0012](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0012.png)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0012.png) [![wp_ss_20130416_0013](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0013.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0013.png) [![wp_ss_20130416_0014](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0014.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0014.png) [![wp_ss_20130416_0015](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0015.png?w=192)](http://nokiawpdev.files.wordpress.com/2013/04/wp_ss_20130416_0015.png)
+
+Conclusion
+----------
+
+Every single developer that participated poured their heart and soul into this.  I didn't have a chance to even take a break longer than 5 minutes, that's how engaging these developers were. They were all full of questions. Look out world, we have a new crop of relentlessly dedicated Windows Phone developers coming your way! I couldn't be more proud of what was accomplished this weekend, kudos to everyone involved.     Note: These are screenshots of the app as it was presented to the judges. There will most likely be improvements/changes made before being available in the Windows Phone Store.

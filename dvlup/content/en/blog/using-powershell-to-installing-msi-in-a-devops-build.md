@@ -1,0 +1,59 @@
+---
+title: 'Using PowerShell to Install an SDK in a DevOps Build Pipeline'
+date: Fri, 04 Jan 2019 01:10:46 +0000
+draft: false
+tags: ['Ad SDK', 'Azure', 'Build Server', 'DevOps', 'Engagement SDK', 'Pipelines', 'PowerShell', 'tutorial', 'tutorial', 'UWP', 'UWP. DevOps', 'VSTS', 'windows 10']
+---
+
+![](/wp-content/uploads/2019/01/image-4.png)
+
+I have [an open source UWP project](https://github.com/LanceMcCarthy/MvpApi) that relies on the Ad SDK and Engagement SDK to be installed to Visual Studio. This normally isn't a problem, because you can just run the MSI on your PC (see installation instructions [here](https://docs.microsoft.com/en-us/windows/uwp/monetize/microsoft-store-services-sdk) and [here](https://docs.microsoft.com/en-us/windows/uwp/monetize/install-the-microsoft-advertising-libraries)).
+
+I decided to move the project into DevOps so that I get some of that CI/CD goodness to build and publish new releases automatically to the Microsoft Store. However, there was a problem, when trying to build the project in a DevOps build pipeline, you'll get the following error:
+
+![](/wp-content/uploads/2019/01/image.png)
+
+This means that the Hosted VS2017 Agent that DevOps uses to build a UWP project doesn't have the Extensions SDKs installed. I have two choices to move forward:
+
+*   Use a [private Agent](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=vsts) (_this uses your local PC to build the project via a server connection _)
+*   Find a way to install the SDK into the Hosted agent
+
+I did try the first option. I set up the Windows Agent on my Surface Book, connected it to DevOps and it works nicely (_this is why you see that early successful build early in the first screenshot above_). However, it's not a solution for me because it means my PC has to be always on and network-connected.
+
+My friend, and MVP peer, **[Oren Novotny](https://twitter.com/onovotny)** mentioned that you can actually use a PowerShell script to download the MSI file and install it to the Hosted VS2017, this was the break I was looking for!
+
+To implement this, I downloaded the MSI files I needed from the Visual Studio Marketplace and put them into an Azure Blob. It provides me with two reliable URLs to download the files in the PowerShell script.
+
+![](/wp-content/uploads/2019/01/image-3.png)
+
+Next, I wrote the very simple script. It has two phases: a download phase and an install phase (with a quiet switch "/q"). Here's what that looks like:
+
+```
+\# Predefined Variables
+$adSdkUrl = "https://dvlup.blob.core.windows.net/general-app-files/MSIs/MicrosoftAdvertisingSDK.msi"
+ $servicesSdkUrl = "https://dvlup.blob.core.windows.net/general-app-files/MSIs/MicrosoftStoreServicesSDK.msi"
+ $adSdkPath = Join-Path $env:TEMP "MicrosoftAdvertisingSDK.msi"
+ $servicesSdkPath = Join-Path $env:TEMP "MicrosoftStoreServicesSDK.msi"
+
+# Download the files to local temp folder
+ Write-Output "downloading $adSdkUrl…"
+ Invoke-WebRequest -Uri $adSdkUrl -OutFile $adSDKPath
+ Write-Output "downloading $servicesSdkUrl…"
+ Invoke-WebRequest -Uri $servicesSdkUrl -OutFile $servicesSdkPath
+
+# Install the SDKs (use the "qn" flag to install silently)
+ Write-Output "installing $adSdkPath…"
+ Start-Process $adSdkPath -ArgumentList "/q" -Wait
+ Write-Output "installing $servicesSdkPath…"
+ Start-Process $servicesSdkPath -ArgumentList "/q" -Wait
+```
+
+Next, you need to add a **Powershell** step to your DevOps Build pipeline and paste in the script. Here's a screenshot to help guide you:
+
+![](/wp-content/uploads/2019/01/image-1.png)
+
+Now, when the build is triggered, it will download and install the missing SDKs before building the project! Here's the result of that build step in the Hosted agent's console:
+
+![](/wp-content/uploads/2019/01/image-2.png)
+
+I hope this post finds you as soon as you need help. It took me several days, a dozen different documentation articles (some are hyperlinked above) and my MVP peers to find a good simple solution that didn't require my PC .

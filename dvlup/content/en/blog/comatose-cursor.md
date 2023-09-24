@@ -1,0 +1,18 @@
+---
+title: 'Comatose Cursor'
+date: Fri, 23 Nov 2012 21:09:58 +0000
+draft: false
+tags: ['apps', 'contest', 'freebies', 'idea', 'inspiration', 'mobile', 'music', 'music lab', 'newsblur', 'nokia', 'resources', 'windows phone', 'wpdev']
+---
+
+You're sitting in front of your PC, steaming cup of <insert favorite beverage here> next to you and your fingers are posed over the keyboard ready to strike. Visual Studio is full screen and Expression Blend is waiting to assist in the background, but your cursor is blinking steadily in the same place it was 15 minutes ago. You're blank, the ideas aren't flowing, the classes of objects haven't materialized yet.
+
+Let me help you break out of developer limbo, out from the prison of digital purgatory, by laying out some app ideas for you. Some of these ideas are almost done, with complete source code, and are vying to be published. **UPDATE: Music Lab has been taken.**
+
+Let's start with Music Lab, an app that is an awesome companion app for the Windows Phone user to run while they are listening to music. This is an app that was given to me by Travis Lowdermilk, with the hopes of bringing it to market. I was however at the end of a dev cycle and starting a new job that was taking up a lot my time. Other than exploring the code and making some initial changes to get it ready for the world, I never brought it to Marketplace readiness. So here is my offer, the first developer in my region who needs an app idea and is willing to take it to market, I will give you the source code (I already ran this idea by Travis and he is on board, we both want to see it a reality).
+
+If I give you the app, it will then become your torch to bear. It will be your first priority. I don't want it to fall the wayside like it did for me. Also, I'll only be giving it to one dev, so I'll want to make sure you're making progress. If you can't devote your time to it, let me give it another dev. If you're interested, send me an email and I'll give you the awesomeness that it is.
+
+Now on to the next app idea, [NewsBlur](http://newsblur.com/) for Windows Phone. There is no source code for this app. Rather it is an app in high demand and people are waiting for it. I tried getting started on it but this is another case of, "I just don't have the time" or "My wife will string me up if I spend all my free time on it"! I have links to the API and have been talking to the creator of NewsBlur. You'll have direct access to his wisdom and knowledge. This _isn't_ your ordinary big corporation stonewall, "We don't like 3rd party app developers funking up our baby", no help type of project. This app _is_ a "If you build it, they will come", "Lance, where the hell is my NewsBlur" type of app. I can tell you that if you publish this, you will get immediate traction and free promotion. Email me for more details on how to get started with a NewsBlur app.
+
+Now add the benefits of the two ideas I threw at you, plus the backing of me and Nokia when you publish it (DVLUP rewards and my free phone challenges) You will no longer be looking at a comatose cursor but rather you'll become a savior of two great apps. Email me at nokia-dev(at)outlook(dot)com and I'll get you what you need.

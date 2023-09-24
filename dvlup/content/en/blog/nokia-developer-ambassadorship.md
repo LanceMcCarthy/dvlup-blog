@@ -1,0 +1,50 @@
+---
+title: 'Nokia Developer Ambassadorship'
+date: Mon, 05 Nov 2012 01:11:01 +0000
+draft: false
+tags: ['Nokia official', 'resources']
+---
+
+I am officially announcing that I’ve joined Nokia as a Nokia Developer Ambassador! So, what does this mean for you?
+
+If you are:
+
+*   An experienced Windows Phone Developer (WPDev) with tons of published apps
+*   Have dabbled in WPDev, but haven’t published yet
+*   An experienced iOS or Android Developer with apps (published or not)
+*   Just getting started on any platform and are thirsty for more
+*   In school and don’t know your Int from your Long
+*   You have great app ideas but don’t know a lick of code
+
+…then you’re in luck. If you want to bring an app or an app idea to life, I am your man.
+
+So, what exactly is a Nokia Developer Ambassador? We each cover a certain region of North America, we are part-time employees (no, I didn't leave Telerik) who receive a salary and a budget to support the developers in our regions.  Nokia is really invested in helping their developers succeed. From start to finish, they’ll back you.
+
+How will I help you carve your path through app kingdom?
+
+1.  Events- I’ll be at all the relevant local hackathons, events and meetups. If there needs to be more, I’ll have a budget to host one. (I will be performing at least one Windows Phone hackathon open to all devs where we’ll focus on bringing your Android and iPhone app over to Windows Phone).
+2.  Hardware- You will have access to hardware.
+3.  Platform Specific- Even though windows Phone 8 will be in the wild, most likely you wont be using WP8 specific features. So we want to give you the broadest market by developing Windows Phone 7.8 apps (100% reach) first. However, I will show you how to develop for both platforms and release a version for each.
+4.  Tools, Tools, Tools – The BEST tools in the industry will be at your disposal. There is no comparison, even Android and iOS developers agree on this one.
+5.  Teamwork- If there is something that I can’t do for you, I will find someone who can. Nokia has brilliant talent, the community of WP development is amazingly forthcoming with their tips & tricks, and example apps for every available feature. Also, the vast history of Microsoft’s knowledge has probably seen your problem before and has a way to fix it.
+6.  Incentives- TBA:
+
+In addition to resources available as an Ambassador, I can bring one more thing to the to the table of your success… me (fair warning, this next section may contain self-horn tooting).
+
+Experience:
+
+My years (wow, has it been years already?) of experience with Windows Phone development and with the Windows Phone marketplace has taught me a lesson or two. Those mistakes and successes are now your asset.
+
+Connections:
+
+Believe it or not, sometimes it is who you know, not what you know.  Being a Windows Phone developer I’ve developed strong friendships as well as apps. This has taught me an even more important lesson than the technical problems and unhandled exceptions that get thrown in your path. I am here to be that bond for you. Give back what was so freely given to me: Knowledge, experience and friendship.
+
+People, this is truly what it means to be a Windows Phone developer. You become part of a community that will welcome you with open arms and help you through the struggles. Come join me, I can promise that there will be times of difficulty, but in the same gesture there will be great rewards!
+
+Thanks for reading!
+
+Lance
+
+Follow me on Twitter: @lancewmccarthy  and also for official announcements @NokiaWpDev
+
+Email me: Nokia-Dev at Outlook. com

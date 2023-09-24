@@ -1,0 +1,10 @@
+---
+title: 'Resources, Resources, Resources!'
+date: Mon, 05 Nov 2012 01:13:53 +0000
+draft: false
+tags: ['buddy', 'nokia', 'Nokia official', 'premium', 'resources', 'sdk', 'telerik']
+---
+
+I moved this blog post into its own page. Select the "Resources" tab above, or use [this link](http://nokiawpdev.wordpress.com/resources/).
+
+If you have any questions, or if you are in the Boston area (New England), send me an email at nokia-dev@outlook.com or on twitter at @lancewmccarthy

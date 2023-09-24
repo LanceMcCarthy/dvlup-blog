@@ -1,0 +1,93 @@
+---
+title: 'Registering Extensions'
+date: Wed, 02 Jan 2013 17:08:43 +0000
+draft: false
+tags: ['added functionality', 'extensibility', 'extensions', 'mobile', 'Nokia official', 'o extensibility', 'photo', 'picture hub', 'resources', 'software', 'technology', 'ture hub', 'visual studio', 'vs2012', 'wmappmanifest']
+---
+
+With the entrance of Visual Studio 2012 we saw a new interface to edit your WMAppManifest file. This is a great tool to help you properly setup your app's meta data. There is one limitation you should be aware of... there is no support for extensions. What are extensions? They are the added functionality that lets you tie your app into other parts of the OS and user experience. This blog post will cover the extensions for photos, but the process is the same for other extensions.
+
+Here is a list of the photo related extensions:
+
+Extension point
+
+Extension name
+
+URI keywords
+
+Learn more…
+
+Photos Hub
+
+Photos\_Extra\_Hub
+
+7.1, 8.0
+
+[Extending the Photos Hub for Windows Phone](http://msdn.microsoft.com/en-us/library/windowsphone/develop/hh202950(v=vs.105).aspx)
+
+Share picker
+
+Photos\_Extra\_Share
+
+ShareContent, FileId
+
+7.1, 8.0
+
+[Extending the share picker for Windows Phone](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff967563(v=vs.105).aspx)
+
+Rich media app
+
+Photos\_Rich\_Media\_Edit
+
+RichMediaEdit, token
+
+8.0
+
+[Rich media extensibility for Windows Phone 8](http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662942(v=vs.105).aspx)
+
+Photo edit picker
+
+Photos\_Extra\_Image\_Editor
+
+EditPhotoContent, FileId
+
+8.0
+
+[Extending the photo edit picker for Windows Phone 8](http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662932(v=vs.105).aspx)
+
+Photo apps picker
+
+Photos\_Extra\_Viewer
+
+token
+
+7.1
+
+[Extending the photo apps picker for Windows Phone 7](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff817010(v=vs.105).aspx)
+
+Each extension has it's own target, make sure you are using the right one for your app. In my case, I am targeting Windows Phone 8 only. So I'll be using all of the above except for the "Photos\_Extra\_Viewer" extension (it only targets WP7).
+
+Now comes the confusing part. when you open your WMAppManifest file in Visual Studio 2012, you'll be greeted with the new editor (image below, click for full size).
+
+[![editor1new](http://nokiawpdev.files.wordpress.com/2013/01/editor1new.png)](http://nokiawpdev.files.wordpress.com/2013/01/editor1new.png)
+
+If you were to look for a way to give your app extensibility, you won't find any options in the new editor to do that. So what do you do? Edit the XML manually.
+
+Here's how:
+
+1.  Go to your Solution Explorer
+2.  Expand the "Properties" folder
+3.  Right click on WMAppManifest.xml file
+4.  Select XML (Text) editor
+
+[![editor2](http://nokiawpdev.files.wordpress.com/2013/01/editor2.png)](http://nokiawpdev.files.wordpress.com/2013/01/editor2.png)
+
+Visual Studio will open the file in the text editor and you will be able to make direct changes to your file. You'll even have IntelliSense support to help guide you. With the file open, create a new Extensions parent ( like this: **<Extensions></Extensions>** ) inside the <App></App> parent and add the extensions you want your app to use.
+
+Here are mine (click image for full size):
+
+[![editor3](http://nokiawpdev.files.wordpress.com/2013/01/editor3.png)](http://nokiawpdev.files.wordpress.com/2013/01/editor3.png)
+
+That's it! Your app will now register the extensions with the OS. I recommend reading this section of the documentation on Photo Extensibility for Windows Phone. It will give you a better understanding of how this works, pitfalls to avoid and possible incompatibilities.  Armed with this information, you will be well on your way to providing the user with a more integrated experience.
+
+Good luck and Happy Coding!
