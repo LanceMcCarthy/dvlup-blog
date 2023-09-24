@@ -13,8 +13,8 @@ DefaultContentLanguageInSubdir = true
     [languages.en.params]
       introTitle = "DVLUP"
       introSubtitle = "Guidance for the Modern Developer"
-      introPhoto = "/picture.jpg"
-      logo = "/blist-logo.png"
+      introPhoto = "/dvlup-blog/picture.jpg"
+      logo = "/dvlup-blog/blist-logo.png"
     [[languages.en.menu.main]]
         name = "Blog"
         url = "blog"
@@ -30,10 +30,10 @@ DefaultContentLanguageInSubdir = true
         url = "tags"
         weight = 3
 
-    [[languages.en.menu.main]]
-        name = "Top Post"
-        url = "/en/blog/emoji-support/"
-        weight = 4
+#    [[languages.en.menu.main]]
+#        name = "Top Post"
+#        url = "/en/blog/emoji-support/"
+#        weight = 4
 
 [params]
   # Enable the darkmode toggle in header
@@ -57,8 +57,8 @@ DefaultContentLanguageInSubdir = true
   ]
 
   # Custom copyright - optional
-  copyright = "Copyright © 2010-2023 | Lance McCarthy · All rights reserved"
-  favicon = "/favicon.svg"
+  copyright = "Copyright © 2010-2024 | Lance McCarthy · All rights reserved"
+  favicon = "/dvlup-blog/favicon.svg"
 
   # Color for the intro details and social links block, not applicable for dark mode
   # Supported values: Any color from TailwindCSS default colors
@@ -74,7 +74,7 @@ DefaultContentLanguageInSubdir = true
 
   # To hide "Other languages" option if the post is available in multiple languages
   # Can be used at site level or page level
-  hideOtherLanguages = false
+  hideOtherLanguages = true
 
   # Add support for Table of contents
   # Can be added to a page level also in markdown frontmatter
