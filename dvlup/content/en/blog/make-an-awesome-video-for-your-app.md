@@ -7,7 +7,7 @@ tags: ['how-to', 'lumia', 'marketing', 'nokia', 'Nokia official', 'resources', '
 
 Nokia has gone to great lengths to make it easy for developers to create promotional materials for their Windows Phone apps. This quick video shows you how to do it.
 
-\[youtube=http://www.youtube.com/watch?v=caCZ1w9ZUak?rel=0\]
+{{< youtube caCZ1w9ZUak >}}
 
 Steps to make your own
 ----------------------

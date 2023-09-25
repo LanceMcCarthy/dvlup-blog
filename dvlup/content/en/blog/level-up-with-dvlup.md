@@ -11,11 +11,11 @@ Great, then let’s get rolling! I am officially announcing the beginning of a b
 
 Check it out:
 
-\[youtube=http://www.youtube.com/watch?v=V2mPGB9k018\]
+{{< youtube V2mPGB9k018 >}}
 
 How do you get to participate?
 
-I can take care of that for you, send me an email to**ext-lance.mccarthy(at)nokia(dot)com** and I will give you a code to join.
+I can take care of that for you, send me an email to **redacted @ nokia.com** and I will give you a code to join.
 
 There are two things you need to know before emailing me:
 

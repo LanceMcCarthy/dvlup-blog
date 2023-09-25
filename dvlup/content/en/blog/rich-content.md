@@ -1,7 +1,7 @@
 ---
 author: Lance McCarthy
-title: Rich Content
-date: 2021-07-13
+title: Rich Content and Shortcodes
+date: 2010-01-01
 description: "A brief description of Hugo Shortcodes"
 tags: ["shortcodes", "privacy"]
 thumbnail: https://picsum.photos/id/1002/400/250
