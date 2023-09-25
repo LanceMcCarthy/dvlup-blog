@@ -21,8 +21,8 @@ DefaultContentLanguageInSubdir = true
         weight = 1
 
     [[languages.en.menu.main]]
-        name = "About"
-        url = "page/about/"
+        name = "Resources"
+        url = "/page/resources"
         weight = 2
 
     [[languages.en.menu.main]]
@@ -45,10 +45,10 @@ DefaultContentLanguageInSubdir = true
         url = "page/contact/"
         weight = 6
 
-#    [[languages.en.menu.main]]
-#        name = "Top Post"
-#        url = "/en/blog/emoji-support/"
-#        weight = 4
+    [[languages.en.menu.main]]
+        name = "About"
+        url = "page/about/"
+        weight = 7
 
 [params]
   # Enable the darkmode toggle in header
