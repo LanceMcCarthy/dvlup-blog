@@ -30,6 +30,21 @@ DefaultContentLanguageInSubdir = true
         url = "tags"
         weight = 3
 
+    [[languages.en.menu.main]]
+        name = "APIs"
+        url = "page/apis/"
+        weight = 4
+
+    [[languages.en.menu.main]]
+        name = "Apps"
+        url = "page/apps/"
+        weight = 5
+
+    [[languages.en.menu.main]]
+        name = "Contact"
+        url = "page/contact/"
+        weight = 6
+
 #    [[languages.en.menu.main]]
 #        name = "Top Post"
 #        url = "/en/blog/emoji-support/"
