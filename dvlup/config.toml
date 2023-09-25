@@ -1,4 +1,4 @@
-baseURL = 'https://dvlup.com/'
+baseURL = 'https://blog.dvlup.com/'
 languageCode = 'en-us'
 title = 'DVLUP'
 theme = 'blist'
@@ -13,8 +13,8 @@ DefaultContentLanguageInSubdir = true
     [languages.en.params]
       introTitle = "DVLUP"
       introSubtitle = "Guidance for the Modern Developer"
-      # introPhoto = "/dvlup-blog/picture.jpg"
-      logo = "/dvlup-blog/blist-logo.png"
+      # introPhoto = "/picture.jpg"
+      logo = "/blist-logo.png"
     [[languages.en.menu.main]]
         name = "Blog"
         url = "blog"
@@ -63,7 +63,7 @@ DefaultContentLanguageInSubdir = true
 
   # Custom copyright - optional
   copyright = "Copyright © 2010-2024 | Lance McCarthy · All rights reserved"
-  favicon = "/dvlup-blog/favicon.svg"
+  favicon = "/favicon.svg"
 
   # Color for the intro details and social links block, not applicable for dark mode
   # Supported values: Any color from TailwindCSS default colors
