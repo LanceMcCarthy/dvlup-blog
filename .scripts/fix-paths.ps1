@@ -1,0 +1,1 @@
+Get-ChildItem "..\dvlup\content\en\blog" -Filter *.md | ForEach-Object { (Get-Content -Path $_ -Raw) -replace "../../dvlup-blog/wp-content/", "/wp-content/" | Set-Content -Path $_ -NoNewline }
