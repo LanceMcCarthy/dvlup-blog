@@ -1,5 +1,5 @@
 ---
-title: 'P.I.  API'
+title: 'P.I. API'
 date: Fri, 16 Nov 2012 22:22:17 +0000
 draft: false
 tags: ['amazon web', 'constant contact', 'mobile', 'open api', 'resources', 'sdk', 'technology', 'twitter', 'zappos']
