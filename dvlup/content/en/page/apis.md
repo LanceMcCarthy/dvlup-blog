@@ -2,7 +2,7 @@
 title: 'P.I. API'
 date: Fri, 16 Nov 2012 22:22:17 +0000
 draft: false
-tags: ['amazon web', 'constant contact', 'mobile', 'open api', 'resources', 'sdk', 'technology', 'twitter', 'zappos', 'api, 'apis', 'REST']
+tags: ['amazon web', 'constant contact', 'mobile', 'open api', 'resources', 'sdk', 'technology', 'twitter', 'zappos', 'api', 'apis', 'REST']
 ---
 
 I did some investigating on the best APIs to help give you app ideas or to use for beefing up an existing app.  Here is a list of some of the best ones out there. I've added these to the [resources section](http://nokiawpdev.wordpress.com/resources/) of the site.
