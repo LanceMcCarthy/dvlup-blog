@@ -1,1 +1,0 @@
-Get-ChildItem ".\blog" -Filter *.md | ForEach-Object { (Get-Content -Path $_ -Raw) -replace "/dvlup-blog/dvlup-blog/", "/dvlup-blog/" | Set-Content -Path $_ -NoNewline }
