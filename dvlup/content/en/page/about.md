@@ -101,7 +101,7 @@ Although much of the code I’ve written has been merged into official demos at 
 
 ## Hackathons
 
-I am a lucky hackathon veteran. I have never lost a hackathon event that I participated in. Most as 1st place, sometimes 2nd or 3rd place. Here are my favorites:
+As a hackathon veteran, I've hosted and judged dozens of hackathons; from MIT and Harvard, to many brand-sponsored events. I have also participated in many hackathons as a contestant, never lost an event. Usually 1st or 2nd place, couple 3rd place. Here are some of my favorite wins:
 
 - [iSmack](https://blogs.windows.com/devices/2013/07/05/ismack-wins-build-hackathon-for-best-windows-phone-app/) at Microsoft Build 2013 Conference (my favorite!)
 - [Readicle](http://web.archive.org/web/20211020094143/https://developer.att.com/blog/at-amp-t-mobile-app-hackathon-boston-recap) at AT&T Hackathon. I won 2nd place overall and 1st place for Windows Phone. (Apple ended up monetizing this idea)

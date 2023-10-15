@@ -8,8 +8,7 @@ See all of my currently visible apps in the Microsoft Store's new website here [
 
 Below is a curated list, but you can also [browse my GitHub repos](https://github.com/LanceMcCarthy) for the dozens of other apps I've written but didn't publish.
 
-<script src="/js/manup.js"></script>
-<script>
+<script src="/js/manup.js">
   mspb('9PD3JFK7W5MB', function(badge) { document.getElementById('mspb-4zufkjer8q2r').innerHTML = badge; });
   mspb('9NBLGGH6850J', function(badge) { document.getElementById('mspb-ww4g6hunw4oc').innerHTML = badge; });
   mspb('9WZDNCRDMGBF', function(badge) { document.getElementById('mspb-k193fm4umxlm').innerHTML = badge; });
