@@ -10,6 +10,10 @@ Below is a curated list, but you can also [browse my GitHub repos](https://githu
 
 <script>
 
+    window.onload = function() {
+     
+   }
+
   mspb('9PD3JFK7W5MB', function(badge) { document.getElementById('mspb-4zufkjer8q2r').innerHTML = badge; });
 
   mspb({ productId: '9NBLGGH6850J'}, function(badge) { document.getElementById('mspb-ww4g6hunw4oc').innerHTML = badge; });
@@ -33,5 +37,5 @@ Below is a curated list, but you can also [browse my GitHub repos](https://githu
   mspb('9PMCKHT7M93P', function(badge) { document.getElementById('mspb-x0pjwfzwg043').innerHTML = badge; });
 
   mspb('9NBLGGH08QDZ', function(badge) { document.getElementById('mspb-brmaan3fpktc').innerHTML = badge; });
-  
+
 </script>
