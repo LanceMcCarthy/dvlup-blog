@@ -2,8 +2,8 @@
 author: Lance McCarthy
 title: Rich Content and Shortcodes
 date: 2010-01-01
-description: "A brief description of Hugo Shortcodes"
-tags: ["shortcodes", "privacy"]
+description: "Cheatsheet: Hugo Shortcodes"
+tags: ["shortcodes", "youtube", "vimeo", "twitter"]
 thumbnail: https://picsum.photos/id/1002/400/250
 ---
 
@@ -11,9 +11,24 @@ Hugo ships with several [Built-in Shortcodes](https://gohugo.io/content-manageme
 
 ## <!--more-->
 
+## Gists
+
+{{< gist LanceMcCarthy 63815c41569ad877f24121be679d3638 >}}
+<br>
+
+---
+
 ## YouTube Privacy Enhanced Shortcode
 
 {{< youtube ZJthWmvUzzc >}}
+
+<br>
+
+---
+
+## Instagram
+
+{{< instagram CxOWiQNP2MO >}}
 
 <br>
 
@@ -26,6 +41,8 @@ Hugo ships with several [Built-in Shortcodes](https://gohugo.io/content-manageme
 <br>
 
 ---
+
+
 
 ## Vimeo Simple Shortcode
 
