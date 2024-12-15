@@ -5,6 +5,7 @@ date: 2023
 description:
 keywords: ["about", "contact"]
 type: about
+show_social_links: true
 ---
 
 ![headshot of Lance McCarthy](../../lance_mccarthy-transparent-925-300x300.png)
