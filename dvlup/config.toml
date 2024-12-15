@@ -110,38 +110,58 @@ DefaultContentLanguageInSubdir = true
   # issueterm = ""
   # theme = ""
 
+# https://hugo-apero-docs.netlify.app/learn/social/
+# Icon pack "fab" includes brand icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
+# Icon pack "fas" includes solid icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
+# Icon pack "far" includes regular icons, see: https://fontawesome.com/icons?d=gallery&s=regular&m=free
 [params.homepage.social]
   # Global params common for both languages
   title = ""
   description = "Follow me on your preferred social network =>"
 
   [[params.homepage.social.icons]]
-    website = "bluesky"
     url = "https://bsky.app/profile/lance.boston"
+    website = "bluesky"
+    icon = "square-bluesky"
+    icon_pack = "fab"
   [[params.homepage.social.icons]]
-    website = "github"
     url = "https://github.com/LanceMcCarthy"
+    website = "github"
+    icon = "github"
+    icon_pack = "fab"
   [[params.homepage.social.icons]]
-    website = "linkedin"
     url = "https://linkedin.com/in/dvluper"
+    website = "linkedin"
+    icon = "linkedin"
+    icon_pack = "fab"
   [[params.homepage.social.icons]]
+    url = "https://x.com/l_anceM"
     website = "twitter"
-    url = "https://twitter.com/l_anceM"
+    icon = "square-x-twitter"
+    icon_pack = "fab"
   [[params.homepage.social.icons]]
-    website = "buymeacoffee"
     url = "https://www.buymeacoffee.com/dvluper"
+    website = "buymeacoffee"
   [[params.homepage.social.icons]]
-    website = "reddit"
     url = "https://www.reddit.com/user/LancelotSoftware"
+    website = "reddit"
+    icon = "reddit-alien"
+    icon_pack = "fab"
   [[params.homepage.social.icons]]
-    website = "stackoverflow"
     url = "https://stackoverflow.com/users/1406210/lance-mccarthy"
+    website = "stackoverflow"
+    icon = "stackoverflow"
+    icon_pack = "fab"
   [[params.homepage.social.icons]]
-    website = "youtube"
     url = "https://www.youtube.com/channel/UCV6JsDh22ENSF8DPvHBAs-w"
+    website = "youtube"
+    icon = "youtube"
+    icon_pack = "fab"
   [[params.homepage.social.icons]]
-    website = "instagram"
     url = "https://instagram.com/dvluper"
+    website = "instagram"
+    icon = "instagram"
+    icon_pack = "fab"
 
 [[menu.main]]
   name = "About"
