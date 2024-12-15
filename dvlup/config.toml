@@ -47,7 +47,8 @@ DefaultContentLanguageInSubdir = true
   # Enable search in header
   enableSearch = true
 
-  # Option to customize the search parameters of a page. Below are the supported options; Note that including entire content may slowdown the loading of search results. Title of page is included by default
+  # Option to customize the search parameters of a page. Below are the supported options; Note that including entire content may slowdown the loading of search results
+  # Title of page is included by default
   searchKeys = [
     "tags",
     "date",
@@ -62,22 +63,28 @@ DefaultContentLanguageInSubdir = true
   copyright = "Copyright © 2010-2025 | Lance McCarthy · All rights reserved"
   favicon = "/favicon.svg"
 
-  # Color for the intro details and social links block, not applicable for dark mode. Supported values: Any color from TailwindCSS default colors.Reference: https://tailwindcss.com/docs/customizing-colors
+  # Color for the intro details and social links block, not applicable for dark mode. Supported values: Any color from TailwindCSS default colors
+  # Reference: https://tailwindcss.com/docs/customizing-colors
   ascentColor = "bg-blue-100"
 
   # The page bundle that is shown on the front page
   frontBundle = "blog"
 
-  # Used to hide the post metadata such as posted date, reading time and word count.Can be used at site level or page level
+  # Used to hide the post metadata such as posted date, reading time and word count
+  # Can be used at site level or page level
   hideMeta = false
 
-  # To hide "Other languages" option if the post is available in multiple languages. Can be used at site level or page level
+  # To hide "Other languages" option if the post is available in multiple languages
+  # Can be used at site level or page level
   hideOtherLanguages = true
 
-  # Add support for Table of contents. Can be added to a page level also in markdown frontmatter
+  # Add support for Table of contents
+  # Can be added to a page level also in markdown frontmatter
   toc = true
 
-  # Hides the thumbnail in post view.Thumbnails in home and blog pages will still be shown.This setting can also be in page's markdown file
+  # Hides the thumbnail in post view
+  # Thumbnails in home and blog pages will still be shown
+  # This setting can also be in page's markdown file
   hidePageThumbnail = false
 
 # Comments system
@@ -114,18 +121,22 @@ DefaultContentLanguageInSubdir = true
 
   [[params.homepage.social.icons]]
     url = "https://bsky.app/profile/lance.boston"
+    website = "bluesky"
     icon = "square-bluesky"
     icon_pack = "fab"
   [[params.homepage.social.icons]]
     url = "https://github.com/LanceMcCarthy"
+    website = "github"
     icon = "github"
     icon_pack = "fab"
   [[params.homepage.social.icons]]
     url = "https://linkedin.com/in/dvluper"
+    website = "linkedin"
     icon = "linkedin"
     icon_pack = "fab"
   [[params.homepage.social.icons]]
     url = "https://x.com/l_anceM"
+    website = "twitter"
     icon = "square-x-twitter"
     icon_pack = "fab"
   [[params.homepage.social.icons]]
@@ -133,18 +144,22 @@ DefaultContentLanguageInSubdir = true
     website = "buymeacoffee"
   [[params.homepage.social.icons]]
     url = "https://www.reddit.com/user/LancelotSoftware"
+    website = "reddit"
     icon = "reddit-alien"
     icon_pack = "fab"
   [[params.homepage.social.icons]]
     url = "https://stackoverflow.com/users/1406210/lance-mccarthy"
+    website = "stackoverflow"
     icon = "stackoverflow"
     icon_pack = "fab"
   [[params.homepage.social.icons]]
     url = "https://www.youtube.com/channel/UCV6JsDh22ENSF8DPvHBAs-w"
+    website = "youtube"
     icon = "youtube"
     icon_pack = "fab"
   [[params.homepage.social.icons]]
     url = "https://instagram.com/dvluper"
+    website = "instagram"
     icon = "instagram"
     icon_pack = "fab"
 
