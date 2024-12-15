@@ -163,3 +163,16 @@ DefaultContentLanguageInSubdir = true
   [markup.goldmark.renderer]
     # Enable to include inline HTML
     unsafe = true
+
+# [services]
+#   [services.disqus]
+#     shortname = ''
+#   [services.googleAnalytics]
+#     id = ''
+#   [services.instagram]
+#     accessToken = ''
+#     disableInlineCSS = false
+#   [services.rss]
+#     limit = -1
+#   [services.twitter]
+#     disableInlineCSS = false
