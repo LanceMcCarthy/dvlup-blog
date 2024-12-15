@@ -47,9 +47,7 @@ DefaultContentLanguageInSubdir = true
   # Enable search in header
   enableSearch = true
 
-  # Option to customize the search parameters of a page
-  # Below are the supported options; Note that including entire content
-  # may slowdown the loading of search results
+  # Option to customize the search parameters of a page. Below are the supported options; Note that including entire content may slowdown the loading of search results
   # Title of page is included by default
   searchKeys = [
     "tags",
@@ -61,12 +59,11 @@ DefaultContentLanguageInSubdir = true
     "author"
   ]
 
-  # Custom copyright - optional
+  # Custom copyright
   copyright = "Copyright © 2010-2025 | Lance McCarthy · All rights reserved"
   favicon = "/favicon.svg"
 
-  # Color for the intro details and social links block, not applicable for dark mode
-  # Supported values: Any color from TailwindCSS default colors
+  # Color for the intro details and social links block, not applicable for dark mode. Supported values: Any color from TailwindCSS default colors
   # Reference: https://tailwindcss.com/docs/customizing-colors
   ascentColor = "bg-blue-100"
 
@@ -119,14 +116,17 @@ DefaultContentLanguageInSubdir = true
   description = "Follow me on your preferred social network =>"
 
   [[params.homepage.social.icons]]
-    website = "twitter"
-    url = "https://twitter.com/l_anceM"
+    website = "bluesky"
+    url = "https://bsky.app/profile/lance.boston"
+  [[params.homepage.social.icons]]
+    website = "github"
+    url = "https://github.com/LanceMcCarthy"
   [[params.homepage.social.icons]]
     website = "linkedin"
     url = "https://linkedin.com/in/dvluper"
   [[params.homepage.social.icons]]
-    website = "github"
-    url = "https://github.com/LanceMcCarthy"
+    website = "twitter"
+    url = "https://twitter.com/l_anceM"
   [[params.homepage.social.icons]]
     website = "buymeacoffee"
     url = "https://www.buymeacoffee.com/dvluper"
@@ -136,9 +136,6 @@ DefaultContentLanguageInSubdir = true
   [[params.homepage.social.icons]]
     website = "stackoverflow"
     url = "https://stackoverflow.com/users/1406210/lance-mccarthy"
-  [[params.homepage.social.icons]]
-    website = "mastodon"
-    url = "https://dvlup.social/@lance"
   [[params.homepage.social.icons]]
     website = "youtube"
     url = "https://www.youtube.com/channel/UCV6JsDh22ENSF8DPvHBAs-w"
