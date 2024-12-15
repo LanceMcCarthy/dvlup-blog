@@ -3,6 +3,7 @@ title: '26.2 Smiles'
 date: Thu, 28 Mar 2013 16:19:03 +0000
 draft: false
 tags: ['competition', 'contest', 'giveaway', 'hackathon', 'nokia', 'prizes', 'radcontrols', 'telerik', 'windows phone', 'wpdev']
+thumbnail: '/post-thumbnail-default-810x420.png'
 ---
 
 The Boston Marathon gives you 26.2 miles, but the [**The Boston Hackathon**](http://thebostonhackathon.eventbrite.com/) can give you 26.2 smiles!
