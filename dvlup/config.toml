@@ -13,7 +13,7 @@ DefaultContentLanguageInSubdir = true
     [languages.en.params]
       introTitle = "DVLUP"
       introSubtitle = "Guidance for the Modern Developer"
-      # introPhoto = "/picture.jpg"
+      introPhoto = "/128x128.png
       logo = "/blist-logo.png"
     [[languages.en.menu.main]]
         name = "Blog"
