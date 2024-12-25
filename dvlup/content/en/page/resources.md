@@ -1,6 +1,6 @@
 ---
 title: 'Resources'
-date: 2023
+date: 2023-10-19
 draft: false
 ---
 
