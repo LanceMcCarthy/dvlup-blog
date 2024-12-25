@@ -2,6 +2,7 @@
 title: 'Resources'
 date: 2023-10-19
 draft: false
+toc: true
 ---
 
 This page contains quick links to resources, tips & tricks, documentation and anything helpful for you to build your apps. If you have anything you'd like me to add, find me on Twitter™ at [@l_anceM](https://twitter.com/l_anceM).

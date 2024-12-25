@@ -14,27 +14,23 @@ DefaultContentLanguageInSubdir = true
       introTitle = "DVLUP"
       introSubtitle = "Guidance for the Modern Developer"
       introPhoto = "/128x128.png"
-      logo = "/blist-logo.png"
+      logo = "/header-logo.png"
     [[languages.en.menu.main]]
         name = "Blog"
         url = "/blog"
         weight = 1
-
-    [[languages.en.menu.main]]
-        name = "Resources"
-        url = "/page/resources"
-        weight = 2
-
     [[languages.en.menu.main]]
         name = "Tags"
         url = "/tags"
+        weight = 2
+    [[languages.en.menu.main]]
+        name = "Resources"
+        url = "/page/resources"
         weight = 3
-
     [[languages.en.menu.main]]
         name = "Apps"
         url = "/page/apps/"
         weight = 4
-
     [[languages.en.menu.main]]
         name = "About"
         url = "/page/about/"
@@ -60,7 +56,7 @@ DefaultContentLanguageInSubdir = true
   ]
 
   # Custom copyright
-  copyright = "Copyright © 2010-2025 | Lance McCarthy · All rights reserved"
+  copyright = "Copyright © 2010-2025 | Lance McCarthy · All rights reserved | [Privacy](/page/privacy-policy/)"
   favicon = "/favicon.svg"
 
   # Color for the intro details and social links block, not applicable for dark mode. Supported values: Any color from TailwindCSS default colors

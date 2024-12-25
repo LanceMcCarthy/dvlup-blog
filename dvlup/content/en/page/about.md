@@ -5,6 +5,7 @@ date: 2023
 description:
 keywords: ["about", "contact"]
 type: about
+toc: true
 ---
 
 ![headshot of Lance McCarthy](../../lance_mccarthy-transparent-925-300x300.png)
@@ -29,7 +30,7 @@ He has also appeared on podcasts such as the Windows Developer Show ([here](http
 
 ## On Behalf of Microsoft
 
-For about 7-8 years, I did a lot of behind-the-scenes work for Microsoft; as a ghost blog writer, video producer and handling the official social media accounts (Sprinklr is awesome). It was a great experience that I dont want to lose these resume fillers and wanted to compile the top items here.
+For about 7-8 years, I did a lot of behind-the-scenes work for Microsoft; as a ghost blog writer, video producer, and handling the official social media accounts (using Sprinklr and eventually Sprout). It was a great experience that I dont want to lose these resume fillers and wanted to compile the top items here.
 
 You’ll probably recognize many of these items and had no idea that I was behind the camera/pen. Enjoy the nostalgia!
 
@@ -52,7 +53,7 @@ Some Fun Interview Material
 
 ## Official Microsoft Blog Posts
 
-For a couple years, I was the main content creator behind the Windows Developer blog content. I published under the “Windows App Team” pen name, with a few exceptions (like a Michael Crump series). The following links are my posts from those years (that I was able to find/remember).
+For a couple years, I was the main content creator behind the Windows Developer blog content. I published under the "Windows App Team" pen name, with a few exceptions where the byline was a more specific person (like the Michael Crump series). The following links are my posts from those years (at least the ones I was able to remember).
 
 - [Internet of Things on the Xbox (App Dev on Xbox series) – Windows Developer Blog](https://blogs.windows.com/windowsdeveloper/2016/10/13/internet-of-things-on-the-xbox-app-dev-on-xbox-series/#tCpwPkQVWpGU9xqv.97)
 - [UWP Hosted Web App on Xbox One (App Dev on Xbox series) – Windows Developer Blog](https://blogs.windows.com/windowsdeveloper/2016/09/30/uwp-hosted-web-app-on-xbox-one-app-dev-on-xbox-series/)
