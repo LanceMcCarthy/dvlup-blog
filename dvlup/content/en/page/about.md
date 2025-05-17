@@ -1,24 +1,26 @@
 ---
 author: Lance McCarthy
 title: About Me
-date: 2023
-description:
-keywords: ["about", "contact"]
+date: 2025
+description: Abiout page with work history, bio and contact info
+keywords: ["about", "contact", "work-history"]
 type: about
 toc: true
 ---
 
-![headshot of Lance McCarthy](../../lance_mccarthy-transparent-925-300x300.png)
+![headshot](../../lance_mccarthy-transparent-925-300x300.png)
 
-- [Meet Lance McCarthy, Manager, Technical Support at Progress](https://www.progress.com/blogs/meet-lance-mccarthy-technical-support)
-- [Microsoft MVP - Windows Development | Mixed Reality](https://mvp.microsoft.com/en-us/mvp/Lance%20%20McCarthy-5000553)
-- [Microsoft Certified Professional]()
-- [My LinkedIn Profile](http://www.linkedin.com/in/dvlup)
-- [Twitter @l_anceM](https://twitter.com/l_anceM)
+- Socials
+  - [LinkedIn](http://www.linkedin.com/in/dvlup)
+  - [bsky - @lance.boston](https://bsky.app/profile/lance.boston)
+  - [X - @l_anceM](https://x.com/l_anceM)
+- Bios
+  - [Meet Lance McCarthy, Manager, Technical Support at Progress](https://www.progress.com/blogs/meet-lance-mccarthy-technical-support)
+  - [Microsoft MVP (.NET | Windows Dev)](https://mvp.microsoft.com/en-us/mvp/Lance%20%20McCarthy-5000553)
 
-## Bio by peers
+## Bio, by peers
 
-[Lance McCarthy](http://www.linkedin.com/in/dvluper/), Microsoft MVP, is an exceptional community leader with an acute expertise for all things .NET and C# (especially on the XAML stack) as well as HoloLens/Mixed Reality applications. Lance is very helpful online, guiding and answering questions from Microsoft developers on Twitter as [@l_anceM](http://twitter.com/l_anceM). He organizes & hosts events in the Boston area such as user group nights, mini-code camps and full hackathons (like [this successful](http://blogs.telerik.com/windowsphoneteam/posts/13-05-09/see-what-happened-at-the-windows-phone-boston-hackathon) one in Boston).
+[Lance McCarthy](http://www.linkedin.com/in/dvluper/), Microsoft MVP, is an exceptional community leader with an acute expertise for all things .NET and C# (especially on the XAML stack) as well as HoloLens/Mixed Reality applications. Lance is very helpful online, guiding and answering questions from Microsoft developers on Twitter as [@l_anceM](http://x.com/l_anceM). He organizes & hosts events in the Boston area such as user group nights, mini-code camps and full hackathons (like [this successful](http://blogs.telerik.com/windowsphoneteam/posts/13-05-09/see-what-happened-at-the-windows-phone-boston-hackathon) one in Boston).
 
 As a [Developer Ambassador](http://blog.dvlup.com/2013/04/23/get-to-know-guitar-playing-airplane-flying-telerik-ninjanokia-ambassador-lance-mccarthy/) at Microsoft and Nokia, Lance sought out and engaged developers through outreach programs and provides them with technical support and resources to make them successful on the various Microsoft platforms and stores.
 
