@@ -20,11 +20,13 @@ toc: true
 
 ## Bio, by peers
 
-[Lance McCarthy](http://www.linkedin.com/in/dvluper/), Microsoft MVP, is an exceptional community leader with an acute expertise for all things .NET and C# (especially on the XAML stack) as well as HoloLens/Mixed Reality applications. Lance is very helpful online, guiding and answering questions from Microsoft developers on Twitter as [@l_anceM](http://x.com/l_anceM). He organizes & hosts events in the Boston area such as user group nights, mini-code camps and full hackathons (like [this successful](http://blogs.telerik.com/windowsphoneteam/posts/13-05-09/see-what-happened-at-the-windows-phone-boston-hackathon) one in Boston).
+[Lance McCarthy](http://www.linkedin.com/in/dvluper/), Microsoft MVP, is an exceptional community leader with an acute expertise for all things .NET and C# favoring Windows, .NET MAUI and ASP.NET Core/Blazor on containers. He has won many hackathons (e.g., 1st place @ Microsoft Build hackathon), and is a published developer with over a million downloads in the Microsoft Store.
+
+Lance is very helpful online, guiding and answering questions from Microsoft developers on Twitter as [@l_anceM](http://x.com/l_anceM). He organizes & hosts events in the Boston area such as user group nights, mini-code camps and full hackathons (like [this successful](http://blogs.telerik.com/windowsphoneteam/posts/13-05-09/see-what-happened-at-the-windows-phone-boston-hackathon) one in Boston).
 
 As a [Developer Ambassador](http://blog.dvlup.com/2013/04/23/get-to-know-guitar-playing-airplane-flying-telerik-ninjanokia-ambassador-lance-mccarthy/) at Microsoft and Nokia, Lance sought out and engaged developers through outreach programs and provides them with technical support and resources to make them successful on the various Microsoft platforms and stores.
 
-During the day, Lance is the Manager of US Technical Support at Progress Software, covering the Telerik and Kendo DevTools. Previously he spent 9 years there as a engineer himself, specializing in .NET tooling. Lance and his team supports developers and teams from Fortune 500 companies with their enterprise and consumer applications using Telerik and Kendo UI components.
+During the day Lance is a Senior Manager Technical Support at Progress Software. Where he supports developers with their Windows, Mac, web, .NET MAUI, and Linux projects using the Telerik and Kendo UI dev tools. Previously, Lance worked for Nokia and Microsoft as a Developer Ambassador Previously he spent 9 years there as a engineer himself, specializing in .NET tooling. Lance and his team supports developers and teams from Fortune 500 companies with their enterprise and consumer applications using Telerik and Kendo UI components.
 
 Lance was also an Assistant Professor at Harvard University, where he helped students build, market and publish successful Windows & Windows Phone applications. He also spent a few years as a quest lecturer at Boston University for the cloud computing students.
 
