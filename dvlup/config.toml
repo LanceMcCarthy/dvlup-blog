@@ -1,4 +1,4 @@
-baseURL = 'https://dvlup.com/'
+baseURL = 'https://www.dvlup.com/'
 languageCode = 'en-us'
 title = 'DVLUP'
 theme = 'blist'
