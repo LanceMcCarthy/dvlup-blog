@@ -1,0 +1,8 @@
+services:
+  blog-site:
+    image: ghcr.io/lancemccarthy/dvlup-blog:latest
+    ports:
+      - "88:80"
+    restart: unless-stopped
+    labels:
+      - "ouroboros.enable=true"
