@@ -1,0 +1,71 @@
+name: Publish Docker Image
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  HUGO_VERSION: 0.111.3
+  BLOG_BASE_URL: "https://www.dvlup.com/"
+
+jobs:
+  build_site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{runner.temp}}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{runner.temp}}/hugo.deb  
+
+      - name: Install Dart Sass Embedded
+        run: sudo snap install dart-sass-embedded
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive  # For Hugo themes
+          fetch-depth: 0
+
+      - name: Install Node.js dependencies
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+
+      - name: Build with Hugo
+        run: |
+          cd dvlup
+          npm install postcss-cli@latest
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{env.BLOG_BASE_URL}}/"
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dvlup/public
+          name: dvlup-public-site
+
+  publish_image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: dvlup-public-site
+          path: ./dvlup/public
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/lancemccarthy/dvlup-blog:latest .
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Push image
+        run: docker push ghcr.io/lancemccarthy/dvlup-blog:latest
