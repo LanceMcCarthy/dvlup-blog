@@ -5,6 +5,7 @@ date: 2026
 description: About page with work history, bio and contact info.
 keywords: ["about", "contact", "bio", "biography", "work", "history"]
 type: about
+show_social_links: true
 toc: true
 aliases:
   - /about/
