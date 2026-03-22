@@ -107,6 +107,9 @@ dist
 # Docusaurus cache and generated files
 .docusaurus
 
+# Hugo generated site output
+dvlup/public/
+
 # Serverless directories
 .serverless/
 

@@ -1,11 +1,17 @@
-{{ with .Get "id" }}
+{{ $id := .Get "id" }}
+{{ if not $id }}
+  {{ $id = .Get 0 }}
+{{ end }}
+{{ $user := .Get "user" }}
+
+{{ if and $id $user }}
 <blockquote class="twitter-tweet">
-  <a href="https://twitter.com/{{ $.Get "user" }}/status/{{ . }}"></a>
+  <a href="https://twitter.com/{{ $user }}/status/{{ $id }}"></a>
 </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-{{ else if .Get 0 }}
+{{ else if $id }}
 <blockquote class="twitter-tweet">
-  <a href="https://twitter.com/i/web/status/{{ .Get 0 }}"></a>
+  <a href="https://twitter.com/i/web/status/{{ $id }}"></a>
 </blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 {{ end }}

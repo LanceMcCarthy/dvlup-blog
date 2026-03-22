@@ -28,12 +28,13 @@ jobs:
           fetch-depth: 0
 
       - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+        run: |
+          cd dvlup
+          [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
 
       - name: Build with Hugo
         run: |
           cd dvlup
-          npm install postcss-cli@latest
           hugo \
             --gc \
             --minify

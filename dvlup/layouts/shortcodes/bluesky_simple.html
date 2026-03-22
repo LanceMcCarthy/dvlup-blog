@@ -1,11 +1,15 @@
-{{ with .Get "id" }}
-<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:{{ $.Get "did" }}/app.bsky.feed.post/{{ . }}">
-  <p>Post from <a href="https://bsky.app/profile/{{ $.Get "handle" }}/post/{{ . }}">Bluesky</a></p>
+{{ $id := .Get "id" }}
+{{ if not $id }}
+  {{ $id = .Get 0 }}
+{{ end }}
+{{ $handle := .Get "handle" }}
+{{ $did := .Get "did" }}
+
+{{ if and $id $handle $did }}
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:{{ $did }}/app.bsky.feed.post/{{ $id }}">
+  <p>Post from <a href="https://bsky.app/profile/{{ $handle }}/post/{{ $id }}">Bluesky</a></p>
 </blockquote>
 <script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
-{{ else if .Get 0 }}
-<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:{{ .Get "did" }}/app.bsky.feed.post/{{ .Get 0 }}">
-  <p>Post from <a href="https://bsky.app/profile/{{ .Get "handle" }}/post/{{ .Get 0 }}">Bluesky</a></p>
-</blockquote>
-<script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+{{ else if and $id $handle }}
+<p><a href="https://bsky.app/profile/{{ $handle }}/post/{{ $id }}">View this post on Bluesky</a></p>
 {{ end }}
