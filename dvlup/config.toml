@@ -1,4 +1,6 @@
-baseURL = 'https://www.dvlup.com/'
+baseURL = '/'
+relativeURLs = true
+canonifyURLs = false
 languageCode = 'en-us'
 title = 'DVLUP'
 theme = 'blist'

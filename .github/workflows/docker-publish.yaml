@@ -8,7 +8,6 @@ on:
 
 env:
   HUGO_VERSION: 0.111.3
-  BLOG_BASE_URL: "https://www.dvlup.com/"
 
 jobs:
   build_site:
@@ -37,8 +36,7 @@ jobs:
           npm install postcss-cli@latest
           hugo \
             --gc \
-            --minify \
-            --baseURL "${{env.BLOG_BASE_URL}}/"
+            --minify
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
