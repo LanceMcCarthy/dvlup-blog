@@ -1,7 +1,9 @@
 ---
 title: 'Apps'
-date: Fri, 02 Aug 2013 11:23:26 +0000
+date: 2013-08-02
 draft: false
+aliases:
+  - /apps/
 ---
 
 <script type="module" src="https://get.microsoft.com/badge/ms-store-badge.bundled.js"></script>

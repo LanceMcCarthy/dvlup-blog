@@ -1,7 +1,9 @@
 ---
 title: 'Privacy Policy'
-date: 2018-Sun, 20 May 2018 00:32:42 +0000
+date: 2018-5-20
 draft: false
+aliases:
+  - /privacy-policy/
 ---
 
 Our website address is https://www.dvlup.com, the complete source code can be found at https://github.com/LanceMcCarthy/dvlup-blog.

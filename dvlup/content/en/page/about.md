@@ -1,11 +1,13 @@
 ---
 author: Lance McCarthy
 title: About Me
-date: 2025
-description: Abiout page with work history, bio and contact info
-keywords: ["about", "contact", "work-history"]
+date: 2026
+description: About page with work history, bio and contact info.
+keywords: ["about", "contact", "bio", "biography", "work", "history"]
 type: about
 toc: true
+aliases:
+  - /about/
 ---
 
 ![headshot](../../lance_mccarthy-transparent-925-300x300.png)
@@ -17,6 +19,7 @@ toc: true
 - Bios
   - [Meet Lance McCarthy, Manager, Technical Support at Progress](https://www.progress.com/blogs/meet-lance-mccarthy-technical-support)
   - [Microsoft MVP (.NET | Windows Dev)](https://mvp.microsoft.com/en-us/mvp/Lance%20%20McCarthy-5000553)
+- [Credly Profile (badge wallet)](https://www.credly.com/users/lance-mccarthy)
 
 ## Bio, by peers
 
