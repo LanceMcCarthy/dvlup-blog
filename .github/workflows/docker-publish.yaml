@@ -2,6 +2,9 @@ name: Publish Docker Image
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - releases-docker
 
 env:
   HUGO_VERSION: 0.111.3
