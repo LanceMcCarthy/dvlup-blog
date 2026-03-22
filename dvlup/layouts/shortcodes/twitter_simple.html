@@ -1,0 +1,11 @@
+{{ with .Get "id" }}
+<blockquote class="twitter-tweet">
+  <a href="https://twitter.com/{{ $.Get "user" }}/status/{{ . }}"></a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{ else if .Get 0 }}
+<blockquote class="twitter-tweet">
+  <a href="https://twitter.com/i/web/status/{{ .Get 0 }}"></a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{ end }}

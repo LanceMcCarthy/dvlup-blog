@@ -1,0 +1,11 @@
+{{ with .Get "id" }}
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:{{ $.Get "did" }}/app.bsky.feed.post/{{ . }}">
+  <p>Post from <a href="https://bsky.app/profile/{{ $.Get "handle" }}/post/{{ . }}">Bluesky</a></p>
+</blockquote>
+<script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+{{ else if .Get 0 }}
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:{{ .Get "did" }}/app.bsky.feed.post/{{ .Get 0 }}">
+  <p>Post from <a href="https://bsky.app/profile/{{ .Get "handle" }}/post/{{ .Get 0 }}">Bluesky</a></p>
+</blockquote>
+<script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+{{ end }}
