@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - releases-docker
+      - main
 
 env:
   HUGO_VERSION: 0.111.3
@@ -31,6 +31,9 @@ jobs:
         run: |
           cd dvlup
           [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
+
+      - name: Set site build timestamp
+        run: echo "HUGO_SITE_BUILD_TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
 
       - name: Build with Hugo
         run: |
@@ -62,3 +65,7 @@ jobs:
           push: true
           tags: ghcr.io/lancemccarthy/dvlup-blog:latest
           platforms: linux/amd64,linux/arm64
+
+      - name: Trigger Portainer Webhook to redeploy site
+        run: curl -X POST https://portainer.dvlup.com/api/stacks/webhooks/bb671a56-395e-4e34-a707-745173c3ef0c
+      
