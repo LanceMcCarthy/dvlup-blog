@@ -123,3 +123,11 @@ As a hackathon veteran, I've hosted and judged dozens of hackathons; from MIT an
 - [DJ Upvote](https://www.youtube.com/watch?v=Qc3TSmKOFqg) at AT&T Boston 2015
 
 ![Exam Passed icon for the Microsoft 354-01 test](../../Exam_354-01-300x300.png)
+
+## Site Technical Info
+
+This site is compiled in GitHub Actions, and deployed through a docker image. Here's the relevant information:
+
+- Source Code: [https://github.com/LanceMcCarthy/dvlup-blog](https://github.com/LanceMcCarthy/dvlup-blog)
+- Docker Image: [ghcr.io/lancemccarthy/dvlup-blog:latest](https://github.com/LanceMcCarthy/dvlup-blog/pkgs/container/dvlup-blog)
+- Last Image Build: {{< build_timestamp >}}
