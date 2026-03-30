@@ -1,0 +1,78 @@
+---
+title: 'Developer Summit Awesomeness'
+date: 2013-01-11
+draft: false
+tags: ['ambassador', 'attdeveloper', 'contest', 'developer', 'hackathon', 'las vegas', 'Nokia official', 'windows phone']
+thumbnail: '/post-thumbnail-default-810x420.png'
+aliases:
+  - /developer-summit-awesomeness/
+  - /2013/01/11/developer-summit-awesomeness/
+---
+
+I just returned from the 2013 AT&T Developer Summit in Las Vegas, and boy can I say it was a good one! Approximately 50% of mobile apps submitted to the hackathon were Windows Phone apps and the #1 winner of it all was a... you guessed it, a Windows Phone app! The winner, Ruggero Scorcioni, took home a $30,000 prize for creating an app that uses brainwave readings to determine whether or not it is a good time to make or accept a phone call. We also had other winners who created awesome Windows Phone apps. I'll write a future post on a list of the winners, for now, lets see some pictures.
+
+[![25](25.jpg)
+
+Welcome to Vegas developers!
+
+[![10](10.jpg)
+
+Here I (in the blue Nokia shirt) explain how to better implement Telerik's RadChart in Partha Choudbury's app (he went on to win a Microsoft Surface, Nokia Lumia 920, Nokia Premium Developer Program token and more!). Also in the picture, Paras Wadehra (Ambassador- Silicon Valley) and Randy Arnold (Ambassador Northern Texas).
+
+[![21](21.jpg)
+
+Here, Chevon Christie (Nokia Ambassador - New York), lends a hand to a Windows Phone dev attendee
+
+[![9](9.jpg)
+
+Chevon and George Salcedo (Nokia Ambassador - SanDiego) discuss important stuff :)
+
+[![12](12.jpg)
+
+From left to right Greg Stoll (Ambassador - Southern Texas), Randy Arnold and Jan (pronounced 'Yahn') Hannemann (Ambassador - Vancouver) banging away at our Nokia Developer table.
+
+[![4](4.jpg)
+
+George Salcedo and [the hackathon's #1 winner Ruggero](http://www.cnn.com/2013/01/10/opinion/ces-keen-bunny-ears/index.html?iref=allsearch) at the Nokia 8-Bit afterparty.
+
+[![14](14.jpg)
+
+Paras is such a ham... he always knows where the cameraman is. Want more proof, here ya go...
+
+[![15](151.jpg)
+
+yep, I'd say that's proof enough (Paras is a really funny guy).
+
+[![20](20.jpg)
+
+George helping out an attendee
+
+[![3_cropped](3_cropped.jpg)
+
+That's me on the big screen during the developer summit keynote speeches :)
+
+[![2](2.jpg)
+
+Jan at the Nokia booth in the main demonstration room
+
+[![19](19.jpg)
+
+I am off-screen to the left, Rich Dunbar, Paras, George, Randy, Greg, Chevon and Jan
+
+[![29](29.jpg)
+
+Nokia DVLUP 8-Bit after party at the top of the Palms
+
+[![26](26.jpg)
+
+Coolest DJ table ever
+
+[![27](27.jpg)
+
+The club ceiling had and amazing projection. Here's a short video of it:
+
+{{< youtube d8UdhCv9wQs >}}
+
+More to come!
+
+(photo credit AT&T Developer facebook and video taken by me)

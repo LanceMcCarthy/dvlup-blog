@@ -1,0 +1,20 @@
+---
+title: 'DevReach 2020'
+date: 2020-11-04
+draft: false
+tags: ['AppCenter', 'DevOps', 'DevReach', 'Events', 'GitHub', 'GitHub Actions', 'tutorial', 'UWP', 'UWP DevOps', 'Workflows', 'Xamarin', 'Xamarin', 'Xamarin.Android', 'Xamarin.Forms']
+thumbnail: 'og-devreach-us.png'
+aliases:
+  - /devreach-2020/
+  - /2020/11/04/devreach-2020/
+---
+
+In case you missed it, I spoke this year at DevReach 2020. DevReach is Europe's Premier Developer Conference that takes place every year in Sofia, Bulgaria. This year's conference was online only, but was still a lot of fun.
+
+In my session, I show you how to write GitHub Actions workflows for a full CI/CD experience that automatically builds and releases your Xamarin.Forms, Xamarin.Android, Xamarin.iOS and UWP apps.
+
+{{< youtube "OJhg8rB5D90&t=3222" >}}
+
+> My session starts at `53:22` and I go until `1:36:12`
+
+You can get all the source code and see the GitHub workflows at [DevReach Companion on GitHub](https://github.com/LanceMcCarthy/DevReachCompanion) (_you can also open DevReach 2019 folder and see the Azure DevOps Pipelines from last year's session_).
