@@ -21,15 +21,36 @@ This is your home base of media capture operations. Since it is a better descri
 
 To get the current video devices attached to the device, first you need to enumerate over the phone/pc's available video devices using the DeviceClass enum. The user's device might be a desktop PC with a webcam, it could be a Surface Pro or a Lumia 520, you need to consider the possibilities and be prepared for them.
 
-\[code\] mediaCaptureManager = new MediaCapture(); //class scope var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture); \[/code\]
+```csharp
+mediaCaptureManager = new MediaCapture(); //class scope
+var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
+```
 
 So instead of the old way of looking for the camera by name { i.e. if(deviceName.Contains("front") || deviceName.Contains("ffc")) }, you can now use the EnclosureLocation enum. I like to hold the results in a class-wide DeviceInformation object, one for the front cam and one for the rear (rear is also my default to catch webcams and the like), this lets me quickly switch later without having to reiterate over the list. Once you have your chosen camera, use it to initialize the MediaCapture object. You could use a switch statement like this:
 
-\[code\] foreach (var device in devices) { switch(device.EnclosureLocation.Panel) { case Windows.Devices.Enumeration.Panel.Front: frontCamera = device; //frontCamera is of type DeviceInformation isUsingFrontCam = true; break; case Windows.Devices.Enumeration.Panel.Back: rearCamera = device; //rearCamera is of type DeviceInformation break; default: //you can also check for Top, Left, right and Bottom break; } }
+```csharp
+foreach (var device in devices)
+{
+    switch(device.EnclosureLocation.Panel)
+    {
+        case Windows.Devices.Enumeration.Panel.Front:
+            frontCamera = device; //frontCamera is of type DeviceInformation
+            isUsingFrontCam = true;
+            break;
+        case Windows.Devices.Enumeration.Panel.Back:
+            rearCamera = device; //rearCamera is of type DeviceInformation
+            break;
+        default:
+            //you can also check for Top, Left, right and Bottom
+            break;
+    }
+}
 
-await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings { VideoDeviceId = frontCamera.Id });
-
-\[/code\]
+await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings
+{
+    VideoDeviceId = frontCamera.Id
+});
+```
 
 You have many [MediaCaptureInitialization](http://msdn.microsoft.com/en-us/library/windows/apps/xaml/windows.media.capture.mediacaptureinitializationsettings.mediacaptureinitializationsettings.aspx) parameters available, but you only need the **Id** to start the camera. **WARNING:** If the device is using an attached WebCam (i.e. USB camera), EnclosurePanel will be null. Check for a valid device.Name.
 
@@ -39,43 +60,73 @@ Next you want to consider the sensor rotation of the camera. If it is the front 
 
 Thanks to WinRT's **VideoRotation** enum, you can rotate the frames for both previewing and recording frames. This is also the time to hook into the following events: Failed (obvious) and RecordLimitationExceeded (save the video and let user know it got cut short).
 
-\[code\]
+```csharp
+if(!string.IsNullOrEmpty(mediaCaptureManager.MediaCaptureSettings.VideoDeviceId) && !string.IsNullOrEmpty(mediaCaptureManager.MediaCaptureSettings.AudioDeviceId))
+{
+    //rotate the video feed according to the sensor
+    mediaCaptureManager.SetPreviewRotation(VideoRotation.Clockwise270Degrees);
+    mediaCaptureManager.SetRecordRotation(VideoRotation.Clockwise270Degrees);
 
-if(!string.IsNullOrEmpty(mediaCaptureManager.MediaCaptureSettings.VideoDeviceId) &amp;amp;amp;&amp;amp;amp; !string.IsNullOrEmpty(mediaCaptureManager.MediaCaptureSettings.AudioDeviceId)) { //rotate the video feed according to the sensor mediaCaptureManager.SetPreviewRotation(VideoRotation.Clockwise270Degrees); mediaCaptureManager.SetRecordRotation(VideoRotation.Clockwise270Degrees);
+    //hook into MediaCapture events
+    mediaCaptureManager.RecordLimitationExceeded += RecordLimitationExceeded;
+    mediaCaptureManager.Failed += Failed;
 
-//hook into MediaCapture events mediaCaptureManager.RecordLimitationExceeded += RecordLimitationExceeded; mediaCaptureManager.Failed += Failed;
-
-//device initialized successfully } else { //no cam found } } \[/code\]
+    //device initialized successfully
+}
+else
+{
+    //no cam found
+}
+```
 
 Now that you have the device initialized and any advanced properties set, it's time to push frames to the UI. Here is the most straightforward way:
 
-\[code\]
-
-VideoCaptureElement.Source = mediaCaptureManager; await mediaCaptureManager.StartPreviewAsync();
+```csharp
+VideoCaptureElement.Source = mediaCaptureManager;
+await mediaCaptureManager.StartPreviewAsync();
 
 //video frames are being pushed to the CaptureElement (instantiated in XAML)
-
-\[/code\]
+```
 
 ### **Switching Cameras and Sensor rotation**
 
 Now that CaptureElement is showing the video preview, let's say you want to change cameras. You have to consider two main considerations: stopping current preview and setting up the next device. Here is how I do it (note that I am using Portrait orientation for this page)
 
-\[code\]
+```csharp
+private async Task SwitchCameras()
+{
+    await mediaCaptureManager.StopPreviewAsync();
+    mediaCaptureManager.Dispose();
+    mediaCaptureManager = null;
+    mediaCaptureManager = new MediaCapture();
 
-private async Task SwitchCameras() { await mediaCaptureManager.StopPreviewAsync(); mediaCaptureManager.Dispose(); mediaCaptureManager = null; mediaCaptureManager = new MediaCapture();
+    if (isUsingFrontCam)
+    {
+        await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings
+        {
+            VideoDeviceId = rearCamera.Id
+        });
 
-if (isUsingFrontCam) { await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings { VideoDeviceId = rearCamera.Id });
+        mediaCaptureManager.SetRecordRotation(VideoRotation.Clockwise90Degrees);
+        mediaCaptureManager.SetPreviewRotation(VideoRotation.Clockwise90Degrees);
+    }
+    else
+    {
+        await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings
+        {
+            VideoDeviceId = frontCamera.Id
+        });
 
-mediaCaptureManager.SetRecordRotation(VideoRotation.Clockwise90Degrees); mediaCaptureManager.SetPreviewRotation(VideoRotation.Clockwise90Degrees); } else { await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings { VideoDeviceId = frontCamera.Id });
+        mediaCaptureManager.SetRecordRotation(VideoRotation.Clockwise270Degrees);
+        mediaCaptureManager.SetPreviewRotation(VideoRotation.Clockwise270Degrees);
+    }
 
-mediaCaptureManager.SetRecordRotation(VideoRotation.Clockwise270Degrees); mediaCaptureManager.SetPreviewRotation(VideoRotation.Clockwise270Degrees); }
+    isUsingFrontCam = !isUsingFrontCam;
 
-isUsingFrontCam = !isUsingFrontCam;
-
-PreviewMediaElement.Source = mediaCaptureManager; await mediaCaptureManager.StartPreviewAsync(); }
-
-\[/code\]
+    PreviewMediaElement.Source = mediaCaptureManager;
+    await mediaCaptureManager.StartPreviewAsync();
+}
+```
 
 ### **Disabling Screen Timeout**
 
@@ -83,25 +134,65 @@ One thing you might not realize until you've gotten user feedback is the scree
 
 Here is how I do it:
 
-\[code\]
+```csharp
+//on the class level
+private DisplayRequest dRequest;
 
-//on the class level private DisplayRequest dRequest;
+//in your OnNavigatedTo event
+if (dRequest == null)
+```csharp
+var mediaCaptureManager = new MediaCapture();
+var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
 
-//in your OnNavigatedTo event if (dRequest == null) { //disables timeout dRequest = new DisplayRequest(); dRequest.RequestActive(); }
+//GET CAMERAS HERE- same approach to get cameras as at the beginning of this article
 
-//IMPORTANT! In your OnNavigatedFrom (or other last opportunity) if (dRequest != null) { dRequest.RequestRelease(); dRequest = null; })
+if(rearCamera != null)
+{
+    await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings
+    {
+        VideoDeviceId = rearCamera.Id
+    });
+    var mediaEncodingPropertiesList = mediaCaptureManager.VideoDeviceController.GetAvailableMediaStreamProperties(MediaStreamType.VideoPreview);
 
-\[/code\]
+    if(AvailableResolutions.Count > 0)
+        AvailableResolutions.Clear();
 
-### **Available Resolutions and Frame Rates**
+    if (mediaEncodingPropertiesList.Count >= 1)
+    {
+        foreach (var mediaEncodingProperties in mediaEncodingPropertiesList)
+        {
+            //I store list in custom collection and let user pick preferred item
+            AvailableResolutions.Add(await CreateUserResolutionPropertyAsync((VideoEncodingProperties)mediaEncodingProperties));
+        }
+    }
+}
 
-A full explanation is outside the scope of this article, however a high overview will help. Essentially, every video capture device reports it's available resolutions (via firmware) to the OS. Here is a snippet from my app where I get all the available resolutions for the user's cameras. This is so the user can select a preferred option, this is especially helpful for me because lower memory phones don't have the horse power to process all the MFT frames (video effects). A lower frame rate allows me to provide a better end user experience for those users.
+//if front camera available
+if(hasFrontCamera)
+{
+    mediaCaptureManager.Dispose();
+    mediaCaptureManager = null;
+    mediaCaptureManager = new MediaCapture();
 
-In this sample, I iterate over the options, save a pointer to each in my ViewModel via a custom object and use it later for when the user selects an option.
+    if(AvailableFrontResolutions.Count > 0)
+        AvailableFrontResolutions.Clear();
 
-\[code\]
+    await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings
+    {
+        VideoDeviceId = frontCamera.Id
+    });
 
-var mediaCaptureManager = new MediaCapture(); var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
+    var frontPropertiesList = mediaCaptureManager.VideoDeviceController.GetAvailableMediaStreamProperties(MediaStreamType.VideoPreview);
+
+    if(frontPropertiesList.Count >= 1)
+    {
+        foreach(var mediaEncodingProperties in frontPropertiesList)
+        {
+            AvailableFrontResolutions.Add(await CreateUserResolutionPropertyAsync((VideoEncodingProperties)mediaEncodingProperties));
+        }
+    }
+}
+```CaptureManager = new MediaCapture(); var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
 
 //GET CAMERAS HERE- same approach to get cameras as at the beginning of this article
 
@@ -137,13 +228,11 @@ For Windows 8.1, I use the MediaCapture API itself to take a photo at the begin
 
 In order to properly handle suspension, it is recommended that you have a handle in App.xaml.cs for the MediaCapture object. This will let you manage it's state properly when Resuming. For example, after newing-up, in the view do this:
 
-\[code\]
-
-MediaCapture mediaCaptureManager = new MediaCapture();
+```csharp
+MediaCapture mediaCaptureManager = new MediaCapture();
 
 (App.Current as App).MediaCapture = mediaCaptureManager;
-
-\[/code\]
+```
 
 ### **Conclusion**
 

@@ -135,25 +135,19 @@ You might have some lingering `<pre>` or `[sourcecode language=""][/sourcecode]`
 
 #### Before
 
-```
-    <pre>
-    public string FirstName { get; set; }
-    </pre>
+```csharp
+public string FirstName { get; set; }
 ```
 or
 
-```
-    [sourcecode language="csharp"]
-    public string FirstName { get; set; }
-    [/sourcecode]
+```csharp
+public string FirstName { get; set; }
 ```
 
 #### After
 
-```
-    ```csharp
-    public string FirstName { get; set; }
-    ```
+```csharp
+public string FirstName { get; set; }
 ```
 
 It gives you great code coloring and formatting. You already saw some YAML examples above, here's what it looks like for C# 
