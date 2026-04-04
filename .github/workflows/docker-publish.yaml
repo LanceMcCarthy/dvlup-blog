@@ -15,8 +15,8 @@ jobs:
     steps:
       - name: Install Hugo CLI
         run: |
-          wget -O ${{runner.temp}}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{runner.temp}}/hugo.deb  
+          wget -O ${{runner.temp}}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+          sudo dpkg -i ${{runner.temp}}/hugo.deb  
 
       - name: Install Dart Sass Embedded
         run: sudo snap install dart-sass-embedded
@@ -33,14 +33,12 @@ jobs:
           [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
 
       - name: Set site build timestamp
-        run: echo "HUGO_SITE_BUILD_TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
+        run: echo "HUGO_SITE_BUILD_TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M UTC')" >> $GITHUB_ENV
 
       - name: Build with Hugo
         run: |
           cd dvlup
-          hugo \
-            --gc \
-            --minify
+          hugo --gc --minify
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
@@ -67,5 +65,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
 
       - name: Trigger Portainer Webhook to redeploy site
-        run: curl -X POST https://portainer.dvlup.com/api/stacks/webhooks/bb671a56-395e-4e34-a707-745173c3ef0c
+        run: curl -X POST ${{secrets.PORTAINER_WEBHOOK_URL}}
       
