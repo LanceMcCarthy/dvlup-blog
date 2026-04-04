@@ -6,7 +6,7 @@
     {{ dateFormat "2006" now }} © {{ .Site.Title }}
     {{ end }}
     {{ with getenv "HUGO_SITE_BUILD_TIMESTAMP" }}
-    &nbsp;|&nbsp;Built: {{ . }}
+    | Rebuild: {{ . }}
     {{ end }}
   </span>
   <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
