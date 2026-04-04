@@ -2,8 +2,9 @@
 <html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
   {{- partial "head.html" . -}}
   <body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-white focus:text-black dark:focus:bg-gray-800 dark:focus:text-white focus:rounded focus:shadow-lg">Skip to main content</a>
     {{- partial "header.html" . -}}
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
     {{- block "main" . }}{{- end }}
     </main>
     {{- partial "footer.html" . -}}
