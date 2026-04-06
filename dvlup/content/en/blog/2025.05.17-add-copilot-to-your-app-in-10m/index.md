@@ -15,13 +15,11 @@ These excuses are hard to justify now you have the Windows AI APIs in the WinApp
 
 Today, I will show you how to add really good AI capability to your app in _less time than your lunch hour_... no cloud APIs or fees, no REST calls, and no custom onnx model. 
 
-> Microsoft Build Update: If you were an early adopter, the brnading changed after release: "Windows Copilot Runtime" is now "Windows AI Foundry", and "Copilot Runtime APIs" is now "Windows AI APIs".
-
 ## What's the Catch?
 
-You might be asking, "Okay, sounds amazing, why isn't everyone doing this? What's the catch?". The current qualification is that your user is on a Windows Copilot+ PC. So, if nice APIs are here, why not add this capability to your app, even if its only for a small subset of users in the beginning?
+You might be asking, "Okay, sounds amazing, why isn't everyone doing this? What's the catch?". The current qualification is that your user is on a Windows Copilot+ PC. My stance for such things is to do it anyways, despite any "early-adopter tax", even if for a smaller subset of users. This is for two main reasons: 1) You gain hands-on knowledge before everyone else, and 2) That smaller userbase gives you invaluable feedback and get a head start on your competitors (note: Apple is always going to wait 5 years and ~~steal your idea~~ "invent" it anyways).
 
-Especially when you have these AI capabilitites available out-of-the-box:
+More importantly, in this specific case, you get powerful AI capabilities that you don't have to pay for. Just to name a few, out-of-the-box you get:
 
 - **Phi Silica** - A local, ready-to-use language model. See [Get started with Phi Silica](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica).
 - **AI text recognition** - Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](https://learn.microsoft.com/en-us/windows/ai/apis/text-recognition).
@@ -34,7 +32,7 @@ So, let me show you how I did this to one of my apps.
 
 One of my apps, [Xkcd Viewer](https://apps.microsoft.com/detail/9PMCKHT7M93P?hl=en-us&gl=US&ocid=pdpshare), is a simple app that lets you view any xkcd comic and save/share favorites. It's open source on GitHub => [github.com/LanceMcCarthy/XkcdViewer](https://github.com/LanceMcCarthy/XkcdViewer).
 
-However, by its nature, the app isn't very inclusive of vision-impaired users. While yes, it's easy to use tools to read the caption text in the comic, *a ton* of nuance with xkcd is in the drawing. 
+However, by its nature, the app isn't very inclusive of vision-impaired users. While yes, you can use accessibility tools to read the caption text in the comic, *a ton* of nuance with xkcd is in the drawing. 
 
 This is a perfect use case for the [Image Description](https://learn.microsoft.com/en-us/windows/ai/apis/imaging#what-can-i-do-with-image-description) service, which understands the context of the image and then describes it in a way that can be entertaining for a vision-impaired user! It tries conveying the comedy behind the image, which is better than a plain screenreader.
 
@@ -93,3 +91,6 @@ Here's a video of one of my early experiments, but there were many more generati
 {{< /rawhtml >}}
 
 If you have any questions or need help, don't hesitate to reach out to me [www.dvlup.com/about/](https://www.dvlup.com/page/about/) (or [bsky - @lance.boston](https://bsky.app/profile/lance.boston) | [x - @l_anceM](https://x.com/l_anceM) )
+
+
+Edit: April 6, 2026 - Spelling and grammar fixes only noticed after Windows Central shared 😅
