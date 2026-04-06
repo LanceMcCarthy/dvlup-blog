@@ -19,9 +19,9 @@ Today, I will show you how to add really good AI capability to your app in _less
 
 ## What's the Catch?
 
-You might be asking, "Okay, sounds amazing, why isn't everyone doing this? What's the catch?" The current qualification is that your user is on a Windows Copilot+ PC. However, lets be real, you wouldn't roll out these kinds of new features to all your users anyways. 
+You might be asking, "Okay, sounds amazing, why isn't everyone doing this? What's the catch?". The current qualification is that your user is on a Windows Copilot+ PC. So, if nice APIs are here, why not add this capability to your app, even if its only for a small subset of users in the beginning?
 
-Why not add this capability to your app, even if its only for a small subset of users in the beginning? Especially when you have these AI capabilitites available out-of-the-box:
+Especially when you have these AI capabilitites available out-of-the-box:
 
 - **Phi Silica** - A local, ready-to-use language model. See [Get started with Phi Silica](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica).
 - **AI text recognition** - Recognize text in images, and convert images/pdfs into searchable text. See [Get started with AI text recognition](https://learn.microsoft.com/en-us/windows/ai/apis/text-recognition).
@@ -32,9 +32,9 @@ So, let me show you how I did this to one of my apps.
 
 ## Problem to Solve
 
-One of my apps, [Xkcd Viewer](https://apps.microsoft.com/detail/9PMCKHT7M93P?hl=en-us&gl=US&ocid=pdpshare), is a simple app that lets you view any xkcd comic and save/share favorites. It's completely open source, here's the repo => [github.com/LanceMcCarthy/XkcdViewer](https://github.com/LanceMcCarthy/XkcdViewer).
+One of my apps, [Xkcd Viewer](https://apps.microsoft.com/detail/9PMCKHT7M93P?hl=en-us&gl=US&ocid=pdpshare), is a simple app that lets you view any xkcd comic and save/share favorites. It's open source on GitHub => [github.com/LanceMcCarthy/XkcdViewer](https://github.com/LanceMcCarthy/XkcdViewer).
 
-However, by its nature, the app isn't very inclusive of vision-impaired users. While yes, it's easy to read the caption text in the comic, *a ton* of nuance with xkcd is in the drawing. 
+However, by its nature, the app isn't very inclusive of vision-impaired users. While yes, it's easy to use tools to read the caption text in the comic, *a ton* of nuance with xkcd is in the drawing. 
 
 This is a perfect use case for the [Image Description](https://learn.microsoft.com/en-us/windows/ai/apis/imaging#what-can-i-do-with-image-description) service, which understands the context of the image and then describes it in a way that can be entertaining for a vision-impaired user! It tries conveying the comedy behind the image, which is better than a plain screenreader.
 
@@ -69,8 +69,6 @@ Just a comment about the length of the code in that Task. Most of it is unrelate
 - On [line 122](https://github.com/LanceMcCarthy/XkcdViewer/blob/c55515921d610323955c2afdb6cd0b4728c1f8b1/src/XkcdViewer.Windows/MainViewModel.AI.cs#L122) - I use `if (ImageDescriptionGenerator.GetReadyState() == AIFeatureReadyState.NotReady)` to check if Windows AI Foundry is ready. If not, it gets it ready.
 - On [line 157](https://github.com/LanceMcCarthy/XkcdViewer/blob/c55515921d610323955c2afdb6cd0b4728c1f8b1/src/XkcdViewer.Windows/MainViewModel.AI.cs#L157), I call `imageDescriptionGenerator.DescribeAsync(...)` which gives the image to Windows AI Foundry, after which I get back a description.
 
-> I implement a fancy progress loader to stream the exact position, but you don't have to implement it but it's nice interactive experience to see the streaming of the text.
-
 Finally, because this feature is for vision-impaired, I send the text to my `ReadAloudAsync` task on [AppUtils.cs#L140](https://github.com/LanceMcCarthy/XkcdViewer/blob/c55515921d610323955c2afdb6cd0b4728c1f8b1/src/XkcdViewer.Windows/Utils/AppUtils.cs#L140). This is just a normal speech synthesizer through MediaPlayer.Play().
 
 ## Official Demos & Resources
@@ -83,13 +81,13 @@ Here are some helpful items that will jumpstart your fun.
 
 ## Conclusion
 
-The main takeaway is it really only took me a few lines to add the capability to my project. Everything else around it is just window dressing... extra stuff to let the user to change the narration type and see progress indicators.
+The main takeaway is it really only took me a few lines to add the capability to my project. Everything else around it is just window dressing... extra stuff to show progress loader and input element to let the user to change the narration type.
 
 Here's a video of one of my early experiments, but there were many more generations; some were absolutely hillarious, others not so much. You will want to see what type works best for your needs.
 
 {{< rawhtml >}} 
 <video width=100% controls>
-    <source src="`mp4">
+    <source src="copilot-explains-xkcd.mp4">
     Your browser does not support the video tag.  
 </video>
 {{< /rawhtml >}}
