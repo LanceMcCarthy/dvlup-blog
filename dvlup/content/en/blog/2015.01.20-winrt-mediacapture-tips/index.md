@@ -192,27 +192,29 @@ if(hasFrontCamera)
         }
     }
 }
-```CaptureManager = new MediaCapture(); var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
+```
+
+```csharp
+CaptureManager = new MediaCapture(); var devices = await DeviceInformation.FindAllAsync(DeviceClass.VideoCapture);
 
 //GET CAMERAS HERE- same approach to get cameras as at the beginning of this article
 
 if(rearCamera != null) { await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings { VideoDeviceId = rearCamera.Id }); var mediaEncodingPropertiesList = mediaCaptureManager.VideoDeviceController.GetAvailableMediaStreamProperties(MediaStreamType.VideoPreview);
 
-if(AvailableResolutions.Count &amp;amp;gt; 0) AvailableResolutions.Clear();
+if(AvailableResolutions.Count > 0) AvailableResolutions.Clear();
 
-if (mediaEncodingPropertiesList.Count &amp;amp;gt;= 1) { foreach (var mediaEncodingProperties in mediaEncodingPropertiesList) { //I store list in custom collection and let user pick preferred item AvailableResolutions.Add(await CreateUserResolutionPropertyAsync((VideoEncodingProperties)mediaEncodingProperties)); } } }
+if (mediaEncodingPropertiesList.Count >= 1) { foreach (var mediaEncodingProperties in mediaEncodingPropertiesList) { //I store list in custom collection and let user pick preferred item AvailableResolutions.Add(await CreateUserResolutionPropertyAsync((VideoEncodingProperties)mediaEncodingProperties)); } } }
 
 //if front camera available if(hasFrontCamera) { mediaCaptureManager.Dispose(); mediaCaptureManager = null; mediaCaptureManager = new MediaCapture();
 
-if(AvailableFrontResolutions.Count &amp;amp;gt; 0) AvailableFrontResolutions.Clear();
+if(AvailableFrontResolutions.Count > 0) AvailableFrontResolutions.Clear();
 
 await mediaCaptureManager.InitializeAsync(new MediaCaptureInitializationSettings { VideoDeviceId = frontCamera.Id });
 
 var frontPropertiesList = mediaCaptureManager.VideoDeviceController.GetAvailableMediaStreamProperties(MediaStreamType.VideoPreview);
 
-if(frontPropertiesList.Count &amp;amp;gt;= 1) { foreach(var mediaEncodingProperties in frontPropertiesList) { AvailableFrontResolutions.Add(await CreateUserResolutionPropertyAsync((VideoEncodingProperties)mediaEncodingProperties)); } } }
-
-\[/code\]
+if(frontPropertiesList.Count >= 1) { foreach(var mediaEncodingProperties in frontPropertiesList) { AvailableFrontResolutions.Add(await CreateUserResolutionPropertyAsync((VideoEncodingProperties)mediaEncodingProperties)); } } }
+```
 
 I store the user's selected preference and use it when setting up the camera. If you're doing this and get stuck, shoot me an [email](/about/ "About") and I'll share my approach with you.
 

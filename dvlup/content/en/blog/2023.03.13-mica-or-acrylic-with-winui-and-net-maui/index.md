@@ -20,13 +20,13 @@ Here's what the end result looks like in your MauiProgram.cs code, nice and clea
 ```csharp
 builder.ConfigureLifecycleEvents(events =>
 {
-#if WINDOWS10\_0\_17763\_0\_OR\_GREATER
+#if WINDOWS10_0_17763_0_OR_GREATER
     
     events.AddWindows(wndLifeCycleBuilder =>
     {
         wndLifeCycleBuilder.OnWindowCreated(window =>
         {
-            // \*\*\* For Mica or Acrylic support \*\* //
+            // *** For Mica or Acrylic support ** //
             window.TryMicaOrAcrylic();
         });
     });
@@ -60,7 +60,7 @@ public class WindowsSystemDispatcherQueueHelper
     [DllImport("CoreMessaging.dll")]
     private static extern int CreateDispatcherQueueController([In] DispatcherQueueOptions options, [In, Out, MarshalAs(UnmanagedType.IUnknown)] ref object dispatcherQueueController);
 
-    object m\_dispatcherQueueController = null;
+    object m_dispatcherQueueController = null;
 
     public void EnsureWindowsSystemDispatcherQueueController()
     {
@@ -70,14 +70,14 @@ public class WindowsSystemDispatcherQueueHelper
             return;
         }
 
-        if (m\_dispatcherQueueController == null)
+        if (m_dispatcherQueueController == null)
         {
             DispatcherQueueOptions options;
             options.dwSize = Marshal.SizeOf(typeof(DispatcherQueueOptions));
-            options.threadType = 2;    // DQTYPE\_THREAD\_CURRENT
-            options.apartmentType = 2; // DQTAT\_COM\_STA
+            options.threadType = 2;    // DQTYPE_THREAD_CURRENT
+            options.apartmentType = 2; // DQTAT_COM_STA
 
-            CreateDispatcherQueueController(options, ref m\_dispatcherQueueController);
+            CreateDispatcherQueueController(options, ref m_dispatcherQueueController);
         }
     }
 }
@@ -211,13 +211,13 @@ public static class MauiProgram
 
         builder.ConfigureLifecycleEvents(events =>
         {
-#if WINDOWS10\_0\_17763\_0\_OR\_GREATER
+#if WINDOWS10_0_17763_0_OR_GREATER
 
             events.AddWindows(wndLifeCycleBuilder =>
             {
                 wndLifeCycleBuilder.OnWindowCreated(window =>
                 {
-                    // \*\*\* For Mica or Acrylic support \*\* //
+                    // *** For Mica or Acrylic support ** //
                     window.TryMicaOrAcrylic();
                 });
             });

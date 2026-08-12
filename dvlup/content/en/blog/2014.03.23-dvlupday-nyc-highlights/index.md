@@ -13,8 +13,6 @@ aliases:
 
 At the beginning of the day, I performed the developer equivalent of crowd surfing... the Vine surf
 
-[embed]https://vine.co/v/MMn5jXhnUJF/embed/simple[/embed]
-
 #### Photos
 
 There lots of pictures taken and shared, you can see all of them here at [#DVLUPday photos](https://twitter.com/search?q=%23DVLUPday&mode=photos&src=taoc)
