@@ -3,7 +3,7 @@ title: 'Error XF001: Xamarin.Forms targets have been imported multiple times'
 date: 2018-10-01
 draft: false
 tags: ['tutorial', 'visual studio', 'Xamarin', 'xamarin forms']
-thumbnail: '/static/post-thumbnail-default-810x420.png'
+thumbnail: '/post-thumbnail-default-810x420.png'
 aliases:
   - /error-xf001-xamarin-forms-targets-have-been-imported-multiple-times/
   - /2018/10/01/error-xf001-xamarin-forms-targets-have-been-imported-multiple-times/
