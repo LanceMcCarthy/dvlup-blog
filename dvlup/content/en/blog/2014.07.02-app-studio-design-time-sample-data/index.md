@@ -11,7 +11,7 @@ aliases:
 
 If you're like me, you like to fiddle and tweak things to [get just the right result](http://www.windowsphone.com/en-us/store/app/vsauce-supreme/296588cc-ca8f-4851-a1df-8e1cc5de8246). Recently, Microsoft has really beefed up [App Studio](http://appstudio.windows.com/) apps and if you explore the downloaded source code you'll see a new Universal app structure leveraging MVVM. Let's start with the before and after photo (_click any image to view larger_):
 
-{{< figure src="`before-after-blog.png" caption="Before and after changes to the items lists" >}}
+{{< figure src="before-after-blog.png" caption="Before and after changes to the items lists" >}}
 
 Here is a screenshot of the App Studio solution structure in the Visual Studio Solution Explorer (since **AppStudio.Data** is a Portable Class Library, you'll need **Visual Studio 2013 Pro [Update 2] or higher**. See [Tim's answer](http://social.msdn.microsoft.com/Forums/windowsapps/en-US/9c7fe120-14b5-49f8-ad09-f48dc80fa5c4/visual-studio-2012-express-with-portable-class-library?forum=toolsforwinapps) for a workaround):
 
@@ -34,7 +34,7 @@ Now let's open the project in **Blend for Visual Studio** (_Pro Tip: right-clic
 *   2 - Now create sample data for **MainViewModel** ([Step 3 in my tutorial](/creating-design-time-sample-data/ "Creating Design-Time Sample Data") will show you how to do this) and "**Save All**" when it's done.
 *   3 - While the **Data** tab still open, click the "**Set design-time DataContext**" link at the bottom, make sure "**MainViewModelSampleData.xaml**" is highlighted and then click **OK**. See the screenshot below. ( _Alternatively_, you can simply add this line to the top of your MainPage.xaml with the xmlns declarations: **d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}"** )
 
-{{< figure src="`blog2.png" caption="Set Design-Time DataContext" >}}
+{{< figure src="blog2.png" caption="Set Design-Time DataContext" >}}
 
 [![Blog3](blog3.png)
 
