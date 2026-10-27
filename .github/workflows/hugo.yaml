@@ -22,34 +22,45 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.111.3
+      HUGO_VERSION: 0.168.0
 
     steps:
       - name: Install Hugo CLI
         run: |
-          wget -O ${{runner.temp}}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{runner.temp}}/hugo.deb  
-
-      - name: Install Dart Sass Embedded
-        run: sudo snap install dart-sass-embedded
+          cd "$RUNNER_TEMP"
+          curl -fsSLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          curl -fsSLO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_checksums.txt"
+          grep " hugo_extended_${HUGO_VERSION}_linux-amd64.deb$" "hugo_${HUGO_VERSION}_checksums.txt" | sha256sum --check
+          sudo dpkg -i "hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
 
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
         with:
           submodules: recursive
           fetch-depth: 0
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6.0.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '26'
+          cache: npm
+          cache-dependency-path: dvlup/package-lock.json
 
       - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+        working-directory: dvlup
+        run: npm ci
+
+      - name: Audit Node.js dependencies
+        working-directory: dvlup
+        run: npm audit
 
       - name: Build with Hugo
         run: |
           cd dvlup
-          npm install postcss-cli@latest
           hugo \
             --gc \
             --minify \
@@ -59,7 +70,7 @@ jobs:
           HUGO_ENV: production
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: dvlup/public
 
@@ -73,4 +84,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1

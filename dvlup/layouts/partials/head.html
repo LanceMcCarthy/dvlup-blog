@@ -28,11 +28,11 @@
   
   {{ hugo.Generator }}
 
-  {{- $styles := resources.Get "css/styles.css" | postCSS (dict "config" "./assets/css/postcss.config.js") -}}
-  {{- if .Site.IsServer }}
+  {{- $styles := resources.Get "css/styles.css" | css.PostCSS (dict "config" "./assets/css/postcss.config.js") -}}
+  {{- if hugo.IsServer }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
   {{ else }}
-  {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
+  {{- $styles := $styles | minify | fingerprint -}}
   <link
     rel="stylesheet"
     href="{{ $styles.Permalink }}"
@@ -44,21 +44,15 @@
   {{ if .Params.math }}
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css"
-      integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv"
-      crossorigin="anonymous"
+      href="{{ "vendor/katex/katex.min.css" | relURL }}"
     >
 
     <script defer
-      src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js"
-      integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O"
-      crossorigin="anonymous"
+      src="{{ "vendor/katex/katex.min.js" | relURL }}"
     ></script>
 
     <script defer
-      src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js"
-      integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF"
-      crossorigin="anonymous"
+      src="{{ "vendor/katex/contrib/auto-render.min.js" | relURL }}"
       onload="renderMathInElement(document.body);"
     ></script>
   {{ end }}
@@ -67,11 +61,11 @@
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 
-  {{ template "_internal/opengraph.html" . }}
-  {{ template "_internal/twitter_cards.html" . }}
-  {{ template "_internal/schema.html" . }}
+  {{ partial "opengraph.html" . }}
+  {{ partial "twitter_cards.html" . }}
+  {{ partial "schema.html" . }}
 
-  {{ if gt (len .Site.Languages) 1}}
+  {{ if gt (len hugo.Sites) 1}}
   <meta name="lang" content="{{ .Site.Language }}" />
   {{ end }}
 </head>

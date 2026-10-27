@@ -1,20 +1,4 @@
-const themeDir = __dirname + "/../../";
-
 module.exports = {
-  purge: {
-    enabled: process.env.HUGO_ENVIRONMENT === "production",
-    content: [
-      themeDir + "layouts/**/*.html",
-      themeDir + "content/**/*.html",
-      "layouts/**/*.html",
-      "config.toml",
-      "content/**/*.html",
-      "assets/js/search.js",
-      "exampleSite/layouts/**/*.html",
-      "exampleSite/config.toml",
-      "exampleSite/content/**/*.html",
-    ],
-  },
   darkMode: "class",
   theme: {
     extend: {
@@ -99,11 +83,6 @@ module.exports = {
           ],
         },
       }),
-    },
-  },
-  variants: {
-    extend: {
-      typography: ["dark"],
     },
   },
   plugins: [require("@tailwindcss/typography")],

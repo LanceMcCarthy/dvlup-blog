@@ -22,9 +22,9 @@
 {{- partial "search-ui.html" . -}}
 {{ end }}
 
-{{ template "_internal/google_analytics.html" . }}
+{{ partial "google_analytics.html" . }}
 
-{{ if ge (len .Site.Languages) 3 }}
+{{ if ge (len hugo.Sites) 3 }}
 <script>
   const languageMenuButton = document.querySelector('.language-switcher');
   const languageDropdown = document.querySelector('.language-dropdown');
@@ -61,12 +61,8 @@
   const darkStorage = localStorage.getItem('darkmode');
   const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  if (!darkStorage && isBrowserDark) {
+  if (darkStorage === 'dark' || (!darkStorage && isBrowserDark)) {
     document.documentElement.classList.add('dark');
-  }
-
-  if (darkStorage && darkStorage === 'dark') {
-    toggleDarkMode();
   }
 </script>
 {{ end }}

@@ -1,5 +1,7 @@
 // Credits to search implementation: https://gist.github.com/cmod/5410eae147e4318164258742dd053993
 
+import Fuse from "{{ .FuseURL }}";
+
 var fuse; // holds our search engine
 var searchVisible = false;
 var firstRun = true; // allow us to delay loading json data unless search activated
@@ -113,8 +115,7 @@ function fetchJSONFile(path, callback) {
 // on first call of search box (CMD-/)
 //
 function loadSearch() {
-  const lang = document.querySelector('head > meta[name="lang"]')?.getAttribute?.('content')
-  fetchJSONFile(`${lang ? "/" + lang : ""}/index.json`, function (data) {
+  fetchJSONFile(maininput.dataset.searchIndex, function (data) {
 
     var options = { // fuse.js options; check fuse.js website for details
       shouldSort: true,
@@ -161,7 +162,7 @@ function executeSearch(term) {
       const date = results[item].item.date ? '<div><em class="px-4">' + new Date(results[item].item.date).toUTCString().substring(0, 16) + '</em></div>' : '';
       const contents = '<div class="prose px-4">' + results[item].item.contents + '</div>';
 
-      searchitems = searchitems + '<li><a class="block mb-2 px-4 py-2 rounded pb-2 border-b border-gray-200 dark:border-gray-600 focus:bg-gray-100 dark:focus:bg-gray-700 focus:outline-none" href="' + results[item].item.permalink + '" tabindex="0">' + title + '</a>' + date + contents + '</li>';
+      searchitems = searchitems + '<li><a class="block mb-2 px-4 py-2 rounded pb-2 border-b border-gray-200 dark:border-gray-600 focus:bg-gray-100 dark:focus:bg-gray-700 focus:outline-hidden" href="' + results[item].item.permalink + '" tabindex="0">' + title + '</a>' + date + contents + '</li>';
     }
     resultsAvailable = true;
   }

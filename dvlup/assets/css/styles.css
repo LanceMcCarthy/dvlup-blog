@@ -1,13 +1,24 @@
-/* Tailwind base - put variables under: tailwind.config.js */
-@import "node_modules/tailwindcss/base";
-/* Tailwind component classes registered by plugins*/
-@import "node_modules/tailwindcss/components";
-/* Site Specific */
-@import "assets/css/site";
-/* Paginator */
-@import "assets/css/paginator";
-/* Tailwind's utility classes - generated based on config file */
-@import "node_modules/tailwindcss/utilities";
+@import "tailwindcss" source(none);
+@import "./assets/css/site.css";
+@import "./assets/css/paginator.css";
+@config "./assets/css/tailwind.config.js";
+@source "./layouts";
+@source "./content";
+@source "./assets/js";
+@source "./config.toml";
+
+/* Preserve the theme's pre-v4 border, placeholder, and button defaults. */
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+  input::placeholder, textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 @layer components {
   details.toc[open] summary ~ * {
