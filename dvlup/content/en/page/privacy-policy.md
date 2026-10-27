@@ -1,6 +1,6 @@
 ---
 title: 'Privacy Policy'
-date: 2018-5-20
+date: 2018-05-20
 draft: false
 aliases:
   - /privacy-policy/

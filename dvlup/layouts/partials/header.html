@@ -19,8 +19,8 @@
     <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
     {{ end }}
 
-    {{ if .Site.IsMultiLingual }}
-    {{ if ge (len .Site.Languages) 3 }}
+    {{ if hugo.IsMultilingual }}
+    {{ if ge (len hugo.Sites) 3 }}
     <li class="relative cursor-pointer">
       <span class="language-switcher flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -42,16 +42,19 @@
       </span>
       <div
         class="language-dropdown absolute top-full mt-2 left-0 flex-col gap-2 bg-gray-100 dark:bg-gray-900 dark:text-white z-10 hidden">
-        {{ range .Site.Languages }}
+        {{ range hugo.Sites }}
+        {{ with .Language }}
         {{ if not (eq .Lang $.Site.Language.Lang) }}
-        <a class="px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700" href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+        <a class="px-3 py-2 hover:bg-gray-200 dark:hover:bg-gray-700" href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .Label }}</a>
+        {{ end }}
         {{ end }}
         {{ end }}
       </div>
     </li>
     {{ else }}
     <li class="flex items-center">
-      {{ range .Site.Languages }}
+      {{ range hugo.Sites }}
+      {{ with .Language }}
       {{ if not (eq .Lang $.Site.Language.Lang) }}
       <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5"
         stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -62,7 +65,8 @@
         <path d="M11.5 3a17 17 0 0 0 0 18" />
         <path d="M12.5 3a17 17 0 0 1 0 18" />
       </svg>
-      <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+      <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .Label }}</a>
+      {{ end }}
       {{ end }}
       {{ end }}
     </li>

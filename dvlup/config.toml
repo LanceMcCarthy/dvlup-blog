@@ -1,7 +1,7 @@
 baseURL = '/'
 relativeURLs = true
 canonifyURLs = false
-languageCode = 'en-us'
+locale = 'en-US'
 title = 'DVLUP'
 theme = 'blist'
 
@@ -11,7 +11,7 @@ DefaultContentLanguageInSubdir = true
   [languages.en]
     contentDir = "content/en" #English
     weight = 1
-    languageName = "English"
+    label = "English"
     [languages.en.params]
       introTitle = "DVLUP"
       introSubtitle = "Guidance for the Modern Developer"
@@ -168,6 +168,20 @@ DefaultContentLanguageInSubdir = true
 
 [build]
   writeStats = true
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "node_modules/fuse.js/dist"
+    target = "assets/vendor/fuse"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "node_modules/katex/dist"
+    target = "static/vendor/katex"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

@@ -28,7 +28,7 @@
   </div>
 </div>
 
-{{ $fuse := resources.Get "js/fuse.min.js" }}
+{{ $fuse := resources.Get "vendor/fuse/fuse.min.js" }}
 {{ $search := resources.Get "js/search.js" }}
 
 {{ $concatjs := slice $fuse $search | resources.Concat "js/scripts.js" | resources.Minify }}
