@@ -194,6 +194,9 @@ DefaultContentLanguageInSubdir = true
     # Enable to include inline HTML
     unsafe = true
 
+[security.node.permissions]
+  allowaddons = ["tailwindcss", "postcss"]
+
 # [services]
 #   [services.disqus]
 #     shortname = ''

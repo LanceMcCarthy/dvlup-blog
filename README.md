@@ -30,6 +30,8 @@ The site uses Tailwind CSS 4 and its PostCSS plugin. Fuse.js and KaTeX are
 installed from the lockfile and served locally through Hugo mounts; do not
 restore the old vendored Fuse.js or KaTeX CDN links. Tailwind 4 requires modern
 browsers (Safari 16.4+, Chrome 111+, Firefox 128+).
+Hugo's Node permission allowlist in `dvlup/config.toml` grants the PostCSS tool
+access to the native addon used by Lightning CSS.
 
 Both deployment workflows verify the Hugo download checksum, install locked
 dependencies, and stop on npm audit findings. The Docker image pins Caddy

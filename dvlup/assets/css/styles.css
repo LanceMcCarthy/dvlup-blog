@@ -1,11 +1,11 @@
 @import "tailwindcss" source(none);
-@import "./site.css";
-@import "./paginator.css";
-@config "./tailwind.config.js";
-@source "../../layouts";
-@source "../../content";
-@source "../js";
-@source "../../config.toml";
+@import "./assets/css/site.css";
+@import "./assets/css/paginator.css";
+@config "./assets/css/tailwind.config.js";
+@source "./layouts";
+@source "./content";
+@source "./assets/js";
+@source "./config.toml";
 
 /* Preserve the theme's pre-v4 border, placeholder, and button defaults. */
 @layer base {

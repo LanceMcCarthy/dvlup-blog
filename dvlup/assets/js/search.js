@@ -1,5 +1,7 @@
 // Credits to search implementation: https://gist.github.com/cmod/5410eae147e4318164258742dd053993
 
+import Fuse from "{{ .FuseURL }}";
+
 var fuse; // holds our search engine
 var searchVisible = false;
 var firstRun = true; // allow us to delay loading json data unless search activated
@@ -113,8 +115,7 @@ function fetchJSONFile(path, callback) {
 // on first call of search box (CMD-/)
 //
 function loadSearch() {
-  const lang = document.querySelector('head > meta[name="lang"]')?.getAttribute?.('content')
-  fetchJSONFile(`${lang ? "/" + lang : ""}/index.json`, function (data) {
+  fetchJSONFile(maininput.dataset.searchIndex, function (data) {
 
     var options = { // fuse.js options; check fuse.js website for details
       shouldSort: true,
