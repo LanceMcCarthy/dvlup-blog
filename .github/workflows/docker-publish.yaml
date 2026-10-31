@@ -56,8 +56,8 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
 
-      - name: Upload built site
-        uses: actions/upload-artifact@v4
+      - name: Upload built-site artifact
+        uses: actions/upload-artifact@v7
         with:
           name: built-site
           path: dvlup/public/
