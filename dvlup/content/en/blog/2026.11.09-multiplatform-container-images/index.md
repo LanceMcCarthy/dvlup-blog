@@ -6,11 +6,13 @@ tags: ['docker', 'containers', 'images', 'tutorial', 'GitHub Actions', 'automati
 thumbnail: 'multiplatform-container-images.png'
 ---
 
+## Using the .NET SDK for Multi-arch Images
+
 {{< gh-blockquote type="note" >}}
 ![Good News](good-news-everybody.jpg)
-Chet [reached out to me](https://x.com/ChetHusk/status/2119927980285931693) right after I published this post and shared the good news that the .NET SDK [now supports multiple architecture in a single build](https://learn.microsoft.com/en-us/dotnet/core/containers/publish-configuration#multi-architecture-images).
+Chet [reached out to me](https://x.com/ChetHusk/status/2119927980285931693) right after I published this post and shared the good news that the .NET SDK [now supports multiple architectures in a single build](https://learn.microsoft.com/en-us/dotnet/core/containers/publish-configuration#multi-architecture-images).
 
-Here's my older example but using a single build for both arches:
+Here's my older example but using a single build for both architectures at the same time:
 
 ```pwsh
 dotnet publish ./MyCoolApp.csproj \
@@ -23,10 +25,10 @@ dotnet publish ./MyCoolApp.csproj \
     -p ContainerRuntimeIdentifiers="linux-x64;linux-arm64"
 ```
 
-Notice we're using `ContainerRuntimeIdentifiers="linux-x64;linux-arm64"` instead of `--arch "x64"` for one build and  `--arch "arm64"` for the other.
+Notice we're using `ContainerRuntimeIdentifiers="linux-x64;linux-arm64"` instead of `--arch "x64"` for one build and  `--arch "arm64"` for the other build? That means all of the stuff I shopwed you below is no longer needed.
 {{< /gh-blockquote >}}
 
-The .NET SDK now has the ability to create a container image right from the SDK using `-t:PublishContainer`, but there's a limitation... you can only use a **single** target platform (x64, arm64, etc). However, most production worlflows and apps need to have support for both x65 and ARM64 machines. 
+The .NET SDK now has the ability to create a container image right from the SDK using `-t:PublishContainer`, but there's a limitation where you can only use a **single** target platform (x64, arm64, etc). However, most production worlflows and apps need to have support for both x65 and ARM64 machines. 
 
 Let me show you a trick using manifests to create a single image tag that has both! The idea is to create both images, setting the `--arch` each time. 
 
